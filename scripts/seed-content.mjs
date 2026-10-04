@@ -13,15 +13,37 @@
 
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { createClient } from "@supabase/supabase-js";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+// fileURLToPath, not .pathname: on Windows a file URL's pathname is
+// "/D:/TEDUHATI/", which is not a path any fs call can open.
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!url || !key) {
   console.error(
-    "Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY before running this.",
+    [
+      "Missing Supabase credentials.",
+      "",
+      "Put them in .env.local (this script reads it automatically):",
+      "  NEXT_PUBLIC_SUPABASE_URL=https://<project>.supabase.co",
+      "  SUPABASE_SERVICE_ROLE_KEY=<service_role key from Settings > API>",
+      "",
+      "The service role key bypasses row level security, so it is server-only:",
+      "never commit it and never put it in a NEXT_PUBLIC_ variable.",
+    ].join("\n"),
+  );
+  process.exit(1);
+}
+
+// A real service role key is a JWT. Catching the placeholder here gives a clear
+// message instead of an opaque 401 from PostgREST.
+if (!key.startsWith("eyJ") || key.length < 100) {
+  console.error(
+    `SUPABASE_SERVICE_ROLE_KEY does not look like a key (got "${key.slice(0, 24)}...").\n` +
+      "Copy the service_role key from Supabase: Settings > API > Project API keys.",
   );
   process.exit(1);
 }

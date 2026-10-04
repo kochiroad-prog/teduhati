@@ -12,8 +12,11 @@
 
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+// fileURLToPath, not .pathname: on Windows a file URL's pathname is
+// "/D:/TEDUHATI/", which is not a path any fs call can open.
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const ACTIVITY_DIR = join(ROOT, "content/activities");
 const LOCALES = ["id", "en"];
 
