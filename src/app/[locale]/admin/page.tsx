@@ -1,102 +1,55 @@
-import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
-import { AdminOrders } from "@/components/AdminOrders";
+import { notFound } from "next/navigation";
 import { AdminTrend } from "@/components/AdminTrend";
-import { SignOutButton } from "@/components/SignOutButton";
-import { Card, EmptyState, Notice } from "@/components/ui";
+import {
+  Delta,
+  PageHead,
+  Stat,
+  Td,
+  TableFrame,
+  Th,
+  fmtDate,
+  fmtNumber,
+  fmtRupiah,
+} from "@/components/admin/parts";
+import { Card, Notice } from "@/components/ui";
+import { isLocale } from "@/i18n/config";
+import { adminCopy } from "@/lib/admin/copy";
+import { adminHref } from "@/lib/admin/routes";
 import { createClient } from "@/lib/supabase/server";
-import { href, isLocale } from "@/i18n/config";
-import { formatRupiah } from "@/lib/entitlements";
-import { getSession } from "@/lib/queries";
-import type { AdminDailyRow, AdminOverview, OrderRow, ProfileRow } from "@/types/db";
+import type {
+  AdminDailyRow,
+  AdminDomainCoverage,
+  AdminFunnel,
+  AdminOverview,
+  AdminRevenueRow,
+  AdminTopActivity,
+  OrderRow,
+} from "@/types/db";
 
 /**
- * Staff dashboard.
+ * Ringkasan.
  *
- * Read access comes from the `is_staff()` policies, and the figures come from
- * `admin_overview()` in Postgres rather than a dozen client queries. The only
- * thing on this screen that writes is order approval, which goes through
- * `approve_order` and is restricted to the admin role.
+ * Every figure here comes from a function in Postgres rather than a handful of
+ * client queries, which is what keeps the page to one round trip per section and
+ * stops two screens disagreeing about the same number.
+ *
+ * The action list at the top is the part that earns its place: it is the only
+ * section that tells an admin to go and do something.
  */
 
 export const dynamic = "force-dynamic";
 
-const COPY = {
-  id: {
-    title: "Dashboard",
-    denied: "Halaman ini hanya untuk tim TEDUHATI.",
-    deniedBack: "Kembali ke beranda",
-    parents: "Orang tua",
-    children: "Anak terdaftar",
-    activeSubs: "Langganan aktif",
-    mrr: "Pendapatan bulanan",
-    signups: "Pendaftar 30 hari",
-    completions: "Aktivitas selesai 7 hari",
-    aiQuestions: "Pertanyaan AI bulan ini",
-    pending: "Menunggu verifikasi",
-    contentTitle: "Konten",
-    activities: "Aktivitas",
-    stories: "Cerita",
-    bonding: "Momen bonding",
-    published: "tayang",
-    trendTitle: "30 hari terakhir",
-    trendSignups: "Pendaftar",
-    trendCompletions: "Aktivitas selesai",
-    ordersTitle: "Pesanan",
-    ordersEmpty: "Belum ada pesanan yang perlu diperiksa.",
-    ordersEmptyLead: "Pesanan yang sudah ditransfer orang tua akan muncul di sini.",
-    recentTitle: "Pendaftar terbaru",
-    noAdminWrite:
-      "Anda masuk sebagai editor, jadi bisa melihat semuanya tetapi tidak bisa menyetujui pesanan.",
-  },
-  en: {
-    title: "Dashboard",
-    denied: "This page is for the TEDUHATI team only.",
-    deniedBack: "Back home",
-    parents: "Parents",
-    children: "Children",
-    activeSubs: "Active subscriptions",
-    mrr: "Monthly revenue",
-    signups: "Sign-ups, 30 days",
-    completions: "Activities done, 7 days",
-    aiQuestions: "AI questions this month",
-    pending: "Awaiting review",
-    contentTitle: "Content",
-    activities: "Activities",
-    stories: "Stories",
-    bonding: "Bonding moments",
-    published: "published",
-    trendTitle: "Last 30 days",
-    trendSignups: "Sign-ups",
-    trendCompletions: "Activities done",
-    ordersTitle: "Orders",
-    ordersEmpty: "Nothing to review right now.",
-    ordersEmptyLead: "Orders a parent has paid for will appear here.",
-    recentTitle: "Newest parents",
-    noAdminWrite:
-      "You're signed in as an editor, so you can see everything but cannot approve orders.",
-  },
-} as const;
+const FUNNEL_ORDER = [
+  "signed_up",
+  "added_child",
+  "did_one",
+  "did_three",
+  "started_order",
+  "paid",
+] as const;
 
-function Stat({
-  label,
-  value,
-  hint,
-}: {
-  label: string;
-  value: string;
-  hint?: string;
-}) {
-  return (
-    <Card>
-      <p className="text-meta text-ink-faint">{label}</p>
-      <p className="font-display mt-1 text-[1.75rem] leading-none text-ink">{value}</p>
-      {hint ? <p className="text-small mt-1 text-ink-faint">{hint}</p> : null}
-    </Card>
-  );
-}
-
-export default async function AdminPage({
+export default async function AdminOverviewPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -104,132 +57,318 @@ export default async function AdminPage({
   const { locale: raw } = await params;
   if (!isLocale(raw)) notFound();
   const locale = raw;
-  const t = COPY[locale];
-
-  const session = await getSession();
-  if (!session) redirect(href(locale, "signIn"));
+  const t = adminCopy(locale);
 
   const supabase = await createClient();
-  const [{ data: isStaff }, { data: isAdmin }] = await Promise.all([
-    supabase.rpc("is_staff", {}),
-    supabase.rpc("is_admin", {}),
+  const [
+    { data: overviewRaw },
+    { data: dailyRaw },
+    { data: funnelRaw },
+    { data: topRaw },
+    { data: coverageRaw },
+    { data: revenueRaw },
+    { data: ordersRaw },
+  ] = await Promise.all([
+    supabase.rpc("admin_overview"),
+    supabase.rpc("admin_daily", { p_days: 30 }),
+    supabase.rpc("admin_funnel", { p_days: 30 }),
+    supabase.rpc("admin_top_activities", { p_days: 30, p_limit: 8 }),
+    supabase.rpc("admin_domain_coverage"),
+    supabase.rpc("admin_revenue_monthly", { p_months: 6 }),
+    supabase
+      .from("orders")
+      .select("*")
+      .eq("status", "awaiting_confirmation")
+      .order("created_at", { ascending: false })
+      .limit(5),
   ]);
-
-  if (!isStaff) {
-    return (
-      <div className="mx-auto max-w-[520px] px-5 py-16">
-        <EmptyState
-          title={t.denied}
-          lead=""
-          action={
-            <Link href={href(locale, "home")} className="text-meta text-sage-dark hover:underline">
-              {t.deniedBack}
-            </Link>
-          }
-        />
-      </div>
-    );
-  }
-
-  const [{ data: overviewRaw }, { data: dailyRaw }, { data: ordersRaw }, { data: recentRaw }] =
-    await Promise.all([
-      supabase.rpc("admin_overview", {}),
-      supabase.rpc("admin_daily", { p_days: 30 }),
-      supabase
-        .from("orders")
-        .select("*")
-        .in("status", ["awaiting_confirmation", "awaiting_payment"])
-        .order("created_at", { ascending: false })
-        .limit(30),
-      supabase
-        .from("profiles")
-        .select("id, display_name, role, created_at")
-        .order("created_at", { ascending: false })
-        .limit(8),
-    ]);
 
   const o = (overviewRaw ?? null) as AdminOverview | null;
   const daily = (dailyRaw ?? []) as AdminDailyRow[];
+  const funnel = (funnelRaw ?? null) as AdminFunnel | null;
+  const top = (topRaw ?? []) as AdminTopActivity[];
+  const coverage = (coverageRaw ?? []) as AdminDomainCoverage[];
+  const revenue = (revenueRaw ?? []) as AdminRevenueRow[];
   const orders = (ordersRaw ?? []) as OrderRow[];
-  const recent = (recentRaw ?? []) as Pick<
-    ProfileRow,
-    "id" | "display_name" | "role" | "created_at"
-  >[];
 
-  const n = (v: number | undefined) => (v ?? 0).toLocaleString("id-ID");
+  // The action list. Each entry is a sentence plus the place to go and fix it,
+  // which is the difference between a dashboard and a to-do list.
+  const todo: { text: string; href: string }[] = [];
+  if ((o?.orders_pending ?? 0) > 0) {
+    todo.push({
+      text: t.overview.todoOrders(o?.orders_pending ?? 0),
+      href: adminHref(locale, "orders"),
+    });
+  }
+  if (o && !o.bank_configured) {
+    todo.push({ text: t.overview.todoBank, href: adminHref(locale, "settings") });
+  }
+  if ((o?.needs_safety_note ?? 0) > 0) {
+    todo.push({
+      text: t.overview.todoSafety(o?.needs_safety_note ?? 0),
+      href: `${adminHref(locale, "activities")}?status=published`,
+    });
+  }
+  if ((o?.missing_translation ?? 0) > 0) {
+    todo.push({
+      text: t.overview.todoTranslation(o?.missing_translation ?? 0),
+      href: adminHref(locale, "activities"),
+    });
+  }
+  if ((o?.audio_missing_file ?? 0) > 0) {
+    todo.push({
+      text: t.overview.todoAudio(o?.audio_missing_file ?? 0),
+      href: adminHref(locale, "audio"),
+    });
+  }
+  if ((o?.activities_draft ?? 0) > 0) {
+    todo.push({
+      text: t.overview.todoDraft(o?.activities_draft ?? 0),
+      href: `${adminHref(locale, "activities")}?status=draft`,
+    });
+  }
+
+  const funnelTop = funnel?.signed_up ?? 0;
 
   return (
-    <div className="min-h-dvh bg-cream">
-      <header className="border-b border-line bg-[#fffdf8]">
-        <div className="mx-auto flex h-16 w-full max-w-[1080px] items-center justify-between px-5">
-          <div className="flex items-baseline gap-3">
-            <Link href={href(locale, "home")} className="font-display text-[1.0625rem] text-sage-dark">
-              Teduhati
-            </Link>
-            <span className="text-meta text-ink-faint">{t.title}</span>
-          </div>
-          <div className="w-28">
-            <SignOutButton locale={locale} />
-          </div>
-        </div>
-      </header>
+    <div className="space-y-9">
+      <PageHead title={t.overview.title} lead={t.overview.lead} />
 
-      <main className="mx-auto w-full max-w-[1080px] space-y-8 px-5 py-8">
-        {!isAdmin ? <Notice>{t.noAdminWrite}</Notice> : null}
-
-        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat label={t.parents} value={n(o?.parents)} hint={`+${n(o?.signups_30d)} / 30d`} />
-          <Stat label={t.children} value={n(o?.children)} />
-          <Stat label={t.activeSubs} value={n(o?.active_subs)} />
-          <Stat label={t.mrr} value={formatRupiah(o?.mrr ?? 0)} />
-          <Stat label={t.completions} value={n(o?.completions_7d)} />
-          <Stat label={t.aiQuestions} value={n(o?.ai_questions_month)} />
-          <Stat label={t.pending} value={n(o?.orders_pending)} />
-          <Stat
-            label={t.contentTitle}
-            value={`${n(o?.activities_published)}`}
-            hint={`${t.activities} ${t.published} · ${n(o?.stories_published)} ${t.stories} · ${n(o?.bonding_published)} ${t.bonding}`}
-          />
-        </section>
-
-        <section>
-          <h2 className="text-section mb-3">{t.trendTitle}</h2>
-          <AdminTrend
-            data={daily}
-            labels={{ signups: t.trendSignups, completions: t.trendCompletions }}
-          />
-        </section>
-
-        <section>
-          <h2 className="text-section mb-3">{t.ordersTitle}</h2>
-          {orders.length === 0 ? (
-            <EmptyState title={t.ordersEmpty} lead={t.ordersEmptyLead} />
-          ) : (
-            <AdminOrders locale={locale} orders={orders} canReview={Boolean(isAdmin)} />
-          )}
-        </section>
-
-        <section>
-          <h2 className="text-section mb-3">{t.recentTitle}</h2>
+      {/* ----------------------------------------------------------------- */}
+      <section>
+        <h2 className="text-section mb-3">{t.overview.todo}</h2>
+        {todo.length === 0 ? (
+          <Notice>{t.overview.todoClear}</Notice>
+        ) : (
           <Card className="divide-y divide-line p-0">
-            {recent.map((p) => (
-              <div key={p.id} className="flex items-center justify-between gap-3 px-5 py-3">
-                <div className="min-w-0">
-                  <p className="text-small truncate">{p.display_name ?? "—"}</p>
-                  <p className="text-meta text-ink-faint">
-                    {new Date(p.created_at).toLocaleDateString(locale === "en" ? "en-GB" : "id-ID")}
-                  </p>
-                </div>
-                {p.role !== "parent" ? (
-                  <span className="text-meta rounded-pill bg-sage-soft px-2.5 py-1 text-sage-dark">
-                    {p.role}
-                  </span>
-                ) : null}
-              </div>
+            {todo.map((item) => (
+              <Link
+                key={item.text}
+                href={item.href}
+                className="flex items-center justify-between gap-3 px-5 py-3 transition-colors hover:bg-black/[0.02]"
+              >
+                <span className="text-small text-ink">{item.text}</span>
+                <span aria-hidden="true" className="text-ink-faint">
+                  &rarr;
+                </span>
+              </Link>
             ))}
           </Card>
+        )}
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <Stat
+          label={t.overview.parents}
+          value={fmtNumber(o?.parents)}
+          hint={`+${fmtNumber(o?.signups_30d)} / 30d`}
+        />
+        <Stat
+          label={t.overview.signups}
+          value={fmtNumber(o?.signups_7d)}
+          delta={<Delta now={o?.signups_7d ?? 0} before={o?.signups_prev_7d ?? 0} />}
+        />
+        <Stat label={t.overview.children} value={fmtNumber(o?.children)} />
+        <Stat label={t.overview.activeSubs} value={fmtNumber(o?.active_subs)} />
+        <Stat label={t.overview.mrr} value={fmtRupiah(o?.mrr)} />
+        <Stat
+          label={t.overview.revenue30}
+          value={fmtRupiah(o?.revenue_30d)}
+          delta={<Delta now={o?.revenue_30d ?? 0} before={o?.revenue_prev_30d ?? 0} />}
+        />
+        <Stat
+          label={t.overview.completions}
+          value={fmtNumber(o?.completions_7d)}
+          delta={
+            <Delta now={o?.completions_7d ?? 0} before={o?.completions_prev_7d ?? 0} />
+          }
+        />
+        <Stat label={t.overview.aiQuestions} value={fmtNumber(o?.ai_questions_month)} />
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      <section>
+        <h2 className="text-section mb-3">{t.overview.trend}</h2>
+        <AdminTrend
+          data={daily}
+          labels={{
+            signups: t.overview.trendSignups,
+            completions: t.overview.trendCompletions,
+          }}
+        />
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      <section className="grid gap-5 lg:grid-cols-2">
+        <div>
+          <h2 className="text-section mb-1">{t.overview.funnel}</h2>
+          <p className="text-small mb-3 text-ink-muted">{t.overview.funnelLead}</p>
+          <Card className="space-y-3">
+            {FUNNEL_ORDER.map((key) => {
+              const value = funnel?.[key] ?? 0;
+              const share = funnelTop === 0 ? 0 : Math.round((value / funnelTop) * 100);
+              return (
+                <div key={key}>
+                  <div className="text-small mb-1 flex items-baseline justify-between gap-3">
+                    <span className="text-ink-muted">{t.overview.funnelSteps[key]}</span>
+                    <span className="tabular-nums">
+                      {fmtNumber(value)}
+                      <span className="text-meta ml-1.5 text-ink-faint">{share}%</span>
+                    </span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-pill bg-black/[0.055]">
+                    <div
+                      className="h-full rounded-pill bg-sage transition-[width] duration-300"
+                      style={{ width: `${share}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </Card>
+        </div>
+
+        <div>
+          <h2 className="text-section mb-1">{t.overview.coverage}</h2>
+          <p className="text-small mb-3 text-ink-muted">{t.overview.coverageLead}</p>
+          <TableFrame
+            head={
+              <tr>
+                <Th>{t.content.colDomain}</Th>
+                <Th numeric>{t.overview.coveragePublished}</Th>
+                <Th numeric>{t.overview.coverageUsed}</Th>
+              </tr>
+            }
+          >
+            {coverage.map((row) => (
+              <tr key={row.domain_code}>
+                <Td>{row.name ?? row.domain_code}</Td>
+                <Td numeric>{fmtNumber(row.published)}</Td>
+                <Td numeric className={row.completions === 0 ? "text-ink-faint" : undefined}>
+                  {fmtNumber(row.completions)}
+                </Td>
+              </tr>
+            ))}
+          </TableFrame>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      <section className="grid gap-5 lg:grid-cols-2">
+        <div>
+          <h2 className="text-section mb-1">{t.overview.topActivities}</h2>
+          <p className="text-small mb-3 text-ink-muted">{t.overview.topActivitiesLead}</p>
+          <TableFrame
+            head={
+              <tr>
+                <Th>{t.content.colTitle}</Th>
+                <Th numeric>{t.overview.coverageUsed}</Th>
+              </tr>
+            }
+          >
+            {top.map((row) => (
+              <tr key={row.activity_id}>
+                <Td>
+                  <Link
+                    href={adminHref(locale, "activities", row.activity_id)}
+                    className="hover:text-sage-dark hover:underline"
+                  >
+                    {row.title}
+                  </Link>
+                  <span className="text-meta ml-2 text-ink-faint">{row.activity_id}</span>
+                </Td>
+                <Td numeric>{fmtNumber(row.completions)}</Td>
+              </tr>
+            ))}
+          </TableFrame>
+        </div>
+
+        <div>
+          <h2 className="text-section mb-3">{t.orders.revenue}</h2>
+          <TableFrame
+            head={
+              <tr>
+                <Th>{t.orders.colCreated}</Th>
+                <Th numeric>{t.orders.title}</Th>
+                <Th numeric>{t.overview.revenue30}</Th>
+              </tr>
+            }
+          >
+            {revenue.map((row) => (
+              <tr key={row.month}>
+                <Td>{fmtDate(row.month, locale)}</Td>
+                <Td numeric>{fmtNumber(row.orders)}</Td>
+                <Td numeric>{fmtRupiah(row.revenue)}</Td>
+              </tr>
+            ))}
+          </TableFrame>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {orders.length > 0 ? (
+        <section>
+          <div className="mb-3 flex items-baseline justify-between gap-4">
+            <h2 className="text-section">{t.overview.pending}</h2>
+            <Link
+              href={adminHref(locale, "orders")}
+              className="text-meta text-sage-dark hover:underline"
+            >
+              {t.orders.title} &rarr;
+            </Link>
+          </div>
+          <TableFrame
+            head={
+              <tr>
+                <Th>{t.orders.colRef}</Th>
+                <Th>{t.orders.colPlan}</Th>
+                <Th numeric>{t.orders.colTotal}</Th>
+                <Th>{t.orders.colCreated}</Th>
+              </tr>
+            }
+          >
+            {orders.map((order) => (
+              <tr key={order.id}>
+                <Td className="font-mono text-[0.875rem]">{order.reference}</Td>
+                <Td>{order.plan}</Td>
+                <Td numeric>{fmtRupiah(order.total)}</Td>
+                <Td>{fmtDate(order.created_at, locale)}</Td>
+              </tr>
+            ))}
+          </TableFrame>
         </section>
-      </main>
+      ) : null}
+
+      {/* ----------------------------------------------------------------- */}
+      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <Stat
+          label={t.content.activitiesTitle}
+          value={fmtNumber(o?.activities_published)}
+          hint={`${fmtNumber(o?.activities_total)} ${t.common.rows}`}
+        />
+        <Stat
+          label={t.content.storiesTitle}
+          value={fmtNumber(o?.stories_published)}
+          hint={`${fmtNumber(o?.stories_total)} ${t.common.rows}`}
+        />
+        <Stat
+          label={t.content.bondingTitle}
+          value={fmtNumber(o?.bonding_published)}
+          hint={`${fmtNumber(o?.bonding_total)} ${t.common.rows}`}
+        />
+        <Stat
+          label={t.content.audioTitle}
+          value={fmtNumber(o?.audio_total)}
+          hint={
+            (o?.audio_missing_file ?? 0) > 0
+              ? t.overview.todoAudio(o?.audio_missing_file ?? 0)
+              : undefined
+          }
+        />
+      </section>
+
+      <p className="text-meta text-ink-faint">{t.content.lead}</p>
     </div>
   );
 }

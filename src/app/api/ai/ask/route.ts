@@ -2,7 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { entitlements, withinLimit } from "@/lib/entitlements";
+import { entitlementsWith, withinLimit } from "@/lib/entitlements";
+import { getSettings } from "@/lib/settings";
 import { aiConfigured, ask } from "@/lib/ai/provider";
 import { ageInMonths, resolveAgeBand } from "@/lib/age";
 import type { PlanTier, RecommendedActivity } from "@/types/db";
@@ -57,7 +58,8 @@ export async function POST(request: NextRequest) {
 
   const { data: planData } = await supabase.rpc("current_plan");
   const plan = ((planData as PlanTier | null) ?? "free") satisfies PlanTier;
-  const limit = entitlements(plan).aiQuestionsPerMonth;
+  const settings = await getSettings();
+  const limit = entitlementsWith(plan, settings.free).aiQuestionsPerMonth;
 
   const { data: used, error: bumpError } = await supabase.rpc("bump_usage", {
     p_field: "ai_questions",

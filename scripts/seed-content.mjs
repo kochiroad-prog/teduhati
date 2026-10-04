@@ -185,14 +185,128 @@ const storyTranslations = stories.flatMap((s) =>
 );
 
 /* -------------------------------------------------------------------------- */
+/* the guard                                                                  */
+/* -------------------------------------------------------------------------- */
+/**
+ * The database is now the source of truth, not these files.
+ *
+ * Content is edited in the admin dashboard, so running this import would
+ * quietly overwrite that work. It therefore refuses when anything has been
+ * edited since the last import, and says which rows. `--force` is the explicit
+ * way to say "the files win", and `npm run content:export` is the way to pull
+ * dashboard edits back into the files first.
+ */
+const force = process.argv.includes("--force");
+const LAST_IMPORT_KEY = "content.last_import";
+
+const { data: marker } = await supabase
+  .from("app_settings")
+  .select("value")
+  .eq("key", LAST_IMPORT_KEY)
+  .maybeSingle();
+
+// A string jsonb value; no marker means nothing has ever been imported, so
+// there is nothing to protect.
+const lastImport = typeof marker?.value === "string" ? marker.value : null;
+
+if (lastImport && !force) {
+  const tables = [
+    ["activities", "id"],
+    ["bonding_moments", "id"],
+    ["stories", "id"],
+  ];
+  const touched = [];
+  for (const [table, idColumn] of tables) {
+    const { data } = await supabase
+      .from(table)
+      .select(`${idColumn}, updated_at`)
+      .gt("updated_at", lastImport)
+      .order("updated_at", { ascending: false })
+      .limit(10);
+    for (const row of data ?? []) touched.push(`${table} ${row[idColumn]}`);
+  }
+
+  if (touched.length > 0) {
+    console.error(
+      [
+        `${touched.length} row(s) have been edited in the dashboard since the last import:`,
+        "",
+        ...touched.map((t) => `  - ${t}`),
+        "",
+        "The database is the source of truth, so importing now would overwrite them.",
+        "",
+        "  npm run content:export    pull the dashboard's version into content/",
+        "  npm run db:seed -- --force   discard those edits and let the files win",
+      ].join("\n"),
+    );
+    process.exit(1);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 console.log("Pushing content to Supabase:");
 
-// Parents go in before their translations, or the foreign keys fail.
-await push("activities", activityRows, "id");
+/**
+ * Parents go in as drafts first, then their translations, then the real status.
+ *
+ * The publish gate in Postgres checks that both locales exist before a row can
+ * be published, and each of these requests is its own transaction — so a new
+ * activity inserted straight to `published` would be refused for translations
+ * that are still one request away. Importing in three passes satisfies the gate
+ * honestly rather than working around it.
+ */
+const intendedStatus = new Map();
+function asDraft(rows) {
+  return rows.map((row) => {
+    intendedStatus.set(row.id, row.status ?? "published");
+    return { ...row, status: "draft" };
+  });
+}
+
+async function applyStatus(table, rows) {
+  const toPublish = rows.filter((r) => intendedStatus.get(r.id) !== "draft");
+  let done = 0;
+  for (const row of toPublish) {
+    const { error } = await supabase
+      .from(table)
+      .update({ status: intendedStatus.get(row.id) })
+      .eq("id", row.id);
+    if (error) {
+      console.error(`\n${table} ${row.id} could not be published: ${error.message}`);
+      process.exit(1);
+    }
+    done += 1;
+  }
+  console.log(`  ${table} published: ${done}`);
+}
+
+await push("activities", asDraft(activityRows), "id");
 await push("activity_translations", activityTranslations, "activity_id,locale");
-await push("bonding_moments", bondingRows, "id");
+await applyStatus("activities", activityRows);
+
+await push("bonding_moments", asDraft(bondingRows), "id");
 await push("bonding_moment_translations", bondingTranslations, "bonding_moment_id,locale");
-await push("stories", storyRows, "id");
+await applyStatus("bonding_moments", bondingRows);
+
+await push("stories", asDraft(storyRows), "id");
 await push("story_translations", storyTranslations, "story_id,locale");
+await applyStatus("stories", storyRows);
+
+// Recorded last, so a failed import does not move the marker and leave the next
+// run thinking the dashboard edits were already imported.
+const { error: markerError } = await supabase
+  .from("app_settings")
+  .upsert({
+    key: LAST_IMPORT_KEY,
+    value: new Date().toISOString(),
+    is_public: false,
+    label: "Impor konten terakhir",
+    description: "Dipakai db:seed untuk mendeteksi suntingan dashboard.",
+  });
+
+if (markerError) {
+  console.error(`\nImport succeeded but the marker could not be written: ${markerError.message}`);
+  process.exit(1);
+}
 
 console.log("\nDone.");

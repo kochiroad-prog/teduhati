@@ -3,9 +3,10 @@ import { AppShell, PageHeader } from "@/components/AppShell";
 import { Card, LeafCard, Pill } from "@/components/ui";
 import { href, isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { formatRupiah, isPremium, PRICING } from "@/lib/entitlements";
+import { formatRupiah, isPremium } from "@/lib/entitlements";
 import { getSession } from "@/lib/queries";
 import { PlanPicker } from "@/components/PlanPicker";
+import { checkoutAvailable, getSettings } from "@/lib/settings";
 
 export default async function PlansPage({
   params,
@@ -17,7 +18,7 @@ export default async function PlansPage({
   const locale = raw;
 
   const dict = getDictionary(locale);
-  const session = await getSession();
+  const [session, settings] = await Promise.all([getSession(), getSettings()]);
   if (!session) redirect(href(locale, "signIn"));
 
   const onPaid = isPremium(session.plan);
@@ -32,7 +33,7 @@ export default async function PlansPage({
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="text-title">{dict.plans.premium}</h2>
             <p className="text-section">
-              {formatRupiah(PRICING.premium.amount)}
+              {formatRupiah(settings.price.premium)}
               <span className="text-small font-normal text-ink-muted">
                 {dict.plans.perMonth}
               </span>
@@ -51,14 +52,18 @@ export default async function PlansPage({
           </ul>
 
           <p className="text-small mt-4 text-ink-muted">
-            {dict.plans.annual}: {formatRupiah(PRICING.annual.amount)}
+            {dict.plans.annual}: {formatRupiah(settings.price.annual)}
             {dict.plans.perYear}
           </p>
 
           {onPaid ? (
             <p className="text-meta mt-4 text-sage-dark">{dict.plans.currentPlan}</p>
           ) : (
-            <PlanPicker locale={locale} />
+            <PlanPicker
+              locale={locale}
+              prices={settings.price}
+              canPay={checkoutAvailable(settings)}
+            />
           )}
         </LeafCard>
 

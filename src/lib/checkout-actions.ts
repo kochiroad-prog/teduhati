@@ -4,12 +4,8 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { href, isLocale, type Locale } from "@/i18n/config";
-import {
-  orderReference,
-  planAmount,
-  uniqueSuffix,
-  type PaidPlan,
-} from "@/lib/payments";
+import { orderReference, uniqueSuffix, type PaidPlan } from "@/lib/payments";
+import { checkoutAvailable, getSettings, planPrice } from "@/lib/settings";
 import type { ActionResult } from "@/lib/actions";
 
 function locale(value: FormDataEntryValue | null): Locale {
@@ -39,6 +35,21 @@ export async function startCheckout(formData: FormData): Promise<ActionResult> {
   }
   const plan = planRaw as PaidPlan;
 
+  // The price, the order window and whether checkout is open at all come from
+  // `app_settings`, so an admin changing a price changes what the next order is
+  // worth without a deploy. Checked here rather than trusted from the client:
+  // the picker is told whether it can pay, but the server decides.
+  const settings = await getSettings();
+  if (!checkoutAvailable(settings)) {
+    return {
+      ok: false,
+      message:
+        loc === "en"
+          ? "Payments aren't switched on yet."
+          : "Pembayaran belum aktif.",
+    };
+  }
+
   // An unfinished order for the same plan is reused, so refreshing the page
   // doesn't leave a trail of abandoned orders with different amounts.
   const { data: open } = await supabase
@@ -54,8 +65,11 @@ export async function startCheckout(formData: FormData): Promise<ActionResult> {
 
   if (open) redirect(`${href(loc, "pay")}/${open.id}`);
 
-  const amount = planAmount(plan);
+  const amount = planPrice(settings, plan);
   const suffix = uniqueSuffix();
+  const expiresAt = new Date(
+    Date.now() + settings.orderWindowHours * 3600 * 1000,
+  ).toISOString();
 
   const { data: order, error } = await supabase
     .from("orders")
@@ -67,6 +81,7 @@ export async function startCheckout(formData: FormData): Promise<ActionResult> {
       unique_suffix: suffix,
       total: amount + suffix,
       provider: "manual_transfer",
+      expires_at: expiresAt,
     })
     .select("id")
     .single();

@@ -6,7 +6,8 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { href, isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { entitlements } from "@/lib/entitlements";
+import { entitlementsWith } from "@/lib/entitlements";
+import { getSettings } from "@/lib/settings";
 import type { PlanTier } from "@/types/db";
 
 /**
@@ -59,15 +60,19 @@ export async function saveChild(formData: FormData): Promise<ActionResult> {
     if (error) return { ok: false, message: error.message };
   } else {
     // The plan caps how many children a parent can add.
-    const [{ data: plan }, { count }] = await Promise.all([
+    const [{ data: plan }, { count }, settings] = await Promise.all([
       supabase.rpc("current_plan"),
       supabase
         .from("children")
         .select("id", { count: "exact", head: true })
         .eq("is_archived", false),
+      getSettings(),
     ]);
 
-    const limit = entitlements(((plan as PlanTier | null) ?? "free")).children;
+    const limit = entitlementsWith(
+      (plan as PlanTier | null) ?? "free",
+      settings.free,
+    ).children;
     if ((count ?? 0) >= limit) {
       return {
         ok: false,

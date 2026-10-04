@@ -1,4 +1,4 @@
-import { PRICING, type PlanTier } from "@/lib/entitlements";
+import type { PlanTier } from "@/lib/entitlements";
 
 /**
  * Payments.
@@ -20,37 +20,29 @@ export type PaymentProvider = {
   available: boolean;
 };
 
-/** Where a manual transfer goes. Set these before taking real money. */
-export const BANK_ACCOUNT = {
-  bank: process.env.NEXT_PUBLIC_BANK_NAME ?? "",
-  accountNumber: process.env.NEXT_PUBLIC_BANK_ACCOUNT ?? "",
-  accountName: process.env.NEXT_PUBLIC_BANK_HOLDER ?? "",
-};
-
-export function bankAccountConfigured(): boolean {
-  return Boolean(BANK_ACCOUNT.bank && BANK_ACCOUNT.accountNumber && BANK_ACCOUNT.accountName);
-}
-
+/**
+ * Where a manual transfer goes.
+ *
+ * The values live in `app_settings` and are read through `getSettings()`, so an
+ * admin sets them in the dashboard rather than in an environment variable. The
+ * provider list below is the catalogue, not the configuration: whether bank
+ * transfer is actually available depends on those settings, which is why
+ * `available` takes them as an argument instead of reading the environment.
+ */
 export const PROVIDERS: PaymentProvider[] = [
   {
     key: "manual_transfer",
     label: { id: "Transfer bank", en: "Bank transfer" },
-    available: bankAccountConfigured(),
+    available: true,
   },
   {
     key: "midtrans",
     label: { id: "Kartu, QRIS, e-wallet", en: "Card, QRIS, e-wallet" },
+    // Still an environment variable, and rightly so: a gateway's secret key is
+    // a deployment credential, not a setting someone edits in a browser.
     available: Boolean(process.env.MIDTRANS_SERVER_KEY),
   },
 ];
-
-export function availableProviders(): PaymentProvider[] {
-  return PROVIDERS.filter((p) => p.available);
-}
-
-export function planAmount(plan: PaidPlan): number {
-  return plan === "annual" ? PRICING.annual.amount : PRICING.premium.amount;
-}
 
 /**
  * A three-digit suffix added to the transfer amount.

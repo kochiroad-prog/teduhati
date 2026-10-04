@@ -8,6 +8,7 @@ import { ButtonLink, Card, Chip, EmptyState, LeafCard, SectionHead } from "@/com
 import { href, isLocale } from "@/i18n/config";
 import { fill, getDictionary } from "@/i18n/dictionaries";
 import { ageInMonths, formatAge, resolveAgeBand, timeOfDay } from "@/lib/age";
+import { getSettings } from "@/lib/settings";
 import {
   activeChild,
   getAgeBandLabel,
@@ -31,7 +32,7 @@ export default async function HomePage({
   const { anak } = await searchParams;
 
   const dict = getDictionary(locale);
-  const session = await getSession();
+  const [session, settings] = await Promise.all([getSession(), getSettings()]);
   if (!session) redirect(href(locale, "signIn"));
 
   const child = activeChild(session, anak);
@@ -192,12 +193,14 @@ export default async function HomePage({
 
       {/* Two quiet entries into the other modules. */}
       <section className="mt-7 grid grid-cols-2 gap-3">
-        <Link href={href(locale, "music")} className="block">
-          <Card className="h-full transition-colors hover:border-sage">
-            <p className="text-meta text-ink-faint">{dict.home.musicLabel}</p>
-            <p className="text-section mt-1">{dict.music.modes[musicMode]}</p>
-          </Card>
-        </Link>
+        {settings.features.music ? (
+          <Link href={href(locale, "music")} className="block">
+            <Card className="h-full transition-colors hover:border-sage">
+              <p className="text-meta text-ink-faint">{dict.home.musicLabel}</p>
+              <p className="text-section mt-1">{dict.music.modes[musicMode]}</p>
+            </Card>
+          </Link>
+        ) : null}
         <Link href={href(locale, "stories")} className="block">
           <Card className="h-full transition-colors hover:border-sage">
             <p className="text-meta text-ink-faint">{dict.home.storyLabel}</p>

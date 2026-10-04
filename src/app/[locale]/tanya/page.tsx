@@ -5,7 +5,8 @@ import { Card, Notice } from "@/components/ui";
 import { createClient } from "@/lib/supabase/server";
 import { href, isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { entitlements } from "@/lib/entitlements";
+import { entitlementsWith } from "@/lib/entitlements";
+import { getSettings } from "@/lib/settings";
 import { activeChild, getSession, getUsageThisMonth } from "@/lib/queries";
 
 export default async function AskPage({
@@ -27,8 +28,12 @@ export default async function AskPage({
   const child = activeChild(session, anak);
   if (!child) redirect(href(locale, "child"));
 
-  const [usage, supabase] = await Promise.all([getUsageThisMonth(), createClient()]);
-  const limit = entitlements(session.plan).aiQuestionsPerMonth;
+  const [usage, supabase, settings] = await Promise.all([
+    getUsageThisMonth(),
+    createClient(),
+    getSettings(),
+  ]);
+  const limit = entitlementsWith(session.plan, settings.free).aiQuestionsPerMonth;
   const remaining = limit === null ? null : Math.max(0, limit - usage.ai_questions);
 
   const { data: history } = await supabase
@@ -45,12 +50,22 @@ export default async function AskPage({
     >
       <p className="text-small pb-5 text-ink-muted">{dict.ask.lead}</p>
 
-      <AskForm
-        locale={locale}
-        childId={child.id}
-        remaining={remaining}
-        limitMessage={dict.ask.limitReached}
-      />
+      {settings.features.ai ? (
+        <AskForm
+          locale={locale}
+          childId={child.id}
+          remaining={remaining}
+          limitMessage={dict.ask.limitReached}
+        />
+      ) : (
+        // Switched off in the dashboard. The form is removed rather than left
+        // in place to fail on submit.
+        <Notice title={locale === "en" ? "Not available" : "Belum tersedia"}>
+          {locale === "en"
+            ? "The assistant isn't switched on at the moment."
+            : "Asisten sedang tidak diaktifkan."}
+        </Notice>
+      )}
 
       <div className="mt-5">
         <Notice>{dict.ask.disclaimer}</Notice>

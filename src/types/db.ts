@@ -90,7 +90,13 @@ export type OrderRow = {
   updated_at: string;
 };
 
-/** What `admin_overview()` returns. Every value is a plain count or a rupiah sum. */
+/**
+ * What `admin_overview()` returns.
+ *
+ * Every moving figure carries its previous period alongside it, because a count
+ * on its own does not say whether things are getting better. The three fields at
+ * the end are the action list: each one means an admin has something to fix.
+ */
 export type AdminOverview = {
   parents: number;
   children: number;
@@ -98,15 +104,114 @@ export type AdminOverview = {
   orders_pending: number;
   mrr: number;
   completions_7d: number;
+  completions_prev_7d: number;
   ai_questions_month: number;
   activities_published: number;
+  activities_draft: number;
   activities_total: number;
   stories_published: number;
+  stories_total: number;
   bonding_published: number;
+  bonding_total: number;
+  worksheets_total: number;
+  audio_total: number;
+  audio_missing_file: number;
+  signups_7d: number;
+  signups_prev_7d: number;
   signups_30d: number;
+  revenue_30d: number;
+  revenue_prev_30d: number;
+  needs_safety_note: number;
+  missing_translation: number;
+  bank_configured: boolean;
 };
 
 export type AdminDailyRow = { day: string; signups: number; completions: number };
+
+/** Where parents stop. The gap between two steps is the thing worth reading. */
+export type AdminFunnel = {
+  signed_up: number;
+  added_child: number;
+  did_one: number;
+  did_three: number;
+  started_order: number;
+  paid: number;
+};
+
+export type AdminTopActivity = {
+  activity_id: string;
+  title: string;
+  domain_code: string;
+  completions: number;
+  avg_rating: number | null;
+};
+
+export type AdminDomainCoverage = {
+  domain_code: string;
+  name: string | null;
+  published: number;
+  completions: number;
+};
+
+export type AdminRevenueRow = { month: string; orders: number; revenue: number };
+
+export type AdminUserRow = {
+  id: string;
+  email: string | null;
+  display_name: string | null;
+  role: UserRole;
+  locale: string;
+  plan: PlanTier;
+  plan_expires_at: string | null;
+  children: number;
+  completions: number;
+  last_seen: string | null;
+  created_at: string;
+};
+
+export type AppSettingRow = {
+  key: string;
+  value: Json;
+  is_public: boolean;
+  label: string | null;
+  description: string | null;
+  updated_by: string | null;
+  updated_at: string;
+};
+
+export type AuditLogRow = {
+  id: number;
+  actor_id: string | null;
+  actor_email: string | null;
+  action: string;
+  object_type: string;
+  object_id: string | null;
+  summary: string | null;
+  before: Json | null;
+  after: Json | null;
+  created_at: string;
+};
+
+export type WorksheetRow = {
+  id: string;
+  age_min_months: number;
+  age_max_months: number;
+  primary_domain: string;
+  page_count: number;
+  file_path: string | null;
+  preview_path: string | null;
+  status: ContentStatus;
+  is_premium: boolean;
+  created_at: string;
+  updated_at: string;
+};
+
+export type WorksheetTranslationRow = {
+  worksheet_id: string;
+  locale: string;
+  title: string;
+  description: string;
+};
 
 export type ProfileRow = {
   id: string;
@@ -196,6 +301,7 @@ export type BondingMomentRow = {
   is_premium: boolean;
   sort_order: number;
   created_at: string;
+  updated_at: string;
 };
 
 export type BondingMomentTranslationRow = {
@@ -218,6 +324,7 @@ export type StoryRow = {
   status: ContentStatus;
   is_premium: boolean;
   created_at: string;
+  updated_at: string;
 };
 
 export type StoryTranslationRow = {
@@ -376,6 +483,10 @@ export type Database = {
       }>;
       stories: Row<StoryRow>;
       story_translations: Row<StoryTranslationRow>;
+      worksheets: Row<WorksheetRow>;
+      worksheet_translations: Row<WorksheetTranslationRow>;
+      app_settings: Row<AppSettingRow>;
+      audit_log: Row<AuditLogRow>;
       story_reads: Row<{
         id: string;
         child_id: string;
@@ -434,6 +545,56 @@ export type Database = {
       admin_daily: { Args: { p_days?: number }; Returns: AdminDailyRow[] };
       approve_order: { Args: { p_order_id: string; p_note?: string }; Returns: OrderRow };
       reject_order: { Args: { p_order_id: string; p_note?: string }; Returns: OrderRow };
+      admin_funnel: { Args: { p_days?: number }; Returns: AdminFunnel | null };
+      admin_top_activities: {
+        Args: { p_days?: number; p_limit?: number };
+        Returns: AdminTopActivity[];
+      };
+      admin_domain_coverage: {
+        Args: Record<string, never>;
+        Returns: AdminDomainCoverage[];
+      };
+      admin_revenue_monthly: { Args: { p_months?: number }; Returns: AdminRevenueRow[] };
+      admin_users: {
+        Args: { p_search?: string | null; p_limit?: number; p_offset?: number };
+        Returns: AdminUserRow[];
+      };
+      public_settings: { Args: Record<string, never>; Returns: Json };
+      set_setting: { Args: { p_key: string; p_value: Json }; Returns: AppSettingRow };
+      validate_activity: { Args: { p_id: string }; Returns: string[] };
+      validate_story: { Args: { p_id: string }; Returns: string[] };
+      validate_bonding: { Args: { p_id: string }; Returns: string[] };
+      /** Returns the problems that stopped a publish, or an empty array on success. */
+      set_content_status: {
+        Args: { p_table: string; p_id: string; p_status: ContentStatus };
+        Returns: string[];
+      };
+      next_content_id: { Args: { p_table: string }; Returns: string };
+      set_user_role: { Args: { p_user_id: string; p_role: UserRole }; Returns: ProfileRow };
+      grant_premium: {
+        Args: {
+          p_user_id: string;
+          p_plan?: PlanTier;
+          p_months?: number;
+          p_note?: string | null;
+        };
+        Returns: SubscriptionRow;
+      };
+      cancel_subscription: {
+        Args: { p_subscription_id: string; p_note?: string | null };
+        Returns: SubscriptionRow;
+      };
+      log_audit: {
+        Args: {
+          p_action: string;
+          p_object_type: string;
+          p_object_id?: string | null;
+          p_summary?: string | null;
+          p_before?: Json | null;
+          p_after?: Json | null;
+        };
+        Returns: number;
+      };
     };
     Enums: {
       content_status: ContentStatus;

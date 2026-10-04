@@ -6,7 +6,8 @@ import { Card } from "@/components/ui";
 import { href, isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { ageInMonths, formatAge, resolveAgeBand } from "@/lib/age";
-import { entitlements } from "@/lib/entitlements";
+import { entitlementsWith } from "@/lib/entitlements";
+import { getSettings } from "@/lib/settings";
 import { getAgeBandLabel, getSession } from "@/lib/queries";
 import { createClient } from "@/lib/supabase/server";
 
@@ -30,7 +31,7 @@ export default async function ChildPage({
   const { data: isStaff } = await supabase.rpc("is_staff", {});
 
   const editing = ubah ? session.children.find((c) => c.id === ubah) ?? null : null;
-  const limit = entitlements(session.plan).children;
+  const limit = entitlementsWith(session.plan, (await getSettings()).free).children;
   const atLimit = !editing && session.children.length >= limit;
 
   return (

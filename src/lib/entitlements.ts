@@ -56,6 +56,34 @@ export function entitlements(plan: PlanTier): Entitlements {
   return PLANS[plan] ?? PLANS.free;
 }
 
+/**
+ * The same thing, with the free tier's limits taken from `app_settings`.
+ *
+ * The paid tiers are unlimited by definition, so only the free row moves. The
+ * numbers above remain the fallback for a request that could not reach the
+ * settings, which is why they are still written out in full.
+ */
+export function entitlementsWith(
+  plan: PlanTier,
+  free: {
+    children: number;
+    activitiesPerDay: number;
+    storiesPerMonth: number;
+    aiQuestionsPerMonth: number;
+  },
+): Entitlements {
+  if (plan !== "free") return entitlements(plan);
+  return {
+    ...PLANS.free,
+    children: free.children,
+    // Zero means "none", which is a real setting; only the paid tiers use null
+    // for unlimited, so a zero here must not be turned into one.
+    activitiesPerDay: free.activitiesPerDay,
+    storiesPerMonth: free.storiesPerMonth,
+    aiQuestionsPerMonth: free.aiQuestionsPerMonth,
+  };
+}
+
 /** null limit means unlimited, so anything is still within it. */
 export function withinLimit(used: number, limit: number | null): boolean {
   return limit === null || used < limit;

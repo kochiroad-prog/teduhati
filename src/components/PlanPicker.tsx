@@ -3,8 +3,7 @@
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui";
 import { startCheckout } from "@/lib/checkout-actions";
-import { formatRupiah, PRICING } from "@/lib/entitlements";
-import { availableProviders } from "@/lib/payments";
+import { formatRupiah } from "@/lib/entitlements";
 import type { Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +14,7 @@ const COPY = {
     save: "Hemat 2 bulan",
     go: "Lanjut ke pembayaran",
     unavailable:
-      "Pembayaran belum aktif. Rekening tujuan atau payment gateway belum diisi di environment.",
+      "Pembayaran belum aktif. Rekening tujuan belum diisi oleh tim.",
   },
   en: {
     monthly: "Monthly",
@@ -23,18 +22,30 @@ const COPY = {
     save: "Two months free",
     go: "Continue to payment",
     unavailable:
-      "Payments aren't switched on. No bank account or gateway is configured in the environment.",
+      "Payments aren't switched on yet. The team hasn't set a receiving account.",
   },
 } as const;
 
-export function PlanPicker({ locale }: { locale: Locale }) {
+/**
+ * Prices and whether checkout works at all come in as props.
+ *
+ * Both now live in `app_settings`, which only the server can read, so this
+ * component is told rather than asked. That is also what stops a stale bundle
+ * showing yesterday's price after an admin changes one.
+ */
+export function PlanPicker({
+  locale,
+  prices,
+  canPay,
+}: {
+  locale: Locale;
+  prices: { premium: number; annual: number };
+  canPay: boolean;
+}) {
   const t = COPY[locale];
   const [plan, setPlan] = useState<"premium" | "annual">("premium");
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
-
-  // availableProviders() reads NEXT_PUBLIC_ values, so it is safe on the client.
-  const canPay = availableProviders().length > 0;
 
   function submit(data: FormData) {
     start(async () => {
@@ -51,8 +62,8 @@ export function PlanPicker({ locale }: { locale: Locale }) {
       <div className="grid grid-cols-2 gap-2">
         {(
           [
-            ["premium", t.monthly, formatRupiah(PRICING.premium.amount), null],
-            ["annual", t.yearly, formatRupiah(PRICING.annual.amount), t.save],
+            ["premium", t.monthly, formatRupiah(prices.premium), null],
+            ["annual", t.yearly, formatRupiah(prices.annual), t.save],
           ] as const
         ).map(([key, label, price, note]) => (
           <button

@@ -5,7 +5,8 @@ import { AGES, DECOR, PILLARS, SCENES, TUMI, type PillarKey } from "@/lib/assets
 import { ButtonLink } from "@/components/ui";
 import { href, isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { formatRupiah, PRICING } from "@/lib/entitlements";
+import { formatRupiah } from "@/lib/entitlements";
+import { getSettings } from "@/lib/settings";
 import { getSession } from "@/lib/queries";
 import { cn } from "@/lib/utils";
 
@@ -85,7 +86,7 @@ function landingCopy(locale: Locale) {
     freeNote: "Selamanya",
     premiumName: "Premium",
     premiumNote: "Tanpa kontrak, bisa berhenti kapan saja",
-    annualNote: `atau ${formatRupiah(PRICING.annual.amount)}/tahun`,
+    annualNote: (amount: number) => `atau ${formatRupiah(amount)}/tahun`,
     popular: "Paling banyak dipilih",
 
     faqTag: "Tanya Jawab",
@@ -176,7 +177,7 @@ function landingCopy(locale: Locale) {
     freeNote: "Forever",
     premiumName: "Premium",
     premiumNote: "No contract, cancel any time",
-    annualNote: `or ${formatRupiah(PRICING.annual.amount)}/year`,
+    annualNote: (amount: number) => `or ${formatRupiah(amount)}/year`,
     popular: "Most chosen",
     faqTag: "FAQ",
     faqHead: "Questions people ask.",
@@ -272,7 +273,7 @@ export default async function LandingPage({
 
   // Signed-in visitors still get the marketing page, but the call to action
   // takes them into the app instead of asking them to sign up again.
-  const session = await getSession();
+  const [session, settings] = await Promise.all([getSession(), getSettings()]);
   const signedIn = Boolean(session);
 
   return (
@@ -587,12 +588,14 @@ export default async function LandingPage({
             </span>
             <p className="text-section">{c.premiumName}</p>
             <p className="font-display mt-2 text-[2rem] leading-none text-ink">
-              {formatRupiah(PRICING.premium.amount)}
+              {formatRupiah(settings.price.premium)}
               <span className="text-small font-sans font-normal text-ink-muted">
                 {dict.plans.perMonth}
               </span>
             </p>
-            <p className="text-small mt-1 text-ink-faint">{c.annualNote}</p>
+            <p className="text-small mt-1 text-ink-faint">
+              {c.annualNote(settings.price.annual)}
+            </p>
             <ul className="mt-5 space-y-2">
               {dict.plans.premiumList.map((item) => (
                 <li key={item} className="text-small flex gap-2 text-ink-muted">

@@ -14,15 +14,30 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
 
 ## Content is the product
 
-- Activities, bonding moments and stories live in `content/` as bilingual JSON,
-  never in the codebase and never hardcoded in a component.
-- `npm run content:check` must pass before anything ships. It is not a lint pass;
-  it is the safety gate. It refuses content where an activity with materials, or
-  an activity for a baby under twelve months, has no safety note.
-- Both locales are mandatory, with the same number of steps. Half-translated
-  content is treated as broken content.
-- After editing `content/`, run `npm run db:seed`. It upserts, so re-running is
-  safe.
+- **The database is the source of truth.** Content is edited in the admin console
+  at `/[locale]/admin/konten/*`, not in files. `content/` is the git backup.
+- Never hardcode an activity, story or bonding moment in a component.
+- **The safety gate lives in Postgres**, not in a script. `validate_activity`,
+  `validate_story` and `validate_bonding` in `0009_admin_console.sql` refuse to
+  let a row be published when an activity with materials, or one for a baby under
+  twelve months, has no safety note in both locales. A script cannot protect a
+  row a dashboard inserted, which is why the rule moved. `scripts/validate-content.mjs`
+  still exists and still has to pass, but it now guards the backup files, not the
+  database.
+- The gates are DEFERRABLE constraint triggers, so the dashboard can write the
+  parent row and both translations in one transaction in any order. PostgREST
+  commits per request, so anything importing a *new* published row has to write
+  it as a draft, add the translations, then set the status — which is what
+  `scripts/seed-content.mjs` does in three passes.
+- Both locales are mandatory, with the same number of steps. The editors enforce
+  this by construction: a step is one row holding both languages, so adding or
+  removing one changes both.
+- `npm run content:export` pulls the database back into `content/`; commit that
+  diff. `npm run db:seed` imports the files and **refuses** if anything was edited
+  in the dashboard since the last import — `--force` is the explicit way to let
+  the files win.
+- An editor drafts; only an admin publishes. That split is `guard_publish_role`,
+  one trigger shared by all four content tables, not eight policies.
 
 ## The product rules that shape the code
 
@@ -50,6 +65,18 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   the same change, and check the anon role sees nothing it shouldn't.
 - `src/types/db.ts` is hand-maintained and deliberately narrow. `npm run db:types`
   replaces it with the full generated set.
+- Privileged writes go through SECURITY DEFINER functions that check the caller's
+  role themselves: `set_setting`, `set_content_status`, `set_user_role`,
+  `grant_premium`, `cancel_subscription`, `approve_order`, `reject_order`. The
+  server actions in `src/lib/admin-actions.ts` are not the security boundary —
+  the functions are. A hand-crafted request from an editor's browser gets the
+  same refusal the interface gives them.
+- `app_settings` has no insert/update policy on purpose. `set_setting` is the
+  only writer, and it range-checks each key, so a compromised session cannot
+  rewrite a price.
+- Every privileged action writes to `audit_log` through `log_audit`, which takes
+  the actor from `auth.uid()`. The log is read-only: there is no delete, because
+  a log that can be edited is not a log.
 
 ## Illustration
 
@@ -73,8 +100,16 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
 - The transfer amount carries a three-digit suffix (Rp39.000 becomes Rp39.137).
   Indonesian banks often truncate a payment note, so the amount itself is the
   identifier. Never round it away.
-- Checkout hides itself until `NEXT_PUBLIC_BANK_*` is set, so the app never shows
-  an account number it does not have.
+- **Prices and the bank account are settings, not code.** They live in
+  `app_settings` and are read through `getSettings()` in `src/lib/settings.ts`.
+  The constants in `entitlements.ts` and the `NEXT_PUBLIC_BANK_*` variables remain
+  only as the fallback for a request that could not reach the settings.
+- Checkout hides itself until all three bank fields are filled, so the app never
+  shows an account number it does not have. `checkoutAvailable()` is the one
+  place that decides, and the server re-checks it in `startCheckout` rather than
+  trusting the picker.
+- A gateway's secret key stays an environment variable. That is a deployment
+  credential, not something to edit in a browser.
 - Adding Midtrans or Xendit means a new entry in `PROVIDERS` and a webhook that
   calls `approve_order`. It does not mean touching the rest of the flow.
 
@@ -84,7 +119,17 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   access across the user tables through RLS; `is_admin()` is what `approve_order`
   and `reject_order` check.
 - Dashboard figures come from `admin_overview()` in Postgres, not from a dozen
-  client queries. Add a figure there, not in the page.
+  client queries. Add a figure there, not in the page. The same goes for
+  `admin_funnel()`, `admin_top_activities()`, `admin_domain_coverage()`,
+  `admin_revenue_monthly()` and `admin_users()`.
+- The console's staff check lives in `src/app/[locale]/admin/layout.tsx`, once, so
+  a new section cannot be added without it. The layout decides what to *show*;
+  the database decides what is *allowed*.
+- Routes under `/admin` are listed in `src/lib/admin/routes.ts` and the sidebar is
+  generated from it. Adding a section means one entry there.
+- Admin copy is `src/lib/admin/copy.ts`, separate from the parent dictionary: the
+  console has its own vocabulary. Do not put `as const` on the Indonesian object —
+  it makes every string a literal type and the English object stops type-checking.
 
 ## Design
 
