@@ -22,6 +22,17 @@ export const ADMIN = {
 
 export type AdminRoute = keyof typeof ADMIN;
 
+/**
+ * An absolute path into the console.
+ *
+ * The leading slash is written out, not produced by an empty first element.
+ * It was `["", locale, …].filter(Boolean).join("/")` — and `filter(Boolean)`
+ * drops that empty string, so every link came out relative: "id/admin/konten/
+ * bonding" resolved against /id/ became /id/id/admin/konten/bonding, and every
+ * menu item 404'd. The overview route is "", which is why the filter is still
+ * needed for the rest.
+ */
 export function adminHref(locale: Locale, route: AdminRoute, ...rest: string[]) {
-  return ["", locale, "admin", ADMIN[route], ...rest].filter(Boolean).join("/");
+  const parts = [locale, "admin", ADMIN[route], ...rest].filter(Boolean);
+  return `/${parts.join("/")}`;
 }
