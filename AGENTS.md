@@ -51,6 +51,41 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
 - `src/types/db.ts` is hand-maintained and deliberately narrow. `npm run db:types`
   replaces it with the full generated set.
 
+## Illustration
+
+- Every illustration comes from the brand sticker sheet in `aset app/landing page/`,
+  a single transparent PNG. `src/lib/assets.ts` is the manifest: it names each
+  sticker, its path under `public/assets/`, and its real pixel size.
+- That sheet is 1536x1024, so no sticker is wider than about 520px. Nothing in it
+  should be stretched full-bleed across a desktop screen.
+- Tumi in `src/components/Tumi.tsx` is that artwork, not a drawing. Six product
+  states map onto the three poses that exist; a state without artwork borrows its
+  nearest neighbour rather than introducing a second-looking mascot.
+- The App Store and Google Play badges on the sheet are AI renders of other
+  companies' trademarks. They are deliberately not extracted; take those from
+  Apple and Google directly when the apps actually ship.
+
+## Payments
+
+- There is no gateway account, so the provider that works is a bank transfer an
+  admin confirms. Checkout writes one row to `orders`; nothing about access
+  changes until `approve_order` runs in Postgres.
+- The transfer amount carries a three-digit suffix (Rp39.000 becomes Rp39.137).
+  Indonesian banks often truncate a payment note, so the amount itself is the
+  identifier. Never round it away.
+- Checkout hides itself until `NEXT_PUBLIC_BANK_*` is set, so the app never shows
+  an account number it does not have.
+- Adding Midtrans or Xendit means a new entry in `PROVIDERS` and a webhook that
+  calls `approve_order`. It does not mean touching the rest of the flow.
+
+## Staff
+
+- `profiles.role` is `parent`, `editor` or `admin`. `is_staff()` grants read
+  access across the user tables through RLS; `is_admin()` is what `approve_order`
+  and `reject_order` check.
+- Dashboard figures come from `admin_overview()` in Postgres, not from a dozen
+  client queries. Add a figure there, not in the page.
+
 ## Design
 
 - Colour comes from the brand book and is fixed. Everything else — radius,
@@ -60,3 +95,8 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   the garden beds. Using it everywhere destroys the hierarchy it encodes.
 - `/[locale]/pratinjau` is the design reference. Keep it current when the system
   changes; it `notFound()`s in production.
+- The landing page at `/[locale]` is the only place that uses the serif display
+  face. The app itself stays on one family.
+- Chart colours are not the brand's sage and terracotta: that pair measures dE 12.9
+  for normal vision, below the readable floor. The validated pair is documented in
+  `src/components/AdminTrend.tsx`. Re-run the dataviz validator before changing it.

@@ -5,7 +5,8 @@ import { DEFAULT_LOCALE, LOCALES, type Locale } from "@/i18n/config";
 // Pages a signed-out visitor may open. Matched against the path *after* the
 // locale segment. /pratinjau is the design reference, which only exists outside
 // production.
-const PUBLIC_PATHS = ["/masuk", "/daftar", "/lupa-sandi", "/tentang", "/pratinjau"];
+// "/" is the public landing page; everything else under a locale needs a session.
+const PUBLIC_PATHS = ["/", "/masuk", "/daftar", "/lupa-sandi", "/tentang", "/pratinjau"];
 
 // Route handlers, not pages: they have no locale segment and must never be
 // redirected into one. Email links (sign-up confirmation, password reset) land

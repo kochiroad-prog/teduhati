@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 // request, no build-time dependency on Google, and an installed PWA still
 // renders in the brand typeface with no connection.
 import "@fontsource-variable/plus-jakarta-sans/wght.css";
+import "@fontsource-variable/fraunces/standard.css";
 import "../globals.css";
 import { isLocale, LOCALES, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";

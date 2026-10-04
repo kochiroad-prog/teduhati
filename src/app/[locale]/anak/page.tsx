@@ -8,6 +8,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { ageInMonths, formatAge, resolveAgeBand } from "@/lib/age";
 import { entitlements } from "@/lib/entitlements";
 import { getAgeBandLabel, getSession } from "@/lib/queries";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function ChildPage({
   params,
@@ -24,6 +25,9 @@ export default async function ChildPage({
   const dict = getDictionary(locale);
   const session = await getSession();
   if (!session) redirect(href(locale, "signIn"));
+
+  const supabase = await createClient();
+  const { data: isStaff } = await supabase.rpc("is_staff", {});
 
   const editing = ubah ? session.children.find((c) => c.id === ubah) ?? null : null;
   const limit = entitlements(session.plan).children;
@@ -85,7 +89,15 @@ export default async function ChildPage({
         />
       )}
 
-      <div className="mt-10 border-t border-line pt-6">
+      <div className="mt-10 space-y-3 border-t border-line pt-6">
+        {isStaff ? (
+          <a
+            href={href(locale, "admin")}
+            className="text-meta block text-center text-sage-dark hover:underline"
+          >
+            {locale === "en" ? "Team dashboard" : "Dashboard tim"}
+          </a>
+        ) : null}
         <SignOutButton locale={locale} />
       </div>
     </AppShell>

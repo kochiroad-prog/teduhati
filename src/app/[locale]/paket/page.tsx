@@ -5,6 +5,7 @@ import { href, isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { formatRupiah, isPremium, PRICING } from "@/lib/entitlements";
 import { getSession } from "@/lib/queries";
+import { PlanPicker } from "@/components/PlanPicker";
 
 export default async function PlansPage({
   params,
@@ -57,13 +58,7 @@ export default async function PlansPage({
           {onPaid ? (
             <p className="text-meta mt-4 text-sage-dark">{dict.plans.currentPlan}</p>
           ) : (
-            /* Checkout is wired once the Indonesian payment gateway is chosen.
-               Saying so beats a button that leads nowhere. */
-            <Pill className="mt-4">
-              {locale === "en"
-                ? "Checkout opens when payment is connected"
-                : "Pembayaran dibuka setelah gateway tersambung"}
-            </Pill>
+            <PlanPicker locale={locale} />
           )}
         </LeafCard>
 

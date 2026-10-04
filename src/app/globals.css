@@ -40,6 +40,10 @@
   --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif,
     system-ui, -apple-system, sans-serif;
 
+  /* Display face, used only for landing-page headlines and plan prices. The app
+     itself stays on one family; this is the marketing voice, not the UI voice. */
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+
   --radius-card: 18px;
   --radius-pill: 999px;
 
@@ -186,4 +190,14 @@ body {
 @utility no-scrollbar {
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   landing-page display type
+   --------------------------------------------------------------------------- */
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 40, "WONK" 1;
+  letter-spacing: -0.015em;
 }

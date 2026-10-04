@@ -59,8 +59,58 @@ type Row<T> = {
   Relationships: [];
 };
 
+export type UserRole = "parent" | "editor" | "admin";
+
+export type OrderStatus =
+  | "awaiting_payment"
+  | "awaiting_confirmation"
+  | "paid"
+  | "rejected"
+  | "expired"
+  | "cancelled";
+
+export type OrderRow = {
+  id: string;
+  reference: string;
+  user_id: string;
+  plan: Exclude<PlanTier, "free">;
+  amount: number;
+  unique_suffix: number;
+  total: number;
+  status: OrderStatus;
+  provider: string;
+  external_id: string | null;
+  payer_note: string | null;
+  proof_path: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  review_note: string | null;
+  expires_at: string;
+  created_at: string;
+  updated_at: string;
+};
+
+/** What `admin_overview()` returns. Every value is a plain count or a rupiah sum. */
+export type AdminOverview = {
+  parents: number;
+  children: number;
+  active_subs: number;
+  orders_pending: number;
+  mrr: number;
+  completions_7d: number;
+  ai_questions_month: number;
+  activities_published: number;
+  activities_total: number;
+  stories_published: number;
+  bonding_published: number;
+  signups_30d: number;
+};
+
+export type AdminDailyRow = { day: string; signups: number; completions: number };
+
 export type ProfileRow = {
   id: string;
+  role: UserRole;
   display_name: string | null;
   parent_role: string | null;
   locale: string;
@@ -311,6 +361,7 @@ export type Database = {
   public: {
     Tables: {
       profiles: Row<ProfileRow>;
+      orders: Row<OrderRow>;
       children: Row<ChildRow>;
       activities: Row<ActivityRow>;
       activity_translations: Row<ActivityTranslationRow>;
@@ -377,6 +428,12 @@ export type Database = {
         Args: { p_child_id: string; p_locale?: string };
         Returns: BondingOfDay[];
       };
+      is_staff: { Args: { p_user_id?: string }; Returns: boolean };
+      is_admin: { Args: { p_user_id?: string }; Returns: boolean };
+      admin_overview: { Args: Record<string, never>; Returns: AdminOverview | null };
+      admin_daily: { Args: { p_days?: number }; Returns: AdminDailyRow[] };
+      approve_order: { Args: { p_order_id: string; p_note?: string }; Returns: OrderRow };
+      reject_order: { Args: { p_order_id: string; p_note?: string }; Returns: OrderRow };
     };
     Enums: {
       content_status: ContentStatus;
@@ -385,6 +442,8 @@ export type Database = {
       plan_tier: PlanTier;
       subscription_status: SubscriptionStatus;
       bonding_moment_type: BondingMomentType;
+      user_role: UserRole;
+      order_status: OrderStatus;
     };
     CompositeTypes: Record<never, never>;
   };

@@ -17,7 +17,8 @@ export function isLocale(value: string): value is Locale {
  * routing surface for no reader benefit.
  */
 export const ROUTES = {
-  home: "",
+  landing: "",
+  home: "beranda",
   signIn: "masuk",
   signUp: "daftar",
   forgotPassword: "lupa-sandi",
@@ -30,6 +31,8 @@ export const ROUTES = {
   garden: "tumbuh",
   ask: "tanya",
   plans: "paket",
+  pay: "bayar",
+  admin: "admin",
 } as const;
 
 export function href(locale: Locale, route: keyof typeof ROUTES, ...rest: string[]) {
