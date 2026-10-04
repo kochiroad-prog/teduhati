@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import {
   PageHead,
+  QueryError,
   TableFrame,
   Td,
   Th,
@@ -65,7 +66,7 @@ export default async function AuditPage({
     query = query.eq("object_type", object);
   }
 
-  const { data } = await query;
+  const { data, error } = await query;
   const rows = (data ?? []) as AuditLogRow[];
 
   return (
@@ -85,6 +86,8 @@ export default async function AuditPage({
           },
         ]}
       />
+
+      <QueryError error={error} locale={locale} />
 
       {rows.length === 0 ? (
         <EmptyState title={t.audit.empty} lead={t.audit.emptyLead} />

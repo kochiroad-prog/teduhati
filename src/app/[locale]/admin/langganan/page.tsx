@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { PageHead } from "@/components/admin/parts";
+import { PageHead, QueryError } from "@/components/admin/parts";
 import { SubscriptionTable } from "@/components/admin/SubscriptionTable";
 import { EmptyState } from "@/components/ui";
 import { isLocale } from "@/i18n/config";
@@ -23,7 +23,7 @@ export default async function SubscriptionsPage({
   const ctx = await getAdminContext();
   const supabase = await createClient();
 
-  const [{ data: subsRaw }, { data: profileRaw }] = await Promise.all([
+  const [{ data: subsRaw, error }, { data: profileRaw }] = await Promise.all([
     supabase
       .from("subscriptions")
       .select("*")
@@ -41,6 +41,8 @@ export default async function SubscriptionsPage({
   return (
     <div>
       <PageHead title={t.subscriptions.title} lead={t.subscriptions.lead} />
+
+      <QueryError error={error} locale={locale} />
 
       {rows.length === 0 ? (
         <EmptyState title={t.subscriptions.empty} lead={t.subscriptions.emptyLead} />

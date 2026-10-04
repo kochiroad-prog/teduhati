@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import {
   PageHead,
   StatusBadge,
+  QueryError,
   TableFrame,
   Td,
   Th,
@@ -37,7 +38,7 @@ export default async function WorksheetsPage({
   const t = adminCopy(locale);
 
   const supabase = await createClient();
-  const [{ data }, settings] = await Promise.all([
+  const [{ data, error }, settings] = await Promise.all([
     supabase
       .from("worksheets")
       .select("*, worksheet_translations(worksheet_id, locale, title, description)")
@@ -59,6 +60,8 @@ export default async function WorksheetsPage({
             : "Lembar kerja memerlukan berkas PDF di bucket illustrations dan rute unduhan sebelum baris di sini berarti apa pun bagi orang tua. Sampai keduanya ada, sakelar fiturnya tetap mati dan aplikasi tidak menampilkan bagian ini."}
         </Notice>
       </div>
+
+      <QueryError error={error} locale={locale} />
 
       {rows.length === 0 ? (
         <EmptyState

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { AudioManager } from "@/components/admin/AudioManager";
-import { PageHead } from "@/components/admin/parts";
+import { PageHead, QueryError } from "@/components/admin/parts";
 import { EmptyState } from "@/components/ui";
 import { isLocale } from "@/i18n/config";
 import { adminCopy } from "@/lib/admin/copy";
@@ -20,7 +20,7 @@ export default async function AudioPage({
   const t = adminCopy(locale);
 
   const supabase = await createClient();
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("audio_tracks")
     .select("*")
     .order("kind")
@@ -39,8 +39,17 @@ export default async function AudioPage({
         }
       />
 
+      <QueryError error={error} locale={locale} />
+
       {tracks.length === 0 ? (
-        <EmptyState title={t.common.noResults} lead={t.common.noResultsLead} />
+        <EmptyState
+          title={locale === "en" ? "No audio tracks yet." : "Belum ada trek audio."}
+          lead={
+            locale === "en"
+              ? "The taxonomy seed creates them; run npm run db:seed."
+              : "Trek dibuat oleh seed taksonomi; jalankan npm run db:seed."
+          }
+        />
       ) : (
         <AudioManager locale={locale} tracks={tracks} />
       )}

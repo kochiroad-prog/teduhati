@@ -3,6 +3,7 @@ import { AdminOrders } from "@/components/AdminOrders";
 import { FilterBar } from "@/components/admin/FilterBar";
 import {
   PageHead,
+  QueryError,
   TableFrame,
   Td,
   Th,
@@ -75,7 +76,7 @@ export default async function OrdersPage({
     history = history.eq("status", status as OrderStatus);
   }
 
-  const [{ data: pendingRaw }, { data: historyRaw }, { data: revenueRaw }, { data: profileRaw }] =
+  const [{ data: pendingRaw, error }, { data: historyRaw }, { data: revenueRaw }, { data: profileRaw }] =
     await Promise.all([
       supabase
         .from("orders")
@@ -101,6 +102,8 @@ export default async function OrdersPage({
   return (
     <div className="space-y-9">
       <PageHead title={t.orders.title} lead={t.orders.lead} />
+
+      <QueryError error={error} locale={locale} />
 
       <Notice>{t.orders.suffixNote}</Notice>
 

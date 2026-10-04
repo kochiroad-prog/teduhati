@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { FilterBar } from "@/components/admin/FilterBar";
-import { PageHead } from "@/components/admin/parts";
+import { PageHead, QueryError } from "@/components/admin/parts";
 import { UserTable } from "@/components/admin/UserTable";
 import { EmptyState } from "@/components/ui";
 import { isLocale } from "@/i18n/config";
@@ -39,7 +39,8 @@ export default async function UsersPage({
   const ctx = await getAdminContext();
   const supabase = await createClient();
 
-  const [{ data: userRows }, { data: childRows }, { count: adminCount }] = await Promise.all([
+  const [{ data: userRows, error }, { data: childRows }, { count: adminCount }] =
+    await Promise.all([
     supabase.rpc("admin_users", { p_search: q || null, p_limit: 100, p_offset: 0 }),
     supabase
       .from("children")
@@ -90,6 +91,8 @@ export default async function UsersPage({
           },
         ]}
       />
+
+      <QueryError error={error} locale={locale} />
 
       {users.length === 0 ? (
         <EmptyState title={t.common.noResults} lead={t.common.noResultsLead} />

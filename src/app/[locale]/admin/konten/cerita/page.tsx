@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import {
   PageHead,
   StatusBadge,
+  QueryError,
   TableFrame,
   Td,
   Th,
@@ -29,7 +30,7 @@ export default async function StoriesPage({
   const t = adminCopy(locale);
 
   const supabase = await createClient();
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("stories")
     .select("*, story_translations(story_id, locale, title, pages)")
     .order("id");
@@ -49,8 +50,17 @@ export default async function StoriesPage({
         }
       />
 
+      <QueryError error={error} locale={locale} />
+
       {rows.length === 0 ? (
-        <EmptyState title={t.common.noResults} lead={t.common.noResultsLead} />
+        <EmptyState
+          title={locale === "en" ? "No stories yet." : "Belum ada cerita."}
+          lead={
+            locale === "en"
+              ? "Import them from content/, or write the first one here."
+              : "Impor dari content/, atau tulis yang pertama di sini."
+          }
+        />
       ) : (
         <TableFrame
           head={

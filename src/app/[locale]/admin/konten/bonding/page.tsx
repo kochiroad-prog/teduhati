@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import {
   PageHead,
   StatusBadge,
+  QueryError,
   TableFrame,
   Td,
   Th,
@@ -29,7 +30,7 @@ export default async function BondingListPage({
   const t = adminCopy(locale);
 
   const supabase = await createClient();
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("bonding_moments")
     .select(
       "*, bonding_moment_translations(bonding_moment_id, locale, title, prompt, why_it_matters)",
@@ -54,8 +55,17 @@ export default async function BondingListPage({
         }
       />
 
+      <QueryError error={error} locale={locale} />
+
       {rows.length === 0 ? (
-        <EmptyState title={t.common.noResults} lead={t.common.noResultsLead} />
+        <EmptyState
+          title={locale === "en" ? "No bonding moments yet." : "Belum ada momen bonding."}
+          lead={
+            locale === "en"
+              ? "Import them from content/, or write the first one here."
+              : "Impor dari content/, atau tulis yang pertama di sini."
+          }
+        />
       ) : (
         <TableFrame
           head={

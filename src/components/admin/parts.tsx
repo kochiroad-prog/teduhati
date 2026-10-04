@@ -219,6 +219,39 @@ export function Problems({
   );
 }
 
+/**
+ * A query that failed, said out loud.
+ *
+ * Every list on this console used to discard the `error` and fall through to its
+ * empty state, so a permission problem, a bad column or an unreachable database
+ * all looked exactly like "there is nothing here yet". That is the worst
+ * possible failure mode for a dashboard: it reports success for a question it
+ * never managed to ask.
+ */
+export function QueryError({
+  error,
+  locale,
+}: {
+  error: { message: string } | null;
+  locale: Locale;
+}) {
+  if (!error) return null;
+  return (
+    <div className="mb-4">
+      <Notice
+        tone="care"
+        title={
+          locale === "en"
+            ? "This list could not be loaded"
+            : "Daftar ini gagal dimuat"
+        }
+      >
+        <p className="font-mono text-[0.8125rem]">{error.message}</p>
+      </Notice>
+    </div>
+  );
+}
+
 /* --------------------------------------------------------------------------
    Formatting
    -------------------------------------------------------------------------- */
