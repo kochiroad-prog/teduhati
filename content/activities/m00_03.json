@@ -1,0 +1,582 @@
+[
+  {
+    "id": "ACT-0001",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "social_emotional",
+    "secondary_domains": ["sensory"],
+    "skill_codes": ["bonding", "visual_tracking"],
+    "duration_minutes": 5,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 3,
+    "music_mode": "bonding",
+    "is_premium": false,
+    "source_reference": "WHO Nurturing Care",
+    "t": {
+      "id": {
+        "title": "Wajah Pertama",
+        "summary": "Dekatkan wajah Anda, lalu biarkan bayi menatap dan mengenali Anda.",
+        "learning_goal": "Bayi belajar mengenali wajah pengasuhnya dan merasa aman karena ditanggapi.",
+        "steps": [
+          { "title": "Cari posisi nyaman", "body": "Gendong bayi atau baringkan di pangkuan Anda, dengan wajah Anda sekitar 25-30 cm dari wajahnya. Itu jarak pandang paling jelas untuk bayi baru." },
+          { "title": "Tatap dan diam dulu", "body": "Tatap matanya tanpa bicara selama beberapa detik. Beri waktu bayi untuk fokus." },
+          { "title": "Sapa dengan suara rendah", "body": "Katakan namanya dengan pelan: \"Hai, Nak.\" Suara rendah dan lambat lebih mudah ditangkap bayi." },
+          { "title": "Tunggu balasannya", "body": "Perhatikan apakah ia mengerjap, menggerakkan mulut, atau menatap lebih lama. Itu balasan. Tanggapi dengan senyum." },
+          { "title": "Berhenti saat ia memalingkan muka", "body": "Bayi memalingkan wajah ketika sudah cukup. Hentikan, dan peluk saja." }
+        ],
+        "parent_tip": "Anda tidak perlu bicara banyak. Hadir dan menanggapi sudah cukup. Lima detik tatapan yang hangat lebih berarti daripada lima menit bicara.",
+        "safety_notes": "Selalu topang kepala dan leher bayi. Jangan lakukan saat bayi sedang menangis kuat atau sangat lapar.",
+        "variations": [
+          "Lakukan saat mengganti baju, posisi bayi sudah terlentang dan wajah Anda di atasnya.",
+          "Ganti suara menjadi humming pelan tanpa kata."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "First Face",
+        "summary": "Bring your face close and let your baby look at you and learn you.",
+        "learning_goal": "Your baby learns to recognise their caregiver's face and feels safe because you respond.",
+        "steps": [
+          { "title": "Get comfortable", "body": "Hold your baby or lay them on your lap, with your face about 25-30 cm from theirs. That is the clearest focal distance for a newborn." },
+          { "title": "Look, and stay quiet", "body": "Hold their gaze without speaking for a few seconds. Give them time to focus." },
+          { "title": "Greet them low and slow", "body": "Say their name softly: \"Hello, little one.\" A low, slow voice is easier for a baby to take in." },
+          { "title": "Wait for their answer", "body": "Watch for a blink, a mouth movement, or a longer stare. That is their answer. Answer back with a smile." },
+          { "title": "Stop when they look away", "body": "Babies turn their face away when they have had enough. Stop there, and just hold them." }
+        ],
+        "parent_tip": "You don't need many words. Being present and responding is enough. Five seconds of warm eye contact matters more than five minutes of talking.",
+        "safety_notes": "Always support your baby's head and neck. Skip this while they are crying hard or very hungry.",
+        "variations": [
+          "Do it during a nappy change, when they are already on their back and your face is above them.",
+          "Swap words for quiet humming."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0002",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "motor",
+    "secondary_domains": ["sensory"],
+    "skill_codes": ["head_control"],
+    "duration_minutes": 3,
+    "difficulty": 1,
+    "materials": ["selimut"],
+    "no_materials": false,
+    "needs_supervision": true,
+    "bonding_level": 2,
+    "music_mode": "morning",
+    "is_premium": false,
+    "source_reference": "CDC Developmental Milestones",
+    "t": {
+      "id": {
+        "title": "Tummy Time Singkat",
+        "summary": "Tiga menit tengkurap sambil Anda temani dari depan.",
+        "learning_goal": "Memperkuat otot leher, punggung, dan bahu yang nanti dipakai untuk duduk.",
+        "steps": [
+          { "title": "Pilih waktu yang tepat", "body": "Lakukan saat bayi bangun, tenang, dan tidak baru saja menyusu. Minimal 30 menit setelah menyusu." },
+          { "title": "Bentangkan selimut", "body": "Gelar selimut tipis di lantai yang rata. Lantai lebih baik daripada kasur karena permukaannya tidak melesak." },
+          { "title": "Baringkan tengkurap", "body": "Letakkan bayi tengkurap, tangan di depan dada. Anda ikut berbaring di depannya, wajah sejajar." },
+          { "title": "Panggil namanya", "body": "Ajak bicara dari depan supaya ia terdorong mengangkat kepala untuk mencari Anda." },
+          { "title": "Berhenti sebelum ia lelah", "body": "Satu sampai tiga menit sudah cukup di awal. Angkat sebelum ia mulai rewel, agar pengalamannya tetap menyenangkan." }
+        ],
+        "parent_tip": "Sering tapi singkat lebih baik daripada sekali tapi lama. Dua sampai tiga kali sehari, masing-masing beberapa menit.",
+        "safety_notes": "Jangan pernah tinggalkan bayi tengkurap tanpa pengawasan, dan jangan lakukan saat bayi mengantuk. Tidur harus selalu dalam posisi telentang.",
+        "variations": [
+          "Tengkurapkan bayi di atas dada Anda saat Anda setengah berbaring. Lebih mudah untuk bayi yang belum suka lantai.",
+          "Letakkan cermin aman di depannya supaya ada yang dilihat."
+        ],
+        "materials_text": "Selimut tipis dan lantai yang rata"
+      },
+      "en": {
+        "title": "Short Tummy Time",
+        "summary": "Three minutes on their tummy while you lie down in front of them.",
+        "learning_goal": "Builds the neck, back and shoulder muscles they will later use to sit up.",
+        "steps": [
+          { "title": "Pick the right moment", "body": "Do this while your baby is awake, calm, and not just fed. Wait at least 30 minutes after a feed." },
+          { "title": "Lay out a blanket", "body": "Spread a thin blanket on a flat floor. The floor is better than a bed because it doesn't sink." },
+          { "title": "Place them on their tummy", "body": "Put your baby face down with their hands in front of their chest. Lie down in front of them, face at their level." },
+          { "title": "Call their name", "body": "Talk to them from the front so they are drawn to lift their head and find you." },
+          { "title": "Stop before they tire", "body": "One to three minutes is plenty at first. Pick them up before they start fussing, so the experience stays a good one." }
+        ],
+        "parent_tip": "Often and short beats once and long. Two or three times a day, a few minutes each.",
+        "safety_notes": "Never leave a baby on their tummy unsupervised, and don't do this when they are sleepy. Sleep is always on the back.",
+        "variations": [
+          "Lay them on your chest while you half recline. Easier for a baby who doesn't like the floor yet.",
+          "Put a safe mirror in front of them so there is something to look at."
+        ],
+        "materials_text": "A thin blanket and a flat floor"
+      }
+    }
+  },
+  {
+    "id": "ACT-0003",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "language",
+    "secondary_domains": ["social_emotional"],
+    "skill_codes": ["vocal_response", "bonding"],
+    "duration_minutes": 5,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 3,
+    "music_mode": "bonding",
+    "is_premium": false,
+    "source_reference": "WHO Nurturing Care",
+    "t": {
+      "id": {
+        "title": "Balas Ocehannya",
+        "summary": "Setiap suara yang keluar dari bayi, balas seolah ia sedang bicara.",
+        "learning_goal": "Bayi belajar bahwa suaranya didengar dan membuat orang lain menanggapi. Ini dasar percakapan.",
+        "steps": [
+          { "title": "Dengarkan dulu", "body": "Tunggu sampai bayi mengeluarkan suara apa pun: \"aah\", \"ngg\", atau sekadar embusan napas." },
+          { "title": "Tirukan suaranya", "body": "Ulangi bunyi yang sama persis, dengan nada hangat. Kalau ia bilang \"aah\", Anda juga bilang \"aah\"." },
+          { "title": "Beri jeda", "body": "Diam dan tunggu tiga sampai lima detik. Jeda inilah yang mengajarkan bergiliran." },
+          { "title": "Tambahkan satu kata", "body": "Setelah menirukan, sambung dengan kalimat pendek: \"Oh ya? Cerita lagi.\"" },
+          { "title": "Ulangi selama ia mau", "body": "Lanjutkan selama bayi masih menatap dan bersuara. Berhenti saat ia memalingkan wajah." }
+        ],
+        "parent_tip": "Jeda adalah bagian terpenting. Banyak orang tua bicara terus dan tidak memberi bayi kesempatan membalas.",
+        "safety_notes": "Tidak ada risiko khusus. Pastikan posisi gendong aman dan kepala tertopang.",
+        "variations": [
+          "Lakukan saat menyusui atau memberi susu, saat jarak wajah sudah dekat.",
+          "Gunakan nada tinggi-rendah bergantian untuk melihat mana yang lebih menarik perhatiannya."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Answer Their Babble",
+        "summary": "Treat every sound your baby makes as their turn to speak, and answer it.",
+        "learning_goal": "Your baby learns that their voice is heard and makes others respond. This is the foundation of conversation.",
+        "steps": [
+          { "title": "Listen first", "body": "Wait until your baby makes any sound at all: \"aah\", \"ngg\", or just a puff of breath." },
+          { "title": "Copy the sound", "body": "Repeat exactly the same sound, warmly. If they say \"aah\", you say \"aah\"." },
+          { "title": "Leave a pause", "body": "Go quiet and wait three to five seconds. The pause is what teaches turn-taking." },
+          { "title": "Add one line", "body": "After copying, follow with something short: \"Oh really? Tell me more.\"" },
+          { "title": "Keep going while they want to", "body": "Carry on as long as they are still looking and making sounds. Stop when they turn away." }
+        ],
+        "parent_tip": "The pause is the most important part. Many parents keep talking and never leave the baby room to answer.",
+        "safety_notes": "No particular risk. Just make sure your hold is secure and their head is supported.",
+        "variations": [
+          "Do it during a feed, when your faces are already close.",
+          "Alternate high and low pitch to see which holds their attention better."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0004",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "sensory",
+    "secondary_domains": ["cognitive"],
+    "skill_codes": ["visual_tracking", "attention"],
+    "duration_minutes": 4,
+    "difficulty": 1,
+    "materials": ["kain"],
+    "no_materials": false,
+    "needs_supervision": true,
+    "bonding_level": 2,
+    "music_mode": "play",
+    "is_premium": false,
+    "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Ikuti Kain Pelan",
+        "summary": "Gerakkan kain bermotif kontras dengan sangat lambat, dan biarkan mata bayi mengikutinya.",
+        "learning_goal": "Melatih mata mengikuti benda bergerak, yang nanti dipakai untuk meraih dan membaca.",
+        "steps": [
+          { "title": "Pilih kain kontras", "body": "Ambil kain dengan pola hitam-putih atau warna sangat kontras. Bayi baru paling peka pada kontras tinggi, bukan warna pastel." },
+          { "title": "Baringkan bayi telentang", "body": "Letakkan bayi telentang di permukaan rata, dan duduk di sebelahnya." },
+          { "title": "Pegang kain di tengah pandangannya", "body": "Tahan kain sekitar 25 cm di atas wajahnya sampai matanya benar-benar fokus ke kain." },
+          { "title": "Gerakkan sangat lambat", "body": "Pindahkan kain ke kanan sejauh sekitar 15 cm, dengan hitungan tiga. Terlalu cepat dan matanya akan kehilangan jejak." },
+          { "title": "Kembali dan ganti arah", "body": "Bawa kembali ke tengah, lalu ke kiri. Tiga kali bolak-balik sudah cukup." }
+        ],
+        "parent_tip": "Kalau matanya tidak mengikuti, bukan berarti ada masalah. Bayi di bawah dua bulan sering baru bisa fokus sebentar. Coba lagi besok.",
+        "safety_notes": "Jaga kain tidak menyentuh atau menutupi wajah bayi. Jangan gunakan kain berbulu halus yang bisa terhirup.",
+        "variations": [
+          "Pakai wajah Anda sendiri sebagai benda yang diikuti.",
+          "Gerakkan dari bawah ke atas untuk variasi arah."
+        ],
+        "materials_text": "Satu kain bersih dengan pola kontras"
+      },
+      "en": {
+        "title": "Follow The Slow Cloth",
+        "summary": "Move a high-contrast cloth very slowly and let your baby's eyes track it.",
+        "learning_goal": "Trains the eyes to follow a moving object, which they will later use to reach and to read.",
+        "steps": [
+          { "title": "Choose a high-contrast cloth", "body": "Pick a cloth with a black-and-white or strongly contrasting pattern. Newborns see contrast far better than pastel colour." },
+          { "title": "Lay your baby on their back", "body": "Put them on their back on a flat surface and sit beside them." },
+          { "title": "Hold the cloth in their line of sight", "body": "Hold it about 25 cm above their face until their eyes properly settle on it." },
+          { "title": "Move it very slowly", "body": "Shift the cloth about 15 cm to the right over a slow count of three. Any faster and their eyes lose it." },
+          { "title": "Come back, then switch sides", "body": "Bring it back to the middle, then over to the left. Three passes each way is plenty." }
+        ],
+        "parent_tip": "If their eyes don't follow, nothing is wrong. Babies under two months often focus only briefly. Try again tomorrow.",
+        "safety_notes": "Keep the cloth from touching or covering your baby's face. Avoid fluffy fabrics that shed fibres.",
+        "variations": [
+          "Use your own face as the thing they follow.",
+          "Move it bottom to top for a different direction."
+        ],
+        "materials_text": "One clean cloth with a contrasting pattern"
+      }
+    }
+  },
+  {
+    "id": "ACT-0005",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "sensory",
+    "secondary_domains": ["language"],
+    "skill_codes": ["auditory", "attention"],
+    "duration_minutes": 4,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 2,
+    "music_mode": "morning",
+    "is_premium": false,
+    "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Cari Suara Lembut",
+        "summary": "Bersuara dari sisi kanan, lalu kiri, dan lihat apakah bayi menoleh mencari asal suara.",
+        "learning_goal": "Melatih bayi menghubungkan suara dengan arah, dasar dari mendengarkan dan nanti berbahasa.",
+        "steps": [
+          { "title": "Pastikan ruangan tenang", "body": "Matikan televisi dan musik. Suara latar membuat bayi sulit memisahkan suara Anda." },
+          { "title": "Baringkan bayi telentang", "body": "Posisikan bayi telentang agar kepalanya bebas bergerak ke dua arah." },
+          { "title": "Bersuara dari kanan", "body": "Dari sekitar 20 cm di samping kanan telinganya, bersuara pelan: \"sss\" atau namanya. Jangan terlalu dekat." },
+          { "title": "Beri waktu menoleh", "body": "Tunggu lima detik. Bayi baru butuh waktu untuk memproses dan bergerak." },
+          { "title": "Pindah ke sisi kiri", "body": "Ulangi dari sisi kiri. Dua kali per sisi cukup." }
+        ],
+        "parent_tip": "Bayi sering merespons dengan diam dan membuka mata lebih lebar, bukan dengan menoleh. Itu juga respons.",
+        "safety_notes": "Jangan bersuara keras atau tiba-tiba di dekat telinga bayi. Suara yang nyaman untuk Anda bisa terlalu kuat untuknya.",
+        "variations": [
+          "Gunakan bunyi gesekan kain alih-alih suara mulut.",
+          "Lakukan sambil bayi digendong tegak di bahu Anda."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Find The Soft Sound",
+        "summary": "Make a soft sound to their right, then their left, and see if they turn towards it.",
+        "learning_goal": "Teaches your baby to link sound with direction, the basis of listening and later of language.",
+        "steps": [
+          { "title": "Make the room quiet", "body": "Turn off the TV and any music. Background noise makes it hard for a baby to pick your voice out." },
+          { "title": "Lay your baby on their back", "body": "On their back, their head is free to turn either way." },
+          { "title": "Make a sound on the right", "body": "From about 20 cm to the right of their ear, make a soft sound: \"sss\" or their name. Not too close." },
+          { "title": "Give them time to turn", "body": "Wait five seconds. Newborns need time to process and then move." },
+          { "title": "Switch to the left", "body": "Repeat on the left side. Twice per side is enough." }
+        ],
+        "parent_tip": "Babies often respond by going still and opening their eyes wider rather than turning. That is a response too.",
+        "safety_notes": "Never make a loud or sudden sound near a baby's ear. A volume that is comfortable for you can be too much for them.",
+        "variations": [
+          "Use the rustle of a cloth instead of your voice.",
+          "Try it while holding them upright against your shoulder."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0006",
+    "age_min_months": 1,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "social_emotional",
+    "secondary_domains": ["language"],
+    "skill_codes": ["social_response", "bonding"],
+    "duration_minutes": 5,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 3,
+    "music_mode": "bonding",
+    "is_premium": false,
+    "source_reference": "CDC Developmental Milestones",
+    "t": {
+      "id": {
+        "title": "Senyum dan Balas Senyum",
+        "summary": "Tersenyum lebar, tunggu, dan rayakan ketika bayi mulai membalas.",
+        "learning_goal": "Membangun senyum sosial, tanda awal bahwa bayi berinteraksi dengan sengaja.",
+        "steps": [
+          { "title": "Pilih saat ia paling segar", "body": "Biasanya setelah tidur dan setelah kenyang. Bayi yang lelah tidak akan membalas." },
+          { "title": "Dekatkan wajah dan tersenyum lebar", "body": "Senyum yang jelas, mata ikut tersenyum. Bayi membaca seluruh wajah, bukan hanya mulut." },
+          { "title": "Tahan senyum itu", "body": "Jangan langsung ganti ekspresi. Tahan lima sampai sepuluh detik." },
+          { "title": "Rayakan percobaan sekecil apa pun", "body": "Sudut mulut yang naik sedikit sudah cukup. Tanggapi dengan suara senang: \"Iya! Kamu senyum.\"" },
+          { "title": "Ulang tiga sampai empat kali", "body": "Beri jeda di antaranya. Senyum sosial biasanya muncul sekitar usia enam sampai delapan minggu." }
+        ],
+        "parent_tip": "Kalau belum ada balasan sampai usia tiga bulan, catat dan tanyakan pada dokter atau bidan saat kontrol rutin. Jangan diagnosis sendiri.",
+        "safety_notes": "Tidak ada risiko khusus.",
+        "variations": [
+          "Tambahkan bunyi kecil setiap kali tersenyum, agar ada dua isyarat sekaligus.",
+          "Lakukan di depan cermin sambil bayi digendong."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Smile And Smile Back",
+        "summary": "Smile widely, wait, and celebrate the moment your baby starts smiling back.",
+        "learning_goal": "Builds the social smile, the first sign that your baby is interacting on purpose.",
+        "steps": [
+          { "title": "Pick their freshest moment", "body": "Usually after a nap and after a feed. A tired baby won't answer." },
+          { "title": "Come close and smile widely", "body": "A clear smile, with your eyes in it too. Babies read the whole face, not just the mouth." },
+          { "title": "Hold the smile", "body": "Don't change expression right away. Hold it for five to ten seconds." },
+          { "title": "Celebrate the smallest attempt", "body": "A corner of the mouth lifting is enough. Answer with a pleased voice: \"Yes! You smiled.\"" },
+          { "title": "Repeat three or four times", "body": "Pause in between. The social smile usually appears around six to eight weeks." }
+        ],
+        "parent_tip": "If there is no smile back by three months, make a note and raise it at your next check-up. Don't diagnose it yourself.",
+        "safety_notes": "No particular risk.",
+        "variations": [
+          "Add a small sound each time you smile, so there are two cues at once.",
+          "Try it in front of a mirror while holding them."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0007",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "self_care",
+    "secondary_domains": ["language", "social_emotional"],
+    "skill_codes": ["routine", "vocabulary"],
+    "duration_minutes": 5,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 3,
+    "music_mode": "morning",
+    "is_premium": false,
+    "source_reference": "WHO Nurturing Care",
+    "t": {
+      "id": {
+        "title": "Ngobrol Saat Ganti Baju",
+        "summary": "Ubah ganti baju atau ganti diaper menjadi waktu bicara, bukan sekadar tugas.",
+        "learning_goal": "Menyelipkan bahasa dan kedekatan ke dalam rutinitas yang sudah pasti terjadi setiap hari.",
+        "steps": [
+          { "title": "Umumkan apa yang akan terjadi", "body": "Sebelum mulai, katakan: \"Kita ganti baju, ya.\" Bayi belajar bahwa ada yang akan terjadi padanya." },
+          { "title": "Sebut nama bagian tubuh", "body": "Saat memasukkan tangan ke lengan baju, katakan \"tangan kanan\". Lakukan pelan supaya kata dan gerakan sinkron." },
+          { "title": "Beri jeda sebelum setiap gerakan", "body": "Tunggu satu detik sebelum mengangkat kaki atau memutar badannya. Jeda membuat bayi tidak terkejut." },
+          { "title": "Tanggapi suaranya", "body": "Kalau ia bersuara di tengah proses, jawab. Ini percakapan, bukan monolog." },
+          { "title": "Tutup dengan sentuhan", "body": "Selesai berpakaian, usap perut atau pipinya sebentar sebagai penutup." }
+        ],
+        "parent_tip": "Rutinitas terjadi puluhan kali seminggu. Mengubahnya menjadi waktu bicara jauh lebih mudah daripada mencari waktu khusus.",
+        "safety_notes": "Jangan pernah tinggalkan bayi di meja ganti tanpa satu tangan memegangnya, bahkan sedetik.",
+        "variations": [
+          "Lakukan hal yang sama saat memandikan.",
+          "Nyanyikan satu lagu pendek yang sama setiap ganti baju, agar jadi penanda rutinitas."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Talk Through Getting Dressed",
+        "summary": "Turn a nappy or clothes change into talking time rather than just a task.",
+        "learning_goal": "Slips language and closeness into a routine that is already going to happen every day.",
+        "steps": [
+          { "title": "Say what is about to happen", "body": "Before you start: \"We're getting dressed now.\" Your baby learns that something is coming." },
+          { "title": "Name body parts", "body": "As you guide an arm into a sleeve, say \"right arm\". Go slowly so the word and the movement line up." },
+          { "title": "Pause before each move", "body": "Wait a second before lifting a leg or turning them over. The pause keeps it from being startling." },
+          { "title": "Answer their sounds", "body": "If they make a noise partway through, answer it. This is a conversation, not a monologue." },
+          { "title": "Close with a touch", "body": "Once dressed, stroke their tummy or cheek for a moment to mark the end." }
+        ],
+        "parent_tip": "Routines happen dozens of times a week. Turning one into talking time is far easier than finding a separate slot.",
+        "safety_notes": "Never leave a baby on a changing table without one hand on them, not even for a second.",
+        "variations": [
+          "Do the same thing at bath time.",
+          "Sing the same short song at every change, so it becomes the signal for this routine."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0008",
+    "age_min_months": 1,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "sensory",
+    "secondary_domains": ["motor"],
+    "skill_codes": ["tactile", "reaching"],
+    "duration_minutes": 5,
+    "difficulty": 1,
+    "materials": ["kain"],
+    "no_materials": false,
+    "needs_supervision": true,
+    "bonding_level": 2,
+    "music_mode": "play",
+    "is_premium": false,
+    "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Kain Tekstur Aman",
+        "summary": "Sentuhkan dua atau tiga jenis kain ke tangan dan kaki bayi, satu per satu.",
+        "learning_goal": "Mengenalkan perbedaan tekstur melalui kulit, pintu masuk pertama bayi memahami dunia benda.",
+        "steps": [
+          { "title": "Siapkan dua atau tiga kain", "body": "Pilih yang jelas berbeda: kain katun halus, handuk kasar, dan kain bermotif rajut. Pastikan semuanya bersih." },
+          { "title": "Mulai dari tangan", "body": "Usapkan kain pertama ke punggung tangannya dengan lembut, sambil menyebut: \"halus\"." },
+          { "title": "Beri waktu merasakan", "body": "Tahan beberapa detik di satu tempat sebelum berpindah. Bayi butuh waktu memproses sentuhan." },
+          { "title": "Ganti ke kain berbeda", "body": "Gunakan kain kedua di tangan yang sama, dan beri nama berbeda: \"kasar\". Perbedaan yang berurutan paling mudah dirasakan." },
+          { "title": "Perhatikan reaksinya", "body": "Kalau ia menarik tangan atau mengerutkan dahi, hentikan kain itu. Pilihannya sudah jelas." }
+        ],
+        "parent_tip": "Dua tekstur cukup untuk satu sesi. Lebih dari itu dan tidak ada yang benar-benar dirasakan.",
+        "safety_notes": "Hanya gunakan kain bersih, tanpa benang lepas, tanpa hiasan, dan tidak berbulu halus. Jangan biarkan kain menutupi wajah bayi.",
+        "variations": [
+          "Sentuhkan ke telapak kaki, yang biasanya lebih sensitif.",
+          "Letakkan satu kain di tangannya dan biarkan ia menggenggam sendiri."
+        ],
+        "materials_text": "Dua sampai tiga kain bersih dengan tekstur berbeda"
+      },
+      "en": {
+        "title": "Safe Texture Cloths",
+        "summary": "Touch two or three different fabrics to your baby's hands and feet, one at a time.",
+        "learning_goal": "Introduces different textures through the skin, a baby's first way into understanding objects.",
+        "steps": [
+          { "title": "Prepare two or three cloths", "body": "Pick clearly different ones: smooth cotton, a rough towel, a knitted weave. Make sure they are all clean." },
+          { "title": "Start at the hands", "body": "Stroke the first cloth gently over the back of their hand while naming it: \"soft\"." },
+          { "title": "Give them time to feel it", "body": "Hold it in one spot for a few seconds before moving. Babies need time to process touch." },
+          { "title": "Switch to a different cloth", "body": "Use the second on the same hand, with a different word: \"rough\". A back-to-back contrast is the easiest to notice." },
+          { "title": "Watch their reaction", "body": "If they pull their hand away or frown, stop with that cloth. They have told you their preference." }
+        ],
+        "parent_tip": "Two textures is enough for one session. More than that and none of them really register.",
+        "safety_notes": "Use only clean cloths with no loose threads, no decorations, and no loose fibres. Never let a cloth cover your baby's face.",
+        "variations": [
+          "Try the soles of the feet, which are usually more sensitive.",
+          "Place one cloth in their hand and let them grip it themselves."
+        ],
+        "materials_text": "Two or three clean cloths with different textures"
+      }
+    }
+  },
+  {
+    "id": "ACT-0009",
+    "age_min_months": 0,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "creativity",
+    "secondary_domains": ["social_emotional", "sensory"],
+    "skill_codes": ["music_movement", "bonding"],
+    "duration_minutes": 6,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 3,
+    "music_mode": "bedtime",
+    "is_premium": false,
+    "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Satu Lagu, Setiap Malam",
+        "summary": "Pilih satu lagu pendek, dan nyanyikan lagu yang sama setiap malam sebelum tidur.",
+        "learning_goal": "Membangun penanda tidur yang bisa diprediksi, dan memberi bayi pengalaman irama bahasa.",
+        "steps": [
+          { "title": "Pilih satu lagu dan tetap pakai itu", "body": "Lagu apa pun yang Anda hafal. Yang penting lagunya tidak berganti, karena pengulangannya yang bekerja." },
+          { "title": "Redupkan lampu dulu", "body": "Kurangi cahaya dan suara di ruangan sebelum mulai. Lingkungan ikut jadi bagian penanda." },
+          { "title": "Gendong dan goyang pelan", "body": "Gendong bayi dekat dada Anda. Goyangan lambat dan teratur, bukan diayun kencang." },
+          { "title": "Nyanyikan pelan dan lambat", "body": "Setengah dari kecepatan normal. Suara Anda lebih menenangkan daripada rekaman apa pun." },
+          { "title": "Letakkan ia saat masih mengantuk, belum tertidur", "body": "Baringkan telentang di tempat tidurnya sendiri sambil masih setengah sadar." }
+        ],
+        "parent_tip": "Anda tidak perlu bisa menyanyi. Bayi mengenali suara Anda, bukan kualitas nadanya.",
+        "safety_notes": "Tidurkan bayi selalu telentang, di permukaan rata, tanpa bantal, selimut tebal, atau mainan di dalam tempat tidurnya.",
+        "variations": [
+          "Hum saja tanpa kata kalau Anda sudah terlalu lelah untuk bernyanyi.",
+          "Gunakan lagu yang berbeda untuk siang dan malam, supaya dua rutinitas terpisah."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "One Song, Every Night",
+        "summary": "Pick one short song and sing that same song every night before sleep.",
+        "learning_goal": "Builds a predictable sleep signal, and gives your baby the rhythm of language.",
+        "steps": [
+          { "title": "Choose one song and stick with it", "body": "Any song you know by heart. What matters is that it doesn't change, because the repetition is what works." },
+          { "title": "Dim the lights first", "body": "Lower the light and noise in the room before you begin. The setting becomes part of the signal." },
+          { "title": "Hold and sway slowly", "body": "Hold your baby close to your chest. A slow, steady sway, never a vigorous rock." },
+          { "title": "Sing quietly and slowly", "body": "At about half your normal speed. Your voice is more settling than any recording." },
+          { "title": "Put them down drowsy, not asleep", "body": "Lay them on their back in their own sleep space while they are still half awake." }
+        ],
+        "parent_tip": "You don't need to be able to sing. Your baby recognises your voice, not your pitch.",
+        "safety_notes": "Always put a baby to sleep on their back, on a flat surface, with no pillow, thick blanket, or toys in their sleep space.",
+        "variations": [
+          "Just hum if you are too tired to sing.",
+          "Use a different song for daytime naps, so the two routines stay separate."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0010",
+    "age_min_months": 1,
+    "age_max_months": 3,
+    "age_band_code": "m00_03",
+    "primary_domain": "motor",
+    "secondary_domains": ["sensory"],
+    "skill_codes": ["reaching", "tactile"],
+    "duration_minutes": 4,
+    "difficulty": 1,
+    "materials": [],
+    "no_materials": true,
+    "needs_supervision": true,
+    "bonding_level": 3,
+    "music_mode": "play",
+    "is_premium": true,
+    "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Genggam Jari Ayah Ibu",
+        "summary": "Letakkan jari Anda di telapak bayi, dan main tarik-tahan dengan sangat lembut.",
+        "learning_goal": "Memperkuat genggaman dan mengenalkan permainan bergiliran lewat sentuhan.",
+        "steps": [
+          { "title": "Buka telapaknya dengan sabar", "body": "Usap punggung tangan bayi dengan jari. Telapaknya biasanya akan membuka sendiri." },
+          { "title": "Masukkan satu jari", "body": "Letakkan telunjuk Anda di telapaknya. Ia akan menggenggam, itu refleks alami." },
+          { "title": "Tarik sangat sedikit", "body": "Tarik jari Anda sedikit saja sehingga ia merasa ada tahanan ringan. Jangan sampai badannya terangkat." },
+          { "title": "Sebut apa yang terjadi", "body": "Katakan \"pegang\" saat ia menggenggam dan \"lepas\" saat ia melepaskan. Kata menempel pada pengalaman." },
+          { "title": "Ulangi dengan tangan yang lain", "body": "Beri kedua tangan kesempatan yang sama." }
+        ],
+        "parent_tip": "Genggaman bayi baru sangat kuat tapi tidak disengaja. Jangan tarik untuk mengangkatnya, sendi bahunya belum siap.",
+        "safety_notes": "Jangan pernah menarik bayi dari tangannya untuk mengangkat atau mengayunkannya. Risiko cedera sendi bahu dan siku nyata.",
+        "variations": [
+          "Lakukan dengan telapak kaki, yang juga punya refleks menggenggam.",
+          "Nyanyikan satu bait pendek sambil bergantian tangan."
+        ],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Hold My Finger",
+        "summary": "Put your finger in your baby's palm and play a very gentle hold-and-release game.",
+        "learning_goal": "Strengthens their grip and introduces turn-taking through touch.",
+        "steps": [
+          { "title": "Open their palm patiently", "body": "Stroke the back of their hand with your finger. The palm usually opens on its own." },
+          { "title": "Offer one finger", "body": "Rest your index finger in their palm. They will grip it, which is a natural reflex." },
+          { "title": "Pull back a tiny amount", "body": "Draw your finger back just enough that they feel a light resistance. Never enough to lift their body." },
+          { "title": "Name what is happening", "body": "Say \"hold\" as they grip and \"let go\" as they release. The word sticks to the experience." },
+          { "title": "Repeat with the other hand", "body": "Give both hands an equal turn." }
+        ],
+        "parent_tip": "A newborn's grip is strong but involuntary. Never pull on it to lift them; their shoulder joints are not ready.",
+        "safety_notes": "Never lift or swing a baby by their hands or arms. The risk of shoulder and elbow injury is real.",
+        "variations": [
+          "Try the soles of the feet, which also have a grasp reflex.",
+          "Sing a short verse while alternating hands."
+        ],
+        "materials_text": "Nothing needed"
+      }
+    }
+  }
+]

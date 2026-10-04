@@ -1,0 +1,422 @@
+[
+  {
+    "id": "ACT-0091",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "school_readiness", "secondary_domains": ["cognitive"],
+    "skill_codes": ["following_steps", "focus_persistence"],
+    "duration_minutes": 10, "difficulty": 3,
+    "materials": ["kertas", "krayon", "keranjang"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Tantangan Tiga Langkah",
+        "summary": "Tiga instruksi diberikan sekaligus, dan anak mengerjakannya berurutan tanpa diingatkan.",
+        "learning_goal": "Menyimpan dan menjalankan tiga langkah berurutan, yang akan diminta setiap hari di sekolah.",
+        "steps": [
+          { "title": "Sebutkan tiga langkah sekali saja", "body": "Katakan: \"Ambil kertas, gambar satu lingkaran, lalu taruh di keranjang.\" Satu kali, tanpa diulang." },
+          { "title": "Minta ia mengulangi instruksinya", "body": "Tanyakan: \"Apa saja tadi?\" Mengucapkan ulang jauh lebih membantu ingatan daripada mendengarkan dua kali." },
+          { "title": "Diam selama ia bekerja", "body": "Jangan mengingatkan di tengah jalan. Hening inilah latihannya." },
+          { "title": "Periksa bersama di akhir", "body": "Tanyakan: \"Sudah semua?\" Biarkan ia yang memeriksa, bukan Anda yang menilai." }
+        ],
+        "parent_tip": "Kalau langkah ketiga terlupa, jangan ingatkan langsung. Tanyakan: \"Tadi ada berapa langkah?\" Pertanyaan membuat ia yang menemukan sendiri.",
+        "safety_notes": "Instruksi harus aman dikerjakan sendiri. Jangan libatkan dapur, tangga, gunting, atau benda panas.",
+        "variations": ["Pakai tiga langkah yang nyata saat merapikan mainan.", "Minta ia menyusun tiga langkah untuk Anda kerjakan."],
+        "materials_text": "Kertas, krayon, dan satu keranjang"
+      },
+      "en": {
+        "title": "Three-Step Challenge",
+        "summary": "Three instructions given at once, carried out in order with no reminders.",
+        "learning_goal": "Holding and executing three steps in sequence, which school will ask for daily.",
+        "steps": [
+          { "title": "Give all three steps once", "body": "Say: \"Get the paper, draw one circle, then put it in the basket.\" Once, without repeating." },
+          { "title": "Ask them to repeat it back", "body": "Ask: \"What were the steps?\" Saying it back helps memory far more than hearing it twice." },
+          { "title": "Stay quiet while they work", "body": "Don't prompt halfway through. The silence is the practice." },
+          { "title": "Check together at the end", "body": "Ask: \"Did you get them all?\" Let them do the checking rather than you marking it." }
+        ],
+        "parent_tip": "If step three is forgotten, don't supply it. Ask: \"How many steps were there?\" A question lets them find it themselves.",
+        "safety_notes": "Instructions must be safe to do alone. Nothing involving the kitchen, stairs, scissors, or anything hot.",
+        "variations": ["Use three real steps while tidying toys.", "Let them set three steps for you to do."],
+        "materials_text": "Paper, crayons, and a basket"
+      }
+    }
+  },
+  {
+    "id": "ACT-0092",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "early_literacy", "secondary_domains": ["motor"],
+    "skill_codes": ["letter_awareness", "fine_motor"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["kertas", "spidol"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Cari Huruf Namamu",
+        "summary": "Tulis nama anak besar-besar, lalu cari huruf yang sama di sekitar rumah.",
+        "learning_goal": "Mengenali huruf dalam konteks nyata, dimulai dari huruf yang paling berarti baginya.",
+        "steps": [
+          { "title": "Tulis namanya besar-besar", "body": "Tulis dengan huruf kapital besar di kertas. Huruf kapital lebih mudah dikenali lebih dulu daripada huruf kecil." },
+          { "title": "Tunjuk huruf pertama", "body": "Sebut bunyinya, bukan namanya. Lalu minta ia menelusuri bentuknya dengan jari." },
+          { "title": "Cari huruf itu di rumah", "body": "Cari di kemasan makanan, buku, atau bungkus. Huruf yang sama di tempat lain adalah penemuan besar baginya." },
+          { "title": "Tandai setiap kali ketemu", "body": "Beri centang di kertas tiap kali menemukan. Jumlah yang bertambah membuat usahanya terlihat." }
+        ],
+        "parent_tip": "Nama sendiri hampir selalu jadi kata pertama yang dikenali anak. Mulai dari situ, bukan dari urutan A B C.",
+        "safety_notes": "Gunakan spidol tidak beracun. Awasi saat mencari di dapur, dan jangan biarkan anak membuka lemari bahan pembersih.",
+        "variations": ["Cari huruf di papan nama jalan saat berjalan keluar.", "Tulis nama anggota keluarga lain dan bandingkan huruf awalnya."],
+        "materials_text": "Kertas dan spidol tidak beracun"
+      },
+      "en": {
+        "title": "Find Your Letter",
+        "summary": "Write your child's name large, then hunt for the same letter around the house.",
+        "learning_goal": "Recognising letters in real contexts, starting from the one that means most to them.",
+        "steps": [
+          { "title": "Write their name large", "body": "Use big capitals on paper. Capitals are recognised before lower case." },
+          { "title": "Point at the first letter", "body": "Say its sound, not its name. Then have them trace the shape with a finger." },
+          { "title": "Hunt for that letter at home", "body": "Look on food packets, books, wrappers. The same letter somewhere else is a real discovery." },
+          { "title": "Mark each find", "body": "Add a tick to the paper every time. A rising count makes the effort visible." }
+        ],
+        "parent_tip": "A child's own name is almost always the first word they recognise. Start there, not at A B C.",
+        "safety_notes": "Use non-toxic markers. Supervise hunting in the kitchen, and keep cleaning cupboards closed.",
+        "variations": ["Look for letters on street signs when you're out.", "Write other family names and compare first letters."],
+        "materials_text": "Paper and non-toxic markers"
+      }
+    }
+  },
+  {
+    "id": "ACT-0093",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "early_numeracy", "secondary_domains": ["social_emotional"],
+    "skill_codes": ["number_symbol", "counting"],
+    "duration_minutes": 14, "difficulty": 3,
+    "materials": ["kertas", "spidol", "keranjang"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Toko Mini Satu Sampai Sepuluh",
+        "summary": "Barang diberi label harga satu sampai lima, dan dibayar dengan kertas bernomor.",
+        "learning_goal": "Menghubungkan angka tertulis dengan jumlah benda, bukan hanya menghafal urutannya.",
+        "steps": [
+          { "title": "Beri label harga satu sampai lima", "body": "Tulis angka di kertas kecil dan tempel di lima barang. Jangan lebih dari lima di awal." },
+          { "title": "Buat uang-uangan bernomor", "body": "Tulis angka satu di beberapa potongan kertas. Membayar dengan menghitung potongan membuat angkanya terasa." },
+          { "title": "Beli satu barang bersama", "body": "Ambil barang berharga tiga, lalu hitung tiga potongan kertas bersama-sama." },
+          { "title": "Tukar peran", "body": "Jadilah pembeli dan biarkan ia yang menghitung bayaran Anda. Memeriksa lebih sulit daripada membayar." }
+        ],
+        "parent_tip": "Angka tertulis baru punya arti kalau dipasangkan dengan benda yang bisa dihitung. Tanpa itu, angka hanyalah bentuk gambar.",
+        "safety_notes": "Jangan gunakan uang koin asli; koin adalah risiko tersedak dan tidak higienis. Gunakan kertas saja.",
+        "variations": ["Pakai daun sebagai uang-uangan.", "Naikkan harga sampai sepuluh setelah lima lancar."],
+        "materials_text": "Kertas, spidol tidak beracun, dan beberapa barang rumah"
+      },
+      "en": {
+        "title": "Little Shop, One To Ten",
+        "summary": "Items priced one to five, paid for with numbered paper slips.",
+        "learning_goal": "Connecting a written numeral to a quantity of objects, rather than reciting an order.",
+        "steps": [
+          { "title": "Price five items one to five", "body": "Write numbers on small slips and attach them to five items. No more than five to begin with." },
+          { "title": "Make numbered paper money", "body": "Write the number one on several paper slips. Paying by counting slips is what makes the number felt." },
+          { "title": "Buy one item together", "body": "Take the item priced three, then count out three slips together." },
+          { "title": "Swap roles", "body": "Be the buyer and let them count your payment. Checking is harder than paying." }
+        ],
+        "parent_tip": "A written numeral only means something once it's paired with countable objects. Without that, it's just a shape.",
+        "safety_notes": "Don't use real coins; they're a choking hazard and unhygienic. Paper only.",
+        "variations": ["Use leaves as money.", "Raise prices to ten once five is comfortable."],
+        "materials_text": "Paper, non-toxic markers, and some household items"
+      }
+    }
+  },
+  {
+    "id": "ACT-0094",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "cognitive", "secondary_domains": ["motor", "school_readiness"],
+    "skill_codes": ["problem_solving", "building"],
+    "duration_minutes": 15, "difficulty": 3,
+    "materials": ["kertas", "balok", "buku"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Menara Paling Kuat",
+        "summary": "Bangun menara yang tetap berdiri saat mejanya digoyang pelan.",
+        "learning_goal": "Menguji rancangan dengan kriteria yang jelas, dan memperbaikinya setelah gagal.",
+        "steps": [
+          { "title": "Sepakati ujinya dulu", "body": "Katakan: \"Menaranya harus tetap berdiri waktu mejanya digoyang pelan.\" Kriteria yang jelas membuat gagal jadi informasi, bukan kekecewaan." },
+          { "title": "Bangun versi pertama", "body": "Biarkan ia membangun sendiri sepenuhnya. Jangan sarankan dasar yang lebar." },
+          { "title": "Lakukan ujinya", "body": "Goyang meja pelan. Kalau roboh, tanyakan: \"Bagian mana yang jatuh duluan?\"" },
+          { "title": "Bangun ulang dengan satu perubahan", "body": "Minta ia mengubah satu hal saja, lalu uji lagi. Satu perubahan per percobaan membuat sebabnya terlihat." }
+        ],
+        "parent_tip": "Tahan untuk tidak menyarankan dasar yang lebar. Menemukan sendiri bahwa bawah harus lebih lebar jauh lebih berharga daripada diberi tahu.",
+        "safety_notes": "Jangan membangun lebih tinggi dari dada anak. Gunakan balok ringan, dan jauhkan wajah saat menguji.",
+        "variations": ["Bangun menara tertinggi, bukan terkuat.", "Bangun hanya dengan kertas yang digulung."],
+        "materials_text": "Balok, buku tebal, dan kertas"
+      },
+      "en": {
+        "title": "The Strongest Tower",
+        "summary": "Build a tower that stays up when the table is gently shaken.",
+        "learning_goal": "Testing a design against a clear criterion, and improving it after a failure.",
+        "steps": [
+          { "title": "Agree the test first", "body": "Say: \"The tower has to stay up when we shake the table gently.\" A clear criterion turns failure into information rather than disappointment." },
+          { "title": "Build version one", "body": "Let them build it entirely themselves. Don't suggest a wide base." },
+          { "title": "Run the test", "body": "Shake the table gently. If it falls, ask: \"Which bit went first?\"" },
+          { "title": "Rebuild with one change", "body": "Ask them to change one thing, then test again. One change per attempt makes the cause visible." }
+        ],
+        "parent_tip": "Resist suggesting a wide base. Working out for themselves that the bottom needs to be wider is worth far more than being told.",
+        "safety_notes": "Build no higher than your child's chest. Use light blocks, and keep faces back during the test.",
+        "variations": ["Build the tallest tower rather than the strongest.", "Build using only rolled paper."],
+        "materials_text": "Blocks, thick books, and paper"
+      }
+    }
+  },
+  {
+    "id": "ACT-0095",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "social_emotional", "secondary_domains": ["language"],
+    "skill_codes": ["cooperation", "turn_taking"],
+    "duration_minutes": 12, "difficulty": 3,
+    "materials": ["kartu_gambar"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Permainan Berdua",
+        "summary": "Permainan sederhana dengan aturan, dimainkan sampai selesai meski kalah.",
+        "learning_goal": "Mengikuti aturan yang tidak ia buat, dan bertahan sampai akhir meski tidak menang.",
+        "steps": [
+          { "title": "Pilih permainan yang sangat singkat", "body": "Permainan mencocokkan kartu dengan enam pasang saja. Permainan panjang hampir selalu berakhir sebelum selesai." },
+          { "title": "Sebutkan aturannya sebelum mulai", "body": "Dua kalimat saja, lalu mulai. Aturan yang terlalu panjang hilang sebelum permainan dimulai." },
+          { "title": "Jangan sengaja mengalah terus", "body": "Menang dan kalah keduanya perlu dialami. Selalu dikalahkan membuat kekalahan jadi kejutan yang pahit nanti." },
+          { "title": "Sebut perasaannya di akhir", "body": "Kalau ia kecewa, katakan: \"Kalah memang nggak enak. Mau main lagi?\" Akui dulu, baru tawarkan." }
+        ],
+        "parent_tip": "Menyelesaikan permainan meski sedang kalah adalah keterampilan sosial yang sulit dan berharga. Hargai itu lebih daripada kemenangannya.",
+        "safety_notes": "Gunakan kartu yang cukup besar dan tidak bertepi tajam.",
+        "variations": ["Pakai permainan ular tangga sederhana.", "Mainkan bertiga supaya menunggu giliran lebih lama."],
+        "materials_text": "Enam pasang kartu gambar"
+      },
+      "en": {
+        "title": "A Game For Two",
+        "summary": "A simple rule-based game, played through to the end even when losing.",
+        "learning_goal": "Following rules they didn't set, and staying to the finish without winning.",
+        "steps": [
+          { "title": "Choose a very short game", "body": "A matching game with six pairs. Long games almost always end before they finish." },
+          { "title": "State the rules before starting", "body": "Two sentences, then begin. Long rules are forgotten before play starts." },
+          { "title": "Don't always let them win", "body": "Winning and losing both need to be experienced. Always being let through makes losing a bitter shock later." },
+          { "title": "Name the feeling at the end", "body": "If they're upset, say: \"Losing doesn't feel nice. Want to play again?\" Acknowledge first, then offer." }
+        ],
+        "parent_tip": "Finishing a game while losing is a hard and valuable social skill. Value it more than the win.",
+        "safety_notes": "Use cards large enough to handle, with no sharp edges.",
+        "variations": ["Use a simple snakes and ladders board.", "Play with three people so waiting is longer."],
+        "materials_text": "Six pairs of picture cards"
+      }
+    }
+  },
+  {
+    "id": "ACT-0096",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "self_care", "secondary_domains": ["school_readiness", "cognitive"],
+    "skill_codes": ["independence", "following_steps"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["kertas", "spidol"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "morning",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Daftar Pagi Sendiri",
+        "summary": "Anak membuat daftar bergambar untuk rutinitas paginya, dan mencentang sendiri.",
+        "learning_goal": "Mengatur diri sendiri dengan alat bantu dari luar, keterampilan yang dibutuhkan di hari pertama sekolah.",
+        "steps": [
+          { "title": "Tanyakan apa saja langkahnya", "body": "Tanyakan: \"Pagi-pagi kita ngapain saja?\" Daftar dari dia akan jauh lebih dipakai daripada daftar dari Anda." },
+          { "title": "Gambar bersama, empat langkah", "body": "Biarkan ia yang menggambar meski tidak jelas. Gambarnya sendiri lebih mudah ia baca daripada gambar Anda." },
+          { "title": "Tempel setinggi matanya", "body": "Pasang di tempat ia lewat, pada ketinggian pandangannya." },
+          { "title": "Serahkan centangnya", "body": "Berikan spidol dan biarkan ia mencentang sendiri. Mencentang adalah bagian yang membuat daftar ini bekerja." }
+        ],
+        "parent_tip": "Daftar yang digambar anak sendiri hampir selalu lebih dipatuhi daripada daftar cetak yang rapi. Kepemilikan lebih kuat daripada kerapian.",
+        "safety_notes": "Gunakan spidol tidak beracun dan tempel daftarnya dengan aman supaya tidak lepas.",
+        "variations": ["Buat daftar untuk rutinitas tidur malam.", "Buat daftar untuk barang yang harus dibawa keluar rumah."],
+        "materials_text": "Kertas, spidol tidak beracun, dan lakban"
+      },
+      "en": {
+        "title": "Their Own Morning List",
+        "summary": "Your child draws a picture checklist for their morning and ticks it off themselves.",
+        "learning_goal": "Managing themselves with an external aid, a skill needed from the first day of school.",
+        "steps": [
+          { "title": "Ask what the steps are", "body": "Ask: \"What do we do in the mornings?\" A list from them gets used far more than a list from you." },
+          { "title": "Draw four steps together", "body": "Let them do the drawing even if it's unclear. Their own drawings are easier for them to read than yours." },
+          { "title": "Put it at their eye level", "body": "Fix it where they pass, at their height." },
+          { "title": "Hand over the ticking", "body": "Give them the marker and let them tick each step. Ticking is the part that makes the list work." }
+        ],
+        "parent_tip": "A list a child drew themselves is followed far more than a neatly printed one. Ownership beats tidiness.",
+        "safety_notes": "Use non-toxic markers and fix the list securely so it can't come down.",
+        "variations": ["Make a bedtime version.", "Make a list of what to take when going out."],
+        "materials_text": "Paper, non-toxic markers, and tape"
+      }
+    }
+  },
+  {
+    "id": "ACT-0097",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "language", "secondary_domains": ["cognitive", "school_readiness"],
+    "skill_codes": ["conversation", "problem_solving"],
+    "duration_minutes": 9, "difficulty": 3,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Bagaimana Kalau",
+        "summary": "Ajukan situasi yang belum terjadi, dan pikirkan jalan keluarnya bersama.",
+        "learning_goal": "Berpikir tentang kemungkinan, bukan hanya tentang yang sedang terjadi.",
+        "steps": [
+          { "title": "Ajukan satu situasi sederhana", "body": "Tanyakan: \"Bagaimana kalau hujan waktu kita mau ke taman?\" Situasi yang dekat dengan hidupnya, bukan yang mengada-ada." },
+          { "title": "Tunggu jawabannya dulu", "body": "Jangan tawarkan jalan keluar. Beri waktu lama; memikirkan yang belum terjadi itu melelahkan." },
+          { "title": "Terima dan kembangkan", "body": "Jawaban apa pun diterima, lalu tanyakan: \"Terus kalau itu nggak bisa?\" Pertanyaan lanjutan melatih fleksibilitas." },
+          { "title": "Berhenti di dua situasi", "body": "Dua pertanyaan sudah berat untuk satu sesi. Berhenti sebelum ia kehabisan tenaga." }
+        ],
+        "parent_tip": "Hindari situasi yang menakutkan seperti tersesat atau sakit. Situasi sehari-hari melatih kemampuan yang sama tanpa membuat anak cemas.",
+        "safety_notes": "Jangan gunakan skenario tentang kecelakaan, kehilangan orang tua, atau bahaya. Kalau anak sendiri mengangkat kekhawatiran, dengarkan dan tanggapi dengan tenang.",
+        "variations": ["Pakai situasi dari cerita yang baru dibaca.", "Minta ia yang membuat pertanyaan untuk Anda."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "What If",
+        "summary": "Pose a situation that hasn't happened and work out what to do about it.",
+        "learning_goal": "Thinking about possibilities rather than only about what's happening now.",
+        "steps": [
+          { "title": "Pose one simple situation", "body": "Ask: \"What if it rains when we're going to the park?\" Something close to their life, not far-fetched." },
+          { "title": "Wait for their answer first", "body": "Don't offer a solution. Leave plenty of time; thinking about the hypothetical is tiring." },
+          { "title": "Accept it and build on it", "body": "Take any answer, then ask: \"And what if that doesn't work?\" The follow-up builds flexibility." },
+          { "title": "Stop after two situations", "body": "Two questions is heavy for one session. Stop before they run out of steam." }
+        ],
+        "parent_tip": "Avoid frightening scenarios such as getting lost or being ill. Everyday situations build the same skill without making a child anxious.",
+        "safety_notes": "Don't use scenarios about accidents, losing a parent, or danger. If your child raises a worry themselves, listen and respond calmly.",
+        "variations": ["Use a situation from a story you've just read.", "Let them set the question for you."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0098",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "motor", "secondary_domains": ["school_readiness"],
+    "skill_codes": ["fine_motor", "focus_persistence"],
+    "duration_minutes": 12, "difficulty": 3,
+    "materials": ["kertas", "tali", "krayon"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Jahit Kartu",
+        "summary": "Kartu berlubang dijahit dengan tali, mengikuti urutan lubangnya.",
+        "learning_goal": "Kendali jari yang halus dan ketekunan menyelesaikan tugas yang butuh waktu.",
+        "steps": [
+          { "title": "Siapkan kartunya", "body": "Gambar bentuk sederhana di kertas tebal dan lubangi tepinya dengan jarak dua jari. Anda yang melubangi, bukan anak." },
+          { "title": "Ikat tali di lubang pertama", "body": "Gunakan tali tebal dengan ujung dikeraskan lakban supaya mudah masuk. Tanpa jarum." },
+          { "title": "Jahit dua lubang bersama", "body": "Masukkan tali dari atas lalu dari bawah, pelan, sambil menyebut: \"atas, bawah\"." },
+          { "title": "Serahkan dan biarkan lambat", "body": "Biarkan ia melanjutkan dengan kecepatannya. Aktivitas ini memang lambat, dan itu bagian dari latihannya." }
+        ],
+        "parent_tip": "Jarak lubang dua jari sudah cukup lebar. Lubang yang terlalu rapat membuat anak menyerah di tengah jalan.",
+        "safety_notes": "Tanpa jarum sama sekali. Gunakan tali yang pendek, maksimal sepanjang lengan anak, untuk menghindari risiko melilit. Dampingi sepanjang waktu, dan simpan talinya setelah selesai.",
+        "variations": ["Jahit mengikuti pola warna lubang.", "Pakai tali sepatu bekas yang ujungnya sudah keras."],
+        "materials_text": "Kertas tebal berlubang, tali tebal pendek, dan krayon"
+      },
+      "en": {
+        "title": "Lacing Cards",
+        "summary": "A punched card laced with cord, following the holes in order.",
+        "learning_goal": "Fine finger control and the persistence to finish something that takes time.",
+        "steps": [
+          { "title": "Prepare the card", "body": "Draw a simple shape on thick paper and punch holes round the edge two fingers apart. You punch them, not your child." },
+          { "title": "Tie the cord at the first hole", "body": "Use thick cord with the end stiffened with tape so it feeds easily. No needle." },
+          { "title": "Lace two holes together", "body": "Go in from the top, then from underneath, slowly, saying: \"over, under\"." },
+          { "title": "Hand it over and let it be slow", "body": "Let them continue at their own pace. This activity is slow, and the slowness is the practice." }
+        ],
+        "parent_tip": "Two fingers apart is wide enough. Holes too close together make a child give up partway.",
+        "safety_notes": "No needle at any point. Use a short cord, no longer than your child's arm, to avoid any wrapping risk. Supervise throughout, and put the cord away afterwards.",
+        "variations": ["Lace following a colour pattern on the holes.", "Use an old shoelace, which already has a stiff end."],
+        "materials_text": "Punched thick paper, short thick cord, and crayons"
+      }
+    }
+  },
+  {
+    "id": "ACT-0099",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "creativity", "secondary_domains": ["language", "social_emotional"],
+    "skill_codes": ["storytelling", "art_making"],
+    "duration_minutes": 15, "difficulty": 3,
+    "materials": ["kertas", "krayon", "lakban"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Buku Buatan Sendiri",
+        "summary": "Empat lembar kertas dilipat jadi buku, dan anak yang mengisi ceritanya.",
+        "learning_goal": "Memahami bahwa buku dibuat oleh orang, dan bahwa ia sendiri bisa membuatnya.",
+        "steps": [
+          { "title": "Lipat dan satukan kertasnya", "body": "Lipat empat lembar jadi dua dan rekatkan di lipatannya. Buku fisik lebih berarti daripada lembaran lepas." },
+          { "title": "Tentukan ceritanya dulu", "body": "Tanyakan: \"Ceritanya tentang siapa?\" Bicarakan seluruh ceritanya sebelum menggambar apa pun." },
+          { "title": "Satu halaman, satu kejadian", "body": "Gambar satu kejadian per halaman. Ini yang mengajarkan cerita punya urutan." },
+          { "title": "Tulis kata-katanya persis", "body": "Tuliskan kalimatnya seperti yang ia ucapkan, tanpa diperbaiki, lalu bacakan bukunya bersama." }
+        ],
+        "parent_tip": "Membacakan buku buatannya sendiri di malam hari, sama seperti buku lain, memberi makna yang jauh lebih besar daripada proses membuatnya.",
+        "safety_notes": "Anda yang memotong kalau perlu memotong. Gunakan krayon dan lem tidak beracun, dan simpan gunting di luar jangkauan.",
+        "variations": ["Buat buku tentang hari yang baru saja dilalui.", "Buat buku tentang anggota keluarga, satu halaman per orang."],
+        "materials_text": "Empat lembar kertas, krayon tidak beracun, dan lakban"
+      },
+      "en": {
+        "title": "A Book They Made",
+        "summary": "Four sheets folded into a book, with your child filling in the story.",
+        "learning_goal": "Understanding that books are made by people, and that they can make one.",
+        "steps": [
+          { "title": "Fold and bind the paper", "body": "Fold four sheets in half and tape along the fold. A physical book means more than loose sheets." },
+          { "title": "Decide the story first", "body": "Ask: \"Who is it about?\" Talk the whole story through before drawing anything." },
+          { "title": "One page, one event", "body": "Draw one event per page. This is what teaches that a story has an order." },
+          { "title": "Write their exact words", "body": "Write the sentence as they said it, uncorrected, then read the book together." }
+        ],
+        "parent_tip": "Reading their own book at bedtime, alongside the others, gives it far more meaning than the making did.",
+        "safety_notes": "You do any cutting. Use non-toxic crayons and glue, and keep scissors out of reach.",
+        "variations": ["Make a book about the day they've just had.", "Make a book about the family, one page each."],
+        "materials_text": "Four sheets of paper, non-toxic crayons, and tape"
+      }
+    }
+  },
+  {
+    "id": "ACT-0100",
+    "age_min_months": 48, "age_max_months": 60, "age_band_code": "m48_60",
+    "primary_domain": "school_readiness", "secondary_domains": ["social_emotional", "language"],
+    "skill_codes": ["independence", "conversation"],
+    "duration_minutes": 10, "difficulty": 3,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Latihan Minta Tolong",
+        "summary": "Latih kalimat untuk meminta bantuan, sebelum ia benar-benar membutuhkannya.",
+        "learning_goal": "Punya kalimat siap pakai untuk meminta tolong kepada orang dewasa di luar rumah.",
+        "steps": [
+          { "title": "Sepakati satu kalimat", "body": "Misalnya: \"Bu, saya butuh bantuan.\" Satu kalimat yang sama, dilatih berulang, lebih mudah diingat saat panik." },
+          { "title": "Perankan situasinya", "body": "Anda jadi gurunya, ia yang meminta. Perankan dua situasi: haus, dan tidak bisa membuka tas." },
+          { "title": "Latih juga nada suaranya", "body": "Dorong suara yang cukup keras. Banyak anak tahu kalimatnya tapi mengucapkannya terlalu pelan untuk didengar." },
+          { "title": "Tukar peran", "body": "Biarkan ia jadi orang dewasa dan Anda yang meminta tolong. Berganti peran membuat polanya lebih melekat." }
+        ],
+        "parent_tip": "Dilatih saat tenang, kalimat ini jauh lebih mungkin keluar saat anak benar-benar butuh. Kemampuan ini sering lebih penting daripada hafal huruf.",
+        "safety_notes": "Latih juga siapa yang aman dimintai tolong di tempat umum, misalnya petugas berseragam atau orang tua yang sedang bersama anaknya. Sesuaikan dengan aturan keselamatan yang Anda terapkan di keluarga.",
+        "variations": ["Latih mengatakan nama lengkapnya dengan jelas.", "Latih kalimat untuk mengatakan tidak mau dengan sopan."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Practising Asking For Help",
+        "summary": "Rehearse the sentence for asking an adult for help, before it's actually needed.",
+        "learning_goal": "Having a ready-made sentence for asking adults outside the family for help.",
+        "steps": [
+          { "title": "Agree one sentence", "body": "For example: \"Excuse me, I need help.\" The same sentence, rehearsed repeatedly, is easier to recall under stress." },
+          { "title": "Act out the situation", "body": "You be the teacher, they do the asking. Act out two cases: thirsty, and can't open a bag." },
+          { "title": "Practise the volume too", "body": "Encourage a voice loud enough to be heard. Many children know the words but say them too quietly." },
+          { "title": "Swap roles", "body": "Let them be the adult and you ask for help. Swapping makes the pattern stick." }
+        ],
+        "parent_tip": "Rehearsed calmly, this sentence is far more likely to come out when it's genuinely needed. This skill often matters more than knowing letters.",
+        "safety_notes": "Also practise who is safe to ask in public, such as a uniformed member of staff or a parent with their own child. Fit this to the safety rules your family already uses.",
+        "variations": ["Practise saying their full name clearly.", "Practise a sentence for politely saying no."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  }
+]

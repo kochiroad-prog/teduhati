@@ -1,0 +1,422 @@
+[
+  {
+    "id": "ACT-0021",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "sensory", "secondary_domains": ["cognitive", "motor"],
+    "skill_codes": ["texture_explore", "attention"],
+    "duration_minutes": 8, "difficulty": 1,
+    "materials": ["keranjang", "kain", "sendok"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Keranjang Benda Aman",
+        "summary": "Satu keranjang berisi empat benda rumah tangga yang aman, dan bayi memilih sendiri.",
+        "learning_goal": "Eksplorasi mandiri: bayi memutuskan apa yang ingin diperiksa, bukan Anda.",
+        "steps": [
+          { "title": "Isi keranjang dengan empat benda", "body": "Pilih yang berbeda bentuk dan bahannya: sendok logam, kain, gelas plastik, dan kain rajut. Semua harus lebih besar dari mulut bayi." },
+          { "title": "Letakkan di depannya, lalu diam", "body": "Taruh keranjang di depan bayi yang sedang duduk bersandar atau tengkurap. Jangan tunjukkan apa pun dulu." },
+          { "title": "Beri nama benda yang ia pilih", "body": "Saat ia mengambil sesuatu, sebut namanya satu kali. Lalu diam dan biarkan ia memeriksa." },
+          { "title": "Isi ulang keranjangnya", "body": "Kembalikan benda yang dibuang ke keranjang tanpa komentar. Mengeluarkan dan memasukkan adalah permainannya sendiri." }
+        ],
+        "parent_tip": "Empat benda sudah banyak. Kalau bayi tampak kewalahan atau hanya melempar semuanya, kurangi jadi dua.",
+        "safety_notes": "Setiap benda harus lebih besar dari lubang tisu toilet, tanpa bagian yang bisa lepas, tanpa sudut tajam, dan sudah dicuci. Dampingi sepanjang waktu.",
+        "variations": ["Ganti satu benda setiap hari supaya ada yang baru tanpa mengubah seluruhnya.", "Buat keranjang bertema satu bahan, misalnya semua benda dari kayu."],
+        "materials_text": "Satu keranjang dan empat benda rumah tangga yang aman"
+      },
+      "en": {
+        "title": "Basket Of Safe Things",
+        "summary": "One basket with four safe household objects, and your baby picks for themselves.",
+        "learning_goal": "Independent exploration: your baby decides what to investigate, not you.",
+        "steps": [
+          { "title": "Fill a basket with four objects", "body": "Choose different shapes and materials: a metal spoon, a cloth, a plastic cup, a knitted square. All must be bigger than your baby's mouth." },
+          { "title": "Put it down and stay quiet", "body": "Place the basket in front of your baby, sitting supported or on their tummy. Don't demonstrate anything first." },
+          { "title": "Name what they pick", "body": "When they take something, say its name once. Then be quiet and let them examine it." },
+          { "title": "Refill the basket", "body": "Return discarded objects to the basket without comment. Taking out and putting back is their own game." }
+        ],
+        "parent_tip": "Four objects is already a lot. If your baby seems overwhelmed or just throws everything, cut it to two.",
+        "safety_notes": "Every object must be larger than a toilet roll tube, with no removable parts, no sharp edges, and washed. Stay with them throughout.",
+        "variations": ["Swap one object each day so there is something new without changing everything.", "Make a themed basket of one material, such as all wooden objects."],
+        "materials_text": "A basket and four safe household objects"
+      }
+    }
+  },
+  {
+    "id": "ACT-0022",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "motor", "secondary_domains": ["cognitive"],
+    "skill_codes": ["sitting_crawling", "problem_solving"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["bola", "selimut"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": "CDC Developmental Milestones",
+    "t": {
+      "id": {
+        "title": "Ambil Mainan dari Sisi",
+        "summary": "Letakkan benda menarik sedikit di luar jangkauan, dan biarkan bayi berusaha mencapainya.",
+        "learning_goal": "Mendorong gerakan berpindah: berputar, merayap, atau merangkak menuju tujuan.",
+        "steps": [
+          { "title": "Tengkurapkan di lantai luas", "body": "Gelar selimut di lantai, dan letakkan bayi tengkurap dengan ruang bebas di sekelilingnya." },
+          { "title": "Taruh bola sedikit di luar jangkauan", "body": "Letakkan bola sekitar 20 cm dari ujung tangannya. Harus terlihat mungkin dicapai, bukan mustahil." },
+          { "title": "Tunggu dan beri semangat", "body": "Jangan dorong badannya. Panggil namanya dan sebut: \"Bolanya di situ.\" Berusaha adalah inti aktivitas ini." },
+          { "title": "Dekatkan kalau ia frustrasi", "body": "Kalau ia mulai merengek, geser bola sedikit lebih dekat sampai bisa dicapai. Selesai dengan keberhasilan, bukan kekesalan." }
+        ],
+        "parent_tip": "Jarak 20 cm biasanya tepat. Terlalu jauh dan bayi berhenti mencoba, terlalu dekat dan tidak ada usaha.",
+        "safety_notes": "Pastikan lantai bersih dan tidak ada benda kecil, kabel, atau sudut meja dalam radius jangkauan. Setelah bayi mulai bergerak, periksa lantai setiap kali.",
+        "variations": ["Gunakan benda yang bergulir supaya hasilnya berubah setiap kali tersentuh.", "Duduk di jarak itu dan jadilah Anda sendiri tujuannya."],
+        "materials_text": "Satu bola atau mainan kesayangan, dan selimut"
+      },
+      "en": {
+        "title": "Fetch From The Side",
+        "summary": "Put something interesting just out of reach and let your baby work at getting to it.",
+        "learning_goal": "Encourages moving across the floor: pivoting, scooting, or crawling towards a goal.",
+        "steps": [
+          { "title": "Tummy down on open floor", "body": "Spread a blanket and put your baby face down with clear space all round them." },
+          { "title": "Place the ball just out of reach", "body": "Set it about 20 cm past their fingertips. It has to look possible, not impossible." },
+          { "title": "Wait and encourage", "body": "Don't push their body. Call their name and say: \"The ball's over there.\" The effort is the whole activity." },
+          { "title": "Move it closer if they get stuck", "body": "If they start to grumble, slide the ball nearer until they can get it. End on success, not frustration." }
+        ],
+        "parent_tip": "About 20 cm is usually right. Too far and a baby stops trying; too close and there is no effort.",
+        "safety_notes": "Check the floor is clean and clear of small items, cables, and table corners within reach. Once your baby is mobile, check the floor every time.",
+        "variations": ["Use something that rolls, so the result changes each time they touch it.", "Sit at that distance and be the goal yourself."],
+        "materials_text": "A ball or favourite toy, and a blanket"
+      }
+    }
+  },
+  {
+    "id": "ACT-0023",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "cognitive", "secondary_domains": ["sensory"],
+    "skill_codes": ["cause_effect", "auditory"],
+    "duration_minutes": 7, "difficulty": 1,
+    "materials": ["mangkuk", "sendok"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Tekan dan Dengarkan",
+        "summary": "Tunjukkan bahwa memukul mangkuk dengan sendok menghasilkan suara, lalu serahkan sendoknya.",
+        "learning_goal": "Memahami bahwa perbuatannya sendiri bisa mengubah dunia, dan mengulangnya dengan sengaja.",
+        "steps": [
+          { "title": "Balik mangkuk di lantai", "body": "Letakkan mangkuk logam atau plastik tebal dalam posisi terbalik di depan bayi yang sedang duduk." },
+          { "title": "Pukul satu kali, lalu diam", "body": "Ketuk mangkuk dengan sendok satu kali. Berhenti dan lihat reaksinya." },
+          { "title": "Serahkan sendoknya", "body": "Berikan sendok ke tangannya dan jangan bimbing. Tunggu sampai ia mencoba sendiri." },
+          { "title": "Balas setiap ketukannya", "body": "Setiap kali ia mengetuk, Anda ketuk balik satu kali. Permainan ini berubah menjadi bergiliran." }
+        ],
+        "parent_tip": "Kalau ia memukul terus tanpa berhenti, biarkan. Pengulangan adalah cara bayi memastikan bahwa hasilnya selalu sama.",
+        "safety_notes": "Gunakan sendok tumpul tanpa ujung tajam, dan mangkuk yang tidak pecah. Jangan gunakan keramik atau kaca.",
+        "variations": ["Siapkan dua wadah dengan suara berbeda dan bandingkan.", "Pukul dengan tangan saja, tanpa sendok, untuk bayi yang belum menggenggam kuat."],
+        "materials_text": "Satu mangkuk logam atau plastik tebal, dan satu sendok tumpul"
+      },
+      "en": {
+        "title": "Hit It And Listen",
+        "summary": "Show that tapping a bowl with a spoon makes a sound, then hand over the spoon.",
+        "learning_goal": "Understanding that their own action changes the world, and repeating it on purpose.",
+        "steps": [
+          { "title": "Turn a bowl upside down", "body": "Place a metal or thick plastic bowl face down in front of your sitting baby." },
+          { "title": "Tap once, then stop", "body": "Strike the bowl with the spoon a single time. Stop and watch their reaction." },
+          { "title": "Hand over the spoon", "body": "Put the spoon in their hand and don't guide it. Wait for them to try it themselves." },
+          { "title": "Answer every tap", "body": "Each time they tap, tap back once. The game turns into taking turns." }
+        ],
+        "parent_tip": "If they bang away without stopping, let them. Repetition is how a baby confirms the result is always the same.",
+        "safety_notes": "Use a blunt spoon with no sharp edge and an unbreakable bowl. No ceramic or glass.",
+        "variations": ["Offer two containers with different sounds and compare.", "Use hands instead of a spoon for a baby whose grip isn't firm yet."],
+        "materials_text": "A metal or thick plastic bowl and a blunt spoon"
+      }
+    }
+  },
+  {
+    "id": "ACT-0024",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "language", "secondary_domains": ["cognitive"],
+    "skill_codes": ["gesture", "vocabulary"],
+    "duration_minutes": 6, "difficulty": 1,
+    "materials": ["bola", "boneka"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Mana Bolanya",
+        "summary": "Sebut nama benda, lalu tunjuk, dan ulangi sampai bayi mulai mengikuti arah tunjukan Anda.",
+        "learning_goal": "Mengikuti tunjukan orang lain, keterampilan sosial yang mendahului kata pertama.",
+        "steps": [
+          { "title": "Letakkan dua benda berjarak", "body": "Taruh bola dan boneka terpisah sekitar satu meter, dua-duanya terlihat dari tempat bayi duduk." },
+          { "title": "Sebut sambil menunjuk", "body": "Katakan \"Mana bolanya?\" lalu tunjuk dengan jelas ke bola. Tahan jari Anda beberapa detik." },
+          { "title": "Tunggu matanya bergerak", "body": "Perhatikan apakah ia mengikuti arah tangan Anda. Kalau belum, dekati bolanya dan tunjuk dari dekat." },
+          { "title": "Ganti ke benda yang lain", "body": "Ulangi dengan boneka. Dua benda saja cukup, supaya pilihannya jelas." }
+        ],
+        "parent_tip": "Mengikuti tunjukan biasanya muncul antara delapan dan dua belas bulan. Kalau belum, menunjuk dari dekat dulu adalah langkah yang benar.",
+        "safety_notes": "Pastikan tidak ada benda kecil di jalur yang akan ia tempuh menuju benda itu.",
+        "variations": ["Gunakan anggota keluarga sebagai sasaran: \"Mana Ayah?\"", "Tunjuk tanpa bicara, dan lihat apakah ia tetap mengikuti."],
+        "materials_text": "Dua benda yang sudah dikenal bayi"
+      },
+      "en": {
+        "title": "Where's The Ball",
+        "summary": "Name an object, point at it, and repeat until your baby starts following where you point.",
+        "learning_goal": "Following someone else's point, a social skill that comes before first words.",
+        "steps": [
+          { "title": "Place two objects apart", "body": "Set a ball and a soft toy about a metre apart, both visible from where your baby is sitting." },
+          { "title": "Name it and point", "body": "Say \"Where's the ball?\" then point clearly at it. Hold your finger there for a few seconds." },
+          { "title": "Wait for their eyes to move", "body": "Watch whether they follow your hand. If not, go closer to the ball and point from there." },
+          { "title": "Switch to the other object", "body": "Repeat with the soft toy. Two objects is enough to keep the choice clear." }
+        ],
+        "parent_tip": "Following a point usually appears between eight and twelve months. If it hasn't yet, pointing up close first is exactly the right step.",
+        "safety_notes": "Check there are no small objects along the path they will travel to get there.",
+        "variations": ["Use family members as the target: \"Where's Dad?\"", "Point without speaking and see whether they still follow."],
+        "materials_text": "Two objects your baby already knows"
+      }
+    }
+  },
+  {
+    "id": "ACT-0025",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "social_emotional", "secondary_domains": ["language"],
+    "skill_codes": ["turn_taking", "social_response"],
+    "duration_minutes": 6, "difficulty": 1,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Giliran Tepuk Tangan",
+        "summary": "Tepuk tangan satu kali, lalu tunggu. Ketika ia menanggapi, tepuk lagi.",
+        "learning_goal": "Membangun pola bergiliran, dasar percakapan dan bermain bersama.",
+        "steps": [
+          { "title": "Duduk berhadapan", "body": "Posisikan bayi duduk bersandar atau di kursi makannya, wajah Anda sejajar dengan wajahnya." },
+          { "title": "Tepuk satu kali saja", "body": "Tepuk tangan sekali, tidak keras, lalu turunkan tangan dan diam." },
+          { "title": "Tunggu balasan apa pun", "body": "Tunggu lima detik penuh. Tepukan, suara, atau gerakan tangan, semuanya hitung sebagai giliran dia." },
+          { "title": "Balas giliran dia", "body": "Setelah ia merespons, tepuk lagi satu kali. Lanjutkan selama ia masih tertarik." }
+        ],
+        "parent_tip": "Lima detik terasa lama, dan itulah sebabnya banyak orang tua melewatkannya. Jeda inilah yang mengajarkan giliran.",
+        "safety_notes": "Tidak ada risiko khusus. Jangan bertepuk keras di dekat telinganya.",
+        "variations": ["Ganti tepuk dengan menepuk meja.", "Tambahkan satu kata setiap tepukan supaya ada pola bunyi."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Clapping Turns",
+        "summary": "Clap once, then wait. When they respond, clap again.",
+        "learning_goal": "Builds the pattern of taking turns, the basis of conversation and playing together.",
+        "steps": [
+          { "title": "Sit face to face", "body": "Have your baby sitting supported or in their high chair, your face level with theirs." },
+          { "title": "Clap just once", "body": "Clap softly a single time, then lower your hands and go still." },
+          { "title": "Wait for any answer", "body": "Wait a full five seconds. A clap, a sound, or a hand movement all count as their turn." },
+          { "title": "Answer their turn", "body": "Once they respond, clap once more. Keep going while they're still interested." }
+        ],
+        "parent_tip": "Five seconds feels long, which is why most parents skip it. That pause is what teaches turns.",
+        "safety_notes": "No particular risk. Don't clap loudly near their ears.",
+        "variations": ["Swap clapping for tapping the table.", "Add one word per clap so there is a sound pattern."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0026",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "cognitive", "secondary_domains": ["motor"],
+    "skill_codes": ["problem_solving", "fine_motor"],
+    "duration_minutes": 7, "difficulty": 2,
+    "materials": ["kain", "boneka"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Mainan di Bawah Kain",
+        "summary": "Tutupi mainan dengan kain di depan matanya, dan lihat apakah ia mencarinya.",
+        "learning_goal": "Memahami bahwa benda tetap ada meski tidak terlihat, salah satu lompatan berpikir terbesar di tahun pertama.",
+        "steps": [
+          { "title": "Mainkan mainannya dulu", "body": "Pastikan ia benar-benar tertarik pada mainan itu sebelum disembunyikan." },
+          { "title": "Tutup separuh saja", "body": "Letakkan kain menutupi sebagian mainan, dengan sedikit bagian masih terlihat. Ini versi paling mudah." },
+          { "title": "Tunggu ia menyingkap", "body": "Jangan bantu. Kalau ia menarik kainnya, rayakan: \"Ada!\"" },
+          { "title": "Naikkan tingkat kesulitan", "body": "Setelah berhasil, tutupi seluruhnya. Kalau ia berhenti mencari, kembali ke versi separuh." }
+        ],
+        "parent_tip": "Kalau ia tidak mencari saat tertutup penuh, bukan berarti ia lupa. Keterampilan ini berkembang bertahap, biasanya matang sekitar delapan bulan.",
+        "safety_notes": "Gunakan kain tipis yang mudah disingkap, dan jangan letakkan di dekat wajahnya.",
+        "variations": ["Sembunyikan di bawah gelas terbalik, bukan kain.", "Sembunyikan di salah satu dari dua kain dan lihat apakah ia ingat yang mana."],
+        "materials_text": "Satu kain tipis dan satu mainan kesayangan"
+      },
+      "en": {
+        "title": "Toy Under The Cloth",
+        "summary": "Cover a toy with a cloth while they watch, and see whether they look for it.",
+        "learning_goal": "Understanding that things still exist when hidden, one of the biggest leaps in thinking of the first year.",
+        "steps": [
+          { "title": "Play with the toy first", "body": "Make sure they are genuinely interested in it before it goes anywhere." },
+          { "title": "Cover only half of it", "body": "Lay the cloth over part of the toy, leaving a bit showing. This is the easiest version." },
+          { "title": "Wait for them to uncover it", "body": "Don't help. If they pull the cloth away, celebrate: \"There it is!\"" },
+          { "title": "Make it harder", "body": "Once they manage that, cover it completely. If they stop looking, go back to the half-covered version." }
+        ],
+        "parent_tip": "If they don't search when it's fully covered, they haven't forgotten. This skill develops gradually and usually settles around eight months.",
+        "safety_notes": "Use a thin cloth that lifts easily, and keep it away from their face.",
+        "variations": ["Hide it under an upturned cup instead of a cloth.", "Hide it under one of two cloths and see whether they remember which."],
+        "materials_text": "A thin cloth and a favourite toy"
+      }
+    }
+  },
+  {
+    "id": "ACT-0027",
+    "age_min_months": 7, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "self_care", "secondary_domains": ["motor"],
+    "skill_codes": ["self_feeding", "fine_motor"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["mangkuk"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Pegang Sendiri, Satu Potong",
+        "summary": "Satu potong makanan lunak di nampan, dan bayi membawanya sendiri ke mulut.",
+        "learning_goal": "Melatih koordinasi tangan ke mulut dan rasa mampu melakukan sendiri.",
+        "steps": [
+          { "title": "Pastikan ia siap", "body": "Bayi harus sudah bisa duduk tegak dengan baik dan sudah mulai makan makanan padat. Kalau belum, tunda aktivitas ini." },
+          { "title": "Sediakan satu potong saja", "body": "Letakkan satu potong makanan lunak seukuran jari di nampan kursi makannya. Satu, bukan beberapa." },
+          { "title": "Diam dan biarkan", "body": "Jangan suapi, jangan arahkan tangannya. Biarkan ia menjatuhkan, melumat, atau memeriksanya." },
+          { "title": "Tambah setelah yang pertama habis", "body": "Beri potongan berikutnya hanya setelah yang pertama selesai atau dibuang." }
+        ],
+        "parent_tip": "Sebagian besar makanan tidak akan masuk mulut, dan itu wajar. Tujuan aktivitas ini bukan jumlah makanan, tapi latihan tangan.",
+        "safety_notes": "Risiko tersedak serius. Bayi harus duduk tegak dan selalu didampingi, tidak pernah makan sambil berbaring atau bergerak. Makanan harus cukup lunak untuk dilumat dengan gusi. Hindari potongan keras, bulat, atau licin seperti anggur utuh, kacang, dan wortel mentah. Kenali tanda tersedak sebelum mulai, dan bicarakan dengan dokter atau bidan tentang kesiapan anak Anda.",
+        "variations": ["Mulai dengan makanan yang mudah digenggam karena bentuknya panjang.", "Lakukan hanya di awal makan saat ia masih sabar."],
+        "materials_text": "Kursi makan, nampan, dan satu potong makanan lunak"
+      },
+      "en": {
+        "title": "Hold It Yourself, One Piece",
+        "summary": "One piece of soft food on the tray, and your baby brings it to their own mouth.",
+        "learning_goal": "Practises hand-to-mouth coordination and the feeling of managing it themselves.",
+        "steps": [
+          { "title": "Check they're ready", "body": "Your baby should sit upright well and already be eating solids. If not, hold this activity back." },
+          { "title": "Offer one piece only", "body": "Put a single finger-sized piece of soft food on the high-chair tray. One, not several." },
+          { "title": "Be quiet and let them", "body": "Don't spoon it in or steer their hand. Let them drop it, squash it, or inspect it." },
+          { "title": "Add more once the first is gone", "body": "Offer the next piece only after the first is finished or discarded." }
+        ],
+        "parent_tip": "Most of the food won't reach their mouth, and that's normal. The point isn't how much they eat, it's the hand practice.",
+        "safety_notes": "Serious choking risk. Your baby must be sitting upright and supervised at all times, never eating lying down or on the move. Food must be soft enough to squash with gums. Avoid hard, round, or slippery pieces such as whole grapes, nuts, and raw carrot. Learn the signs of choking before you start, and talk to your doctor or health visitor about your child's readiness.",
+        "variations": ["Start with a long shape that is easy to grip.", "Do it only at the start of a meal while they are still patient."],
+        "materials_text": "A high chair, a tray, and one piece of soft food"
+      }
+    }
+  },
+  {
+    "id": "ACT-0028",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "creativity", "secondary_domains": ["sensory", "motor"],
+    "skill_codes": ["music_movement", "auditory"],
+    "duration_minutes": 7, "difficulty": 1,
+    "materials": ["gelas_plastik", "sendok"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Orkestra Dapur",
+        "summary": "Tiga wadah dapur dengan bunyi berbeda, dan bayi memilih mana yang ingin dipukul.",
+        "learning_goal": "Membedakan bunyi, dan mengalami bahwa benda berbeda menghasilkan suara berbeda.",
+        "steps": [
+          { "title": "Susun tiga wadah", "body": "Letakkan gelas plastik, mangkuk logam, dan satu wadah kayu atau kardus berjajar di depan bayi." },
+          { "title": "Pukul masing-masing satu kali", "body": "Ketuk setiap wadah sekali, berurutan, dengan jeda di antaranya supaya perbedaannya terdengar." },
+          { "title": "Serahkan sendoknya", "body": "Berikan sendok dan tunggu. Biarkan ia memilih sendiri wadah mana yang menarik." },
+          { "title": "Tirukan pilihannya", "body": "Pukul wadah yang sama dengan yang ia pilih. Ini menjadi percakapan lewat bunyi." }
+        ],
+        "parent_tip": "Jangan perbaiki caranya memukul. Bayi perlu mencoba keras dan lembut untuk tahu bedanya.",
+        "safety_notes": "Hanya gunakan wadah yang tidak pecah dan tidak bertepi tajam. Jangan gunakan kaca atau keramik. Awasi supaya sendok tidak masuk terlalu dalam ke mulut.",
+        "variations": ["Isi satu wadah dengan air supaya bunyinya berubah.", "Balik satu wadah dan bandingkan bunyinya saat tertutup dan terbuka."],
+        "materials_text": "Tiga wadah dapur yang tidak pecah dan satu sendok tumpul"
+      },
+      "en": {
+        "title": "Kitchen Orchestra",
+        "summary": "Three kitchen containers with different sounds, and your baby picks which to hit.",
+        "learning_goal": "Telling sounds apart, and discovering that different objects make different noises.",
+        "steps": [
+          { "title": "Line up three containers", "body": "Set a plastic cup, a metal bowl, and a wooden or cardboard container in a row in front of your baby." },
+          { "title": "Tap each one once", "body": "Strike each in turn, with a pause between, so the differences are audible." },
+          { "title": "Hand over the spoon", "body": "Give them the spoon and wait. Let them choose which container interests them." },
+          { "title": "Copy their choice", "body": "Tap the same container they chose. It becomes a conversation in sound." }
+        ],
+        "parent_tip": "Don't correct how they hit things. Babies need to try hard and soft to learn the difference.",
+        "safety_notes": "Use only unbreakable containers with no sharp rims. No glass or ceramic. Watch that the spoon doesn't go too far into their mouth.",
+        "variations": ["Fill one container with water so its sound changes.", "Turn one upside down and compare covered and open."],
+        "materials_text": "Three unbreakable kitchen containers and a blunt spoon"
+      }
+    }
+  },
+  {
+    "id": "ACT-0029",
+    "age_min_months": 7, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "motor", "secondary_domains": ["cognitive"],
+    "skill_codes": ["fine_motor", "sorting"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["keranjang", "gelas_plastik"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Masuk dan Keluar",
+        "summary": "Satu keranjang dan beberapa gelas plastik, untuk dimasukkan dan dikeluarkan berulang kali.",
+        "learning_goal": "Mengenal konsep di dalam dan di luar, serta melatih melepaskan benda dengan sengaja.",
+        "steps": [
+          { "title": "Siapkan wadah dan isinya", "body": "Letakkan keranjang terbuka dan tiga gelas plastik di depan bayi yang sedang duduk." },
+          { "title": "Masukkan satu, dengan sengaja terlihat", "body": "Ambil satu gelas, pegang di atas keranjang, lalu lepaskan. Katakan \"masuk\" saat jatuh." },
+          { "title": "Keluarkan satu", "body": "Ambil gelas itu kembali dan katakan \"keluar\". Dua kata ini jadi penanda dua gerakan berbeda." },
+          { "title": "Serahkan dan tunggu", "body": "Berikan gelas ke tangannya. Mengeluarkan biasanya dikuasai lebih dulu daripada memasukkan, jadi jangan heran kalau ia hanya mengosongkan." }
+        ],
+        "parent_tip": "Melepaskan benda dengan sengaja lebih sulit daripada menggenggam. Kalau ia belum bisa melepas di atas keranjang, ia belum siap, dan itu wajar.",
+        "safety_notes": "Gunakan gelas plastik yang jelas lebih besar dari mulut bayi, tanpa retakan atau tepi tajam.",
+        "variations": ["Pakai dua wadah dan pindahkan isinya dari satu ke yang lain.", "Gunakan wadah dengan mulut lebih kecil untuk menaikkan kesulitan."],
+        "materials_text": "Satu keranjang dan tiga gelas plastik"
+      },
+      "en": {
+        "title": "In And Out",
+        "summary": "One basket and a few plastic cups, to put in and take out over and over.",
+        "learning_goal": "Meeting the ideas of in and out, and practising letting go of something on purpose.",
+        "steps": [
+          { "title": "Set out the container and contents", "body": "Place an open basket and three plastic cups in front of your sitting baby." },
+          { "title": "Put one in, visibly", "body": "Pick up a cup, hold it over the basket, then release. Say \"in\" as it drops." },
+          { "title": "Take one out", "body": "Lift that cup back out and say \"out\". Those two words mark two different actions." },
+          { "title": "Hand it over and wait", "body": "Put a cup in their hand. Taking out is usually mastered before putting in, so don't be surprised if they only empty it." }
+        ],
+        "parent_tip": "Letting go on purpose is harder than gripping. If they can't release over the basket yet, they aren't ready, and that's fine.",
+        "safety_notes": "Use plastic cups clearly bigger than your baby's mouth, with no cracks or sharp edges.",
+        "variations": ["Use two containers and move the contents from one to the other.", "Use a narrower opening to make it harder."],
+        "materials_text": "A basket and three plastic cups"
+      }
+    }
+  },
+  {
+    "id": "ACT-0030",
+    "age_min_months": 6, "age_max_months": 9, "age_band_code": "m06_09",
+    "primary_domain": "social_emotional", "secondary_domains": ["language"],
+    "skill_codes": ["bonding", "vocabulary"],
+    "duration_minutes": 8, "difficulty": 1,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": true, "source_reference": "WHO Nurturing Care",
+    "t": {
+      "id": {
+        "title": "Ceritakan Apa yang Ia Lihat",
+        "summary": "Gendong bayi berjalan di rumah, dan sebut setiap benda yang ia perhatikan.",
+        "learning_goal": "Mengaitkan kata dengan benda nyata, pada saat bayi sendiri yang memilih apa yang menarik.",
+        "steps": [
+          { "title": "Gendong menghadap ke depan", "body": "Gendong bayi sehingga ia bisa melihat ke arah yang ia mau, bukan hanya ke dada Anda." },
+          { "title": "Ikuti arah pandangnya", "body": "Berhenti ketika matanya berhenti. Biarkan ia yang memilih objeknya." },
+          { "title": "Sebut dan beri satu detail", "body": "Katakan nama bendanya, lalu satu hal tentangnya: \"Jendela. Dingin, ya.\" Boleh ia sentuh kalau aman." },
+          { "title": "Beri jeda sebelum pindah", "body": "Tunggu lima detik di setiap benda. Berpindah terlalu cepat membuat tidak ada kata yang menempel." }
+        ],
+        "parent_tip": "Kata yang menempel adalah kata untuk benda yang bayi sendiri sedang perhatikan. Mengikuti perhatiannya lebih efektif daripada mengarahkannya.",
+        "safety_notes": "Jauhkan dari sumber panas, benda tajam, tanaman, dan bahan pembersih saat berjalan. Pastikan gendongan aman dan kepala tertopang.",
+        "variations": ["Lakukan di halaman atau depan rumah untuk benda yang berbeda.", "Gunakan rute yang sama setiap hari supaya kata-katanya berulang."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Narrate What They Notice",
+        "summary": "Carry your baby around the house and name whatever they look at.",
+        "learning_goal": "Links words to real objects at the moment your baby has chosen what is interesting.",
+        "steps": [
+          { "title": "Carry them facing out", "body": "Hold your baby so they can look where they want, not only at your chest." },
+          { "title": "Follow their gaze", "body": "Stop when their eyes stop. Let them choose the object." },
+          { "title": "Name it and add one detail", "body": "Say what it is, then one thing about it: \"Window. It's cold, isn't it.\" Let them touch it if it's safe." },
+          { "title": "Pause before moving on", "body": "Wait five seconds at each thing. Moving on too fast means no word sticks." }
+        ],
+        "parent_tip": "The words that stick are the words for whatever your baby is already looking at. Following their attention beats directing it.",
+        "safety_notes": "Keep away from heat sources, sharp objects, plants, and cleaning products as you walk. Make sure your hold is secure and their head supported.",
+        "variations": ["Do it in the garden or outside the front door for different objects.", "Use the same route each day so the words repeat."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  }
+]

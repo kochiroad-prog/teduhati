@@ -1,0 +1,194 @@
+[
+  {
+    "id": "BND-0001", "age_min_months": 0, "age_max_months": 6, "moment_type": "morning",
+    "duration_minutes": 2, "music_mode": "morning", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 1,
+    "t": {
+      "id": { "title": "Sapaan Pertama Hari Ini", "prompt": "Sebelum mengangkatnya dari tempat tidur, tatap matanya dan sapa dengan namanya. Tunggu sampai ia menatap balik.", "why_it_matters": "Bayi belajar bahwa harinya dimulai dengan seseorang yang senang melihatnya." },
+      "en": { "title": "The First Hello", "prompt": "Before lifting them out of bed, meet their eyes and greet them by name. Wait until they look back.", "why_it_matters": "Your baby learns that the day begins with someone who is glad to see them." }
+    }
+  },
+  {
+    "id": "BND-0002", "age_min_months": 0, "age_max_months": 6, "moment_type": "meal",
+    "duration_minutes": 3, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 2,
+    "t": {
+      "id": { "title": "Menyusu Tanpa Layar", "prompt": "Satu kali menyusu hari ini, letakkan ponsel di ruangan lain. Perhatikan saja wajahnya.", "why_it_matters": "Bayi sangat peka pada perhatian yang terbagi, dan satu sesi penuh sudah terasa berbeda." },
+      "en": { "title": "One Feed, No Screen", "prompt": "For one feed today, leave your phone in another room. Just watch their face.", "why_it_matters": "Babies are sensitive to divided attention, and one undivided feed already feels different." }
+    }
+  },
+  {
+    "id": "BND-0003", "age_min_months": 0, "age_max_months": 6, "moment_type": "bedtime",
+    "duration_minutes": 3, "music_mode": "bedtime", "character_animation": "tumi-sleepy", "is_premium": false, "sort_order": 3,
+    "t": {
+      "id": { "title": "Tangan Diam di Dada", "prompt": "Setelah membaringkannya, letakkan satu tangan diam di dadanya selama satu menit penuh. Jangan menepuk, cukup diam.", "why_it_matters": "Sentuhan yang diam membantu bayi menurunkan ketegangan lebih cepat daripada gerakan." },
+      "en": { "title": "A Still Hand On The Chest", "prompt": "Once they're lying down, rest one still hand on their chest for a full minute. No patting, just stillness.", "why_it_matters": "Still touch helps a baby settle faster than movement does." }
+    }
+  },
+  {
+    "id": "BND-0004", "age_min_months": 0, "age_max_months": 9, "moment_type": "bath",
+    "duration_minutes": 3, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 4,
+    "t": {
+      "id": { "title": "Ceritakan Mandinya", "prompt": "Sebut setiap bagian tubuh yang Anda basuh, pelan, satu per satu.", "why_it_matters": "Mandi berubah dari tugas menjadi waktu bahasa, tanpa menambah waktu sedikit pun." },
+      "en": { "title": "Narrate The Bath", "prompt": "Name each part of the body as you wash it, slowly, one at a time.", "why_it_matters": "Bath time turns from a task into language time without taking a minute longer." }
+    }
+  },
+  {
+    "id": "BND-0005", "age_min_months": 3, "age_max_months": 12, "moment_type": "play",
+    "duration_minutes": 2, "music_mode": "play", "character_animation": "tumi-excited", "is_premium": false, "sort_order": 5,
+    "t": {
+      "id": { "title": "Ikuti Pilihannya", "prompt": "Selama dua menit, mainkan apa pun yang ia pegang. Jangan tawarkan mainan lain.", "why_it_matters": "Diikuti, bukan diarahkan, adalah pengalaman yang jarang didapat bayi dan sangat ia nikmati." },
+      "en": { "title": "Follow Their Choice", "prompt": "For two minutes, play with whatever they are already holding. Don't offer a different toy.", "why_it_matters": "Being followed rather than directed is rare for a baby, and they relish it." }
+    }
+  },
+  {
+    "id": "BND-0006", "age_min_months": 6, "age_max_months": 18, "moment_type": "anytime",
+    "duration_minutes": 1, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 6,
+    "t": {
+      "id": { "title": "Berhenti dan Berlutut", "prompt": "Sekali hari ini, berhenti dari apa pun yang Anda kerjakan, berlutut setinggi matanya, dan lihat apa yang sedang ia lihat.", "why_it_matters": "Sejajar dengan matanya mengubah seluruh rasa perhatian, bahkan dalam satu menit." },
+      "en": { "title": "Stop And Kneel", "prompt": "Once today, stop whatever you're doing, kneel to their eye level, and look at what they're looking at.", "why_it_matters": "Being at their eye level changes how attention feels, even for a minute." }
+    }
+  },
+  {
+    "id": "BND-0007", "age_min_months": 6, "age_max_months": 24, "moment_type": "meal",
+    "duration_minutes": 3, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 7,
+    "t": {
+      "id": { "title": "Makan Satu Meja", "prompt": "Satu kali makan hari ini, duduk dan makan bersamanya, bukan menyuapi sambil berdiri.", "why_it_matters": "Anak belajar makan dengan meniru, dan meniru butuh seseorang yang ikut makan." },
+      "en": { "title": "Eat At The Same Table", "prompt": "For one meal today, sit and eat with them rather than feeding them while standing.", "why_it_matters": "Children learn to eat by copying, and copying needs someone eating too." }
+    }
+  },
+  {
+    "id": "BND-0008", "age_min_months": 6, "age_max_months": 24, "moment_type": "bedtime",
+    "duration_minutes": 3, "music_mode": "bedtime", "character_animation": "tumi-sleepy", "is_premium": false, "sort_order": 8,
+    "t": {
+      "id": { "title": "Tiga Hal Hari Ini", "prompt": "Sebelum tidur, sebutkan tiga hal yang kalian lakukan hari ini. Pelan, dengan suara rendah.", "why_it_matters": "Mengulang kejadian membantu ingatan, dan suara Anda yang tenang membantu tidurnya." },
+      "en": { "title": "Three Things From Today", "prompt": "At bedtime, name three things you did together today. Slowly, in a low voice.", "why_it_matters": "Recapping helps memory, and your calm voice helps them settle." }
+    }
+  },
+  {
+    "id": "BND-0009", "age_min_months": 9, "age_max_months": 24, "moment_type": "outdoor",
+    "duration_minutes": 5, "music_mode": "morning", "character_animation": "tumi-excited", "is_premium": false, "sort_order": 9,
+    "t": {
+      "id": { "title": "Lima Menit di Luar", "prompt": "Bawa ia keluar lima menit tanpa tujuan. Berhenti di mana pun ia berhenti.", "why_it_matters": "Berjalan tanpa tujuan membiarkan anak yang memimpin, dan itu jarang terjadi di hari biasa." },
+      "en": { "title": "Five Minutes Outside", "prompt": "Take them outside for five minutes with nowhere to be. Stop wherever they stop.", "why_it_matters": "A walk with no destination lets your child lead, which rarely happens in an ordinary day." }
+    }
+  },
+  {
+    "id": "BND-0010", "age_min_months": 12, "age_max_months": 36, "moment_type": "morning",
+    "duration_minutes": 2, "music_mode": "morning", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 10,
+    "t": {
+      "id": { "title": "Pelukan Sebelum Terburu-buru", "prompt": "Sebelum rutinitas pagi dimulai, peluk selama sepuluh detik penuh. Hitung dalam hati.", "why_it_matters": "Pelukan yang cukup lama terasa berbeda dari pelukan sekilas, dan pagi yang sibuk jarang memberi ruang untuk itu." },
+      "en": { "title": "A Hug Before The Rush", "prompt": "Before the morning routine starts, hug them for a full ten seconds. Count it silently.", "why_it_matters": "A long enough hug feels different from a quick one, and busy mornings rarely leave room for it." }
+    }
+  },
+  {
+    "id": "BND-0011", "age_min_months": 12, "age_max_months": 36, "moment_type": "play",
+    "duration_minutes": 5, "music_mode": "play", "character_animation": "tumi-excited", "is_premium": false, "sort_order": 11,
+    "t": {
+      "id": { "title": "Lima Menit Tanpa Pertanyaan", "prompt": "Main lima menit tanpa bertanya apa pun. Hanya ceritakan apa yang ia lakukan.", "why_it_matters": "Pertanyaan membuat anak merasa diuji. Komentar membuatnya merasa ditemani." },
+      "en": { "title": "Five Minutes, No Questions", "prompt": "Play for five minutes without asking a single question. Just describe what they're doing.", "why_it_matters": "Questions make a child feel tested. Commentary makes them feel accompanied." }
+    }
+  },
+  {
+    "id": "BND-0012", "age_min_months": 12, "age_max_months": 36, "moment_type": "bath",
+    "duration_minutes": 4, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 12,
+    "t": {
+      "id": { "title": "Biarkan Ia Menuang", "prompt": "Beri satu gelas kosong di bak mandi dan biarkan ia menuang sesukanya, tanpa dihentikan.", "why_it_matters": "Menuang berulang terlihat tidak berguna, padahal itu latihan tangan dan sekaligus menenangkan." },
+      "en": { "title": "Let Them Pour", "prompt": "Give them an empty cup in the bath and let them pour as much as they like, uninterrupted.", "why_it_matters": "Repeated pouring looks pointless, but it is both hand practice and genuinely calming." }
+    }
+  },
+  {
+    "id": "BND-0013", "age_min_months": 12, "age_max_months": 60, "moment_type": "anytime",
+    "duration_minutes": 1, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 13,
+    "t": {
+      "id": { "title": "Sebut Satu Hal yang Anda Perhatikan", "prompt": "Katakan satu hal spesifik yang Anda lihat ia lakukan hari ini. Bukan pujian, hanya pengamatan.", "why_it_matters": "Diperhatikan terasa berbeda dari dipuji, dan anak bisa membedakan keduanya." },
+      "en": { "title": "Name One Thing You Noticed", "prompt": "Tell them one specific thing you saw them do today. Not praise, just an observation.", "why_it_matters": "Being noticed feels different from being praised, and children can tell the two apart." }
+    }
+  },
+  {
+    "id": "BND-0014", "age_min_months": 18, "age_max_months": 48, "moment_type": "meal",
+    "duration_minutes": 3, "music_mode": "bonding", "character_animation": "tumi-thinking", "is_premium": false, "sort_order": 14,
+    "t": {
+      "id": { "title": "Giliran Bicara di Meja", "prompt": "Di satu waktu makan, setiap orang bercerita satu hal. Anak dapat giliran yang sama panjangnya.", "why_it_matters": "Giliran yang setara di meja mengajarkan bahwa pendapatnya dihitung sama dengan yang lain." },
+      "en": { "title": "Turns At The Table", "prompt": "At one meal, everyone shares one thing. Your child gets a turn as long as anyone else's.", "why_it_matters": "An equal turn at the table teaches that their contribution counts the same as everyone's." }
+    }
+  },
+  {
+    "id": "BND-0015", "age_min_months": 18, "age_max_months": 48, "moment_type": "bedtime",
+    "duration_minutes": 4, "music_mode": "bedtime", "character_animation": "tumi-sleepy", "is_premium": false, "sort_order": 15,
+    "t": {
+      "id": { "title": "Bagian Terbaik Hari Ini", "prompt": "Tanyakan bagian paling menyenangkan hari ini, lalu ceritakan bagian terbaik hari Anda.", "why_it_matters": "Menutup hari dengan hal baik membantu tidur, dan giliran Anda menunjukkan bahwa ini percakapan." },
+      "en": { "title": "The Best Bit Of Today", "prompt": "Ask what the best part of their day was, then tell them the best part of yours.", "why_it_matters": "Closing the day on something good helps sleep, and your turn shows this is a conversation." }
+    }
+  },
+  {
+    "id": "BND-0016", "age_min_months": 18, "age_max_months": 60, "moment_type": "play",
+    "duration_minutes": 5, "music_mode": "play", "character_animation": "tumi-excited", "is_premium": true, "sort_order": 16,
+    "t": {
+      "id": { "title": "Anak yang Memimpin", "prompt": "Lima menit di mana ia yang menentukan permainan dan aturannya. Anda ikut saja, termasuk kalau aturannya berubah.", "why_it_matters": "Memegang kendali di waktu yang aman membantu anak menerima kendali orang lain di waktu lain." },
+      "en": { "title": "They're In Charge", "prompt": "Five minutes where they choose the game and the rules. You go along with it, including when the rules change.", "why_it_matters": "Holding control at a safe moment helps a child accept someone else's control at other moments." }
+    }
+  },
+  {
+    "id": "BND-0017", "age_min_months": 24, "age_max_months": 60, "moment_type": "morning",
+    "duration_minutes": 3, "music_mode": "morning", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 17,
+    "t": {
+      "id": { "title": "Biarkan Ia Memilih", "prompt": "Beri dua pilihan nyata pagi ini: baju mana, sarapan mana. Dua, bukan terbuka.", "why_it_matters": "Pilihan yang terbatas memberi rasa punya kendali tanpa membuat anak kewalahan." },
+      "en": { "title": "Let Them Choose", "prompt": "Offer two real choices this morning: which shirt, which breakfast. Two, not open-ended.", "why_it_matters": "A limited choice gives a sense of control without overwhelming them." }
+    }
+  },
+  {
+    "id": "BND-0018", "age_min_months": 24, "age_max_months": 60, "moment_type": "anytime",
+    "duration_minutes": 2, "music_mode": "bonding", "character_animation": "tumi-thinking", "is_premium": false, "sort_order": 18,
+    "t": {
+      "id": { "title": "Minta Maaf Lebih Dulu", "prompt": "Kalau hari ini Anda membentak, katakan: \"Tadi Ibu terlalu keras. Maaf, ya.\"", "why_it_matters": "Anak belajar memperbaiki hubungan dengan melihat orang dewasa melakukannya lebih dulu." },
+      "en": { "title": "Apologise First", "prompt": "If you snapped today, say: \"I was too sharp earlier. I'm sorry.\"", "why_it_matters": "Children learn to repair a relationship by watching an adult do it first." }
+    }
+  },
+  {
+    "id": "BND-0019", "age_min_months": 24, "age_max_months": 60, "moment_type": "outdoor",
+    "duration_minutes": 6, "music_mode": "play", "character_animation": "tumi-excited", "is_premium": false, "sort_order": 19,
+    "t": {
+      "id": { "title": "Jalan dengan Kecepatannya", "prompt": "Jalan ke mana pun dengan kecepatan anak, bukan kecepatan Anda. Berhenti setiap ia berhenti.", "why_it_matters": "Hampir semua perjalanan dengan anak dilakukan dengan kecepatan orang dewasa, dan ini kebalikannya." },
+      "en": { "title": "Walk At Their Pace", "prompt": "Walk anywhere at your child's pace, not yours. Stop every time they stop.", "why_it_matters": "Almost every journey with a child happens at adult pace. This one is the opposite." }
+    }
+  },
+  {
+    "id": "BND-0020", "age_min_months": 24, "age_max_months": 60, "moment_type": "bath",
+    "duration_minutes": 4, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": true, "sort_order": 20,
+    "t": {
+      "id": { "title": "Mandi Tanpa Diburu", "prompt": "Satu kali mandi tanpa mengatakan \"ayo cepat\". Beri waktu lima menit lebih dari biasanya.", "why_it_matters": "Diburu sepanjang hari membuat anak tegang, dan satu rutinitas tanpa buru-buru terasa jelas berbeda." },
+      "en": { "title": "A Bath With No Rushing", "prompt": "One bath without saying \"hurry up\". Allow five minutes more than usual.", "why_it_matters": "Being hurried all day leaves a child tense, and one unhurried routine is noticeably different." }
+    }
+  },
+  {
+    "id": "BND-0021", "age_min_months": 30, "age_max_months": 60, "moment_type": "bedtime",
+    "duration_minutes": 5, "music_mode": "bedtime", "character_animation": "tumi-sleepy", "is_premium": false, "sort_order": 21,
+    "t": {
+      "id": { "title": "Cerita Tentang Dirinya", "prompt": "Ceritakan satu kejadian nyata dari masa bayinya. Bukan dari buku, tapi dari ingatan Anda.", "why_it_matters": "Cerita tentang dirinya sendiri membangun rasa punya tempat dalam keluarga." },
+      "en": { "title": "A Story About Them", "prompt": "Tell one true story from when they were a baby. Not from a book, from your memory.", "why_it_matters": "Stories about themselves build a sense of belonging in the family." }
+    }
+  },
+  {
+    "id": "BND-0022", "age_min_months": 36, "age_max_months": 60, "moment_type": "anytime",
+    "duration_minutes": 3, "music_mode": "bonding", "character_animation": "tumi-thinking", "is_premium": false, "sort_order": 22,
+    "t": {
+      "id": { "title": "Minta Pendapatnya", "prompt": "Tanyakan pendapatnya tentang satu keputusan kecil hari ini, lalu benar-benar pakai jawabannya.", "why_it_matters": "Pendapat yang benar-benar dipakai terasa berbeda dari pendapat yang hanya ditanyakan." },
+      "en": { "title": "Ask Their Opinion", "prompt": "Ask what they think about one small decision today, then actually use their answer.", "why_it_matters": "An opinion that is actually used feels different from one that is merely asked for." }
+    }
+  },
+  {
+    "id": "BND-0023", "age_min_months": 36, "age_max_months": 60, "moment_type": "play",
+    "duration_minutes": 6, "music_mode": "play", "character_animation": "tumi-excited", "is_premium": true, "sort_order": 23,
+    "t": {
+      "id": { "title": "Kalah dengan Sportif", "prompt": "Main satu permainan dan biarkan diri Anda kalah dengan wajar. Tunjukkan bagaimana menerima kalah.", "why_it_matters": "Anak belajar menerima kekalahan dengan melihatnya, bukan dengan diberi tahu caranya." },
+      "en": { "title": "Lose Gracefully", "prompt": "Play one game and let yourself genuinely lose. Show them how losing is taken.", "why_it_matters": "Children learn to handle losing by watching it, not by being told how." }
+    }
+  },
+  {
+    "id": "BND-0024", "age_min_months": 42, "age_max_months": 60, "moment_type": "meal",
+    "duration_minutes": 5, "music_mode": "bonding", "character_animation": "tumi-happy", "is_premium": false, "sort_order": 24,
+    "t": {
+      "id": { "title": "Masak Satu Langkah Bersama", "prompt": "Beri satu langkah memasak yang aman: mengaduk di mangkuk dingin, atau menata di piring.", "why_it_matters": "Ikut membuat makanan membuat anak jauh lebih mau mencobanya." },
+      "en": { "title": "One Cooking Step Together", "prompt": "Give them one safe cooking step: stirring a cold bowl, or arranging food on a plate.", "why_it_matters": "Helping make the food makes a child far more willing to try it." }
+    }
+  }
+]

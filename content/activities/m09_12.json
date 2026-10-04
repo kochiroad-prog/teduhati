@@ -1,0 +1,422 @@
+[
+  {
+    "id": "ACT-0031",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "motor", "secondary_domains": ["cognitive"],
+    "skill_codes": ["walking_balance", "problem_solving"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["bantal", "selimut"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": "CDC Developmental Milestones",
+    "t": {
+      "id": {
+        "title": "Rintangan Bantal",
+        "summary": "Susun dua bantal di lantai, dan biarkan bayi memanjat melewatinya untuk sampai ke Anda.",
+        "learning_goal": "Melatih keseimbangan dan merencanakan gerakan tubuh melewati hambatan.",
+        "steps": [
+          { "title": "Susun dua bantal rendah", "body": "Letakkan dua bantal di lantai berjarak setengah meter, di jalur antara bayi dan Anda." },
+          { "title": "Duduk di ujung lain", "body": "Duduk di seberang rintangan dan panggil namanya. Anda adalah tujuannya." },
+          { "title": "Biarkan ia mencari caranya", "body": "Jangan angkat dia melewati bantal. Memanjat, memutar, atau merayap di samping, semuanya solusi yang sah." },
+          { "title": "Sambut di ujung", "body": "Saat ia tiba, peluk dan sebut apa yang ia lakukan: \"Kamu lewat bantalnya.\"" }
+        ],
+        "parent_tip": "Kalau ia memilih jalan memutar alih-alih memanjat, itu bukan kegagalan. Mencari jalan termudah juga pemecahan masalah.",
+        "safety_notes": "Lakukan di lantai yang luas, jauh dari sudut meja dan benda keras. Bantal harus rendah dan tidak menumpuk tinggi. Dampingi dari dekat sepanjang waktu.",
+        "variations": ["Tambahkan satu bantal lagi kalau sudah terlalu mudah.", "Letakkan mainan kesayangan di ujung alih-alih Anda."],
+        "materials_text": "Dua bantal dan lantai yang luas"
+      },
+      "en": {
+        "title": "Pillow Obstacles",
+        "summary": "Lay two pillows on the floor and let your baby climb over them to reach you.",
+        "learning_goal": "Practises balance and planning how to move a body past an obstacle.",
+        "steps": [
+          { "title": "Lay out two low pillows", "body": "Put two pillows on the floor half a metre apart, in the path between your baby and you." },
+          { "title": "Sit at the far end", "body": "Sit beyond the obstacles and call their name. You are the goal." },
+          { "title": "Let them find their own way", "body": "Don't lift them over. Climbing, turning, or going round the side are all valid solutions." },
+          { "title": "Meet them at the end", "body": "When they arrive, hug them and name what they did: \"You got over the pillows.\"" }
+        ],
+        "parent_tip": "If they go round instead of over, that isn't a failure. Finding the easy route is problem solving too.",
+        "safety_notes": "Use open floor away from table corners and hard objects. Keep pillows low and never stacked. Stay close throughout.",
+        "variations": ["Add a third pillow once it gets too easy.", "Put a favourite toy at the end instead of yourself."],
+        "materials_text": "Two pillows and open floor"
+      }
+    }
+  },
+  {
+    "id": "ACT-0032",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "language", "secondary_domains": ["social_emotional"],
+    "skill_codes": ["gesture", "turn_taking"],
+    "duration_minutes": 6, "difficulty": 1,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Dadah dan Tos",
+        "summary": "Ajarkan dua gestur sederhana yang bisa dipakai setiap hari: dadah dan tos.",
+        "learning_goal": "Memberi bayi cara berkomunikasi sebelum ia bisa bicara.",
+        "steps": [
+          { "title": "Pakai di saat yang nyata", "body": "Jangan latihan terpisah. Lakukan dadah saat ada yang benar-benar pergi, supaya gestur punya arti." },
+          { "title": "Tunjukkan dan sebutkan", "body": "Lambaikan tangan sambil berkata \"dadah\". Gerakan dan kata harus selalu bersamaan." },
+          { "title": "Bimbing tangannya sekali", "body": "Pegang pergelangannya dan bantu melambai satu kali. Lalu lepaskan dan tunggu." },
+          { "title": "Tanggapi percobaan apa pun", "body": "Gerakan tangan ke atas, membuka telapak, atau menggoyang lengan, semuanya hitung. Balas seperti ia berhasil." }
+        ],
+        "parent_tip": "Gestur biasanya muncul sebelum kata pertama. Bayi yang banyak memakai gestur sering lebih cepat berbicara, bukan lebih lambat.",
+        "safety_notes": "Bimbing dengan lembut di pergelangan, jangan tarik lengan.",
+        "variations": ["Tambahkan gestur \"habis\" dengan membuka kedua telapak tangan.", "Minta anggota keluarga lain memakai gestur yang sama."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Wave And High Five",
+        "summary": "Teach two simple gestures you can use every day: waving and a high five.",
+        "learning_goal": "Gives your baby a way to communicate before they can speak.",
+        "steps": [
+          { "title": "Use them in real moments", "body": "Don't drill them separately. Wave when someone is actually leaving, so the gesture carries meaning." },
+          { "title": "Show it and say it", "body": "Wave your hand while saying \"bye bye\". The movement and the word always go together." },
+          { "title": "Guide their hand once", "body": "Hold their wrist and help them wave a single time. Then let go and wait." },
+          { "title": "Answer any attempt", "body": "A hand lifting, a palm opening, an arm wobbling — all count. Respond as if they got it." }
+        ],
+        "parent_tip": "Gestures usually arrive before first words. Babies who gesture a lot often talk sooner, not later.",
+        "safety_notes": "Guide gently at the wrist, never pull on the arm.",
+        "variations": ["Add an \"all gone\" gesture with both palms turned up.", "Ask other family members to use the same gestures."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0033",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "cognitive", "secondary_domains": ["motor"],
+    "skill_codes": ["problem_solving", "fine_motor"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["gelas_plastik", "kain"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Tarik Kain, Dapat Mainan",
+        "summary": "Letakkan mainan di atas kain yang ujungnya dalam jangkauan, dan biarkan bayi menemukan caranya.",
+        "learning_goal": "Memahami bahwa satu benda bisa dipakai untuk mendapatkan benda lain, awal berpikir dengan alat.",
+        "steps": [
+          { "title": "Bentangkan kain di meja rendah", "body": "Letakkan kain panjang di meja atau lantai, dengan satu ujung tepat di depan bayi." },
+          { "title": "Taruh mainan di ujung jauh", "body": "Letakkan mainan di atas kain, di luar jangkauan tangannya tapi masih terlihat jelas." },
+          { "title": "Tunggu ia mencoba", "body": "Jangan tunjukkan. Ia mungkin meraih ke arah mainan dulu dan gagal, dan itu bagian dari belajar." },
+          { "title": "Tunjukkan sekali kalau ia menyerah", "body": "Tarik kain sedikit supaya mainannya bergerak, lalu lepaskan dan biarkan ia melanjutkan." }
+        ],
+        "parent_tip": "Momen ketika bayi menatap kain lalu menatap mainan adalah momen ia sedang menghubungkan keduanya. Jangan ganggu saat itu.",
+        "safety_notes": "Gunakan kain pendek, maksimal sepanjang lengan, supaya tidak ada risiko melilit. Awasi terus.",
+        "variations": ["Ganti kain dengan tali pendek yang lebih tipis untuk menaikkan kesulitan.", "Letakkan dua kain, hanya satu yang terhubung ke mainan."],
+        "materials_text": "Satu kain panjang dan satu mainan"
+      },
+      "en": {
+        "title": "Pull The Cloth, Get The Toy",
+        "summary": "Put a toy on a cloth whose near end is in reach, and let your baby work it out.",
+        "learning_goal": "Understanding that one object can be used to get another, the start of thinking with tools.",
+        "steps": [
+          { "title": "Spread a cloth on a low surface", "body": "Lay a long cloth on a table or the floor, with one end right in front of your baby." },
+          { "title": "Put the toy at the far end", "body": "Place the toy on the cloth, beyond their reach but clearly in view." },
+          { "title": "Wait while they try", "body": "Don't demonstrate. They may reach straight for the toy and fail first, and that is part of the learning." },
+          { "title": "Show it once if they give up", "body": "Tug the cloth slightly so the toy moves, then let go and let them carry on." }
+        ],
+        "parent_tip": "The moment your baby looks at the cloth and then at the toy is the moment they are connecting the two. Don't interrupt it.",
+        "safety_notes": "Use a short cloth, no longer than your arm, so there is no wrapping risk. Supervise throughout.",
+        "variations": ["Swap the cloth for a thinner short cord to make it harder.", "Lay out two cloths with only one connected to the toy."],
+        "materials_text": "One long cloth and a toy"
+      }
+    }
+  },
+  {
+    "id": "ACT-0034",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "sensory", "secondary_domains": ["cognitive"],
+    "skill_codes": ["texture_explore", "sorting"],
+    "duration_minutes": 9, "difficulty": 2,
+    "materials": ["keranjang", "kertas", "kain"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Kotak Suara Kertas",
+        "summary": "Beberapa jenis kertas dengan bunyi berbeda, untuk diraba, dikusutkan, dan dibanding.",
+        "learning_goal": "Membedakan bunyi dan tekstur dari benda yang berubah bentuk saat disentuh.",
+        "steps": [
+          { "title": "Siapkan tiga jenis kertas", "body": "Kertas kado yang berisik, kertas tisu yang lembut, dan karton yang kaku. Potong seukuran tangan bayi." },
+          { "title": "Kusutkan satu di depannya", "body": "Kusutkan kertas pertama perlahan agar bunyinya terdengar, lalu buka lagi." },
+          { "title": "Serahkan satu per satu", "body": "Berikan satu lembar dan tunggu. Biarkan ia mengusutkan, menarik, atau merobeknya." },
+          { "title": "Bandingkan dua yang berbeda", "body": "Setelah ia kenal satu, berikan yang kedua dan sebut bedanya: \"Yang ini berisik. Yang ini lembut.\"" }
+        ],
+        "parent_tip": "Merobek adalah bagian yang paling disukai, dan itu latihan jari yang bagus. Siapkan lembar ekstra.",
+        "safety_notes": "Risiko tersedak dari potongan kertas yang masuk mulut. Dampingi tanpa jeda, ambil potongan kecil segera, dan hentikan aktivitas jika bayi lebih banyak mengunyah daripada meraba. Jangan gunakan kertas bertinta cetak tebal, kertas koran, atau kertas berlaminasi plastik.",
+        "variations": ["Masukkan kertas ke dalam kotak tisu kosong supaya ia menariknya keluar.", "Gunakan daun kering bersih sebagai pengganti kertas, dengan pengawasan sama ketat."],
+        "materials_text": "Tiga jenis kertas aman, dipotong seukuran tangan"
+      },
+      "en": {
+        "title": "Paper Sound Box",
+        "summary": "Several kinds of paper with different sounds, to feel, scrunch, and compare.",
+        "learning_goal": "Telling sounds and textures apart with objects that change shape when touched.",
+        "steps": [
+          { "title": "Prepare three kinds of paper", "body": "Noisy gift wrap, soft tissue paper, and stiff card. Cut them to hand size." },
+          { "title": "Scrunch one in front of them", "body": "Crumple the first slowly so the sound is clear, then open it out again." },
+          { "title": "Hand them over one at a time", "body": "Give them one sheet and wait. Let them scrunch, pull, or tear it." },
+          { "title": "Compare two different ones", "body": "Once they know one, offer the second and name the difference: \"This one's noisy. This one's soft.\"" }
+        ],
+        "parent_tip": "Tearing is the favourite part, and it's good finger practice. Have spare sheets ready.",
+        "safety_notes": "Choking risk from torn pieces going in the mouth. Supervise without a break, remove small pieces at once, and stop the activity if your baby is chewing more than feeling. Don't use heavily printed paper, newspaper, or plastic-laminated paper.",
+        "variations": ["Stuff the paper into an empty tissue box so they pull it out.", "Use clean dry leaves instead of paper, with the same close supervision."],
+        "materials_text": "Three kinds of safe paper, cut to hand size"
+      }
+    }
+  },
+  {
+    "id": "ACT-0035",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "social_emotional", "secondary_domains": ["cognitive"],
+    "skill_codes": ["turn_taking", "cause_effect"],
+    "duration_minutes": 7, "difficulty": 1,
+    "materials": ["bola"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Gulirkan Bolanya Balik",
+        "summary": "Duduk berhadapan di lantai dan gulirkan bola bergantian.",
+        "learning_goal": "Bergiliran dengan benda nyata, dan memahami bahwa orang lain akan menanggapi.",
+        "steps": [
+          { "title": "Duduk berhadapan, kaki terbuka", "body": "Duduk di lantai menghadap bayi, kaki terbuka membentuk jalur supaya bola tidak lari." },
+          { "title": "Gulirkan pelan ke arahnya", "body": "Dorong bola ke arah bayi sambil berkata: \"Untuk kamu.\"" },
+          { "title": "Minta dan tunggu", "body": "Buka kedua tangan dan katakan: \"Giliran Ibu.\" Tunggu, jangan ambil sendiri." },
+          { "title": "Terima apa pun bentuknya", "body": "Kalau ia melempar, menjatuhkan, atau hanya mendorong sedikit, terima dan gulirkan balik. Yang penting ada pertukaran." }
+        ],
+        "parent_tip": "Menggulirkan balik dengan rapi baru muncul nanti. Yang Anda bangun sekarang adalah pola bergiliran, bukan keterampilannya.",
+        "safety_notes": "Gunakan bola ringan yang jelas lebih besar dari mulut bayi. Jangan gunakan bola kecil atau yang bisa pecah.",
+        "variations": ["Tambahkan orang ketiga sehingga ada tiga giliran.", "Gunakan mobil mainan yang bisa didorong, bukan bola."],
+        "materials_text": "Satu bola ringan berukuran sedang"
+      },
+      "en": {
+        "title": "Roll It Back",
+        "summary": "Sit facing each other on the floor and roll a ball back and forth.",
+        "learning_goal": "Taking turns with a real object, and learning that other people answer back.",
+        "steps": [
+          { "title": "Sit facing them, legs open", "body": "Sit on the floor opposite your baby with your legs spread to form a channel so the ball can't escape." },
+          { "title": "Roll it gently to them", "body": "Push the ball towards your baby while saying: \"For you.\"" },
+          { "title": "Ask, then wait", "body": "Open both hands and say: \"My turn.\" Wait, and don't take it yourself." },
+          { "title": "Accept whatever comes", "body": "If they throw it, drop it, or just nudge it, accept that and roll it back. The exchange is what matters." }
+        ],
+        "parent_tip": "A neat roll back comes much later. What you are building now is the turn-taking pattern, not the skill.",
+        "safety_notes": "Use a light ball clearly bigger than your baby's mouth. No small or breakable balls.",
+        "variations": ["Add a third person so there are three turns.", "Use a push-along toy car instead of a ball."],
+        "materials_text": "One light, medium-sized ball"
+      }
+    }
+  },
+  {
+    "id": "ACT-0036",
+    "age_min_months": 10, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "cognitive", "secondary_domains": ["motor"],
+    "skill_codes": ["sorting", "fine_motor"],
+    "duration_minutes": 9, "difficulty": 2,
+    "materials": ["keranjang", "kardus"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Besar dan Kecil",
+        "summary": "Dua wadah dengan ukuran jelas berbeda, untuk dimasukkan satu ke dalam yang lain.",
+        "learning_goal": "Mengenal ukuran relatif lewat percobaan, bukan lewat penjelasan.",
+        "steps": [
+          { "title": "Siapkan dua wadah bertingkat", "body": "Satu kardus besar dan satu kotak kecil yang jelas bisa masuk ke dalamnya." },
+          { "title": "Masukkan yang kecil, satu kali", "body": "Taruh kotak kecil ke dalam kardus besar di depannya, lalu keluarkan lagi." },
+          { "title": "Serahkan keduanya", "body": "Berikan dua wadah itu dan jangan arahkan. Ia mungkin mencoba memasukkan yang besar ke yang kecil dulu." },
+          { "title": "Sebut hasilnya", "body": "Kalau yang besar tidak masuk, katakan: \"Terlalu besar.\" Beri nama pada apa yang ia sedang temukan." }
+        ],
+        "parent_tip": "Mencoba memasukkan yang besar ke yang kecil bukan kesalahan. Itu justru cara bayi menguji batas ukuran.",
+        "safety_notes": "Gunakan kardus tanpa staples, tanpa lakban yang bisa lepas, dan tanpa tepi yang bisa menggores. Awasi sepanjang waktu.",
+        "variations": ["Tambah wadah ketiga di ukuran menengah.", "Pakai gelas plastik bertumpuk alih-alih kardus."],
+        "materials_text": "Satu kardus besar dan satu kotak kecil"
+      },
+      "en": {
+        "title": "Big And Small",
+        "summary": "Two containers of clearly different size, to fit one inside the other.",
+        "learning_goal": "Meeting relative size by experiment rather than explanation.",
+        "steps": [
+          { "title": "Prepare two nesting containers", "body": "One large box and one small box that clearly fits inside it." },
+          { "title": "Put the small one in, once", "body": "Drop the small box into the big one in front of them, then take it out again." },
+          { "title": "Hand both over", "body": "Give them the two containers and don't steer. They may try to fit the big one into the small one first." },
+          { "title": "Name the result", "body": "If the big one won't go in, say: \"Too big.\" Put a word on what they are discovering." }
+        ],
+        "parent_tip": "Trying to fit the big one into the small one isn't a mistake. It is exactly how a baby tests the limits of size.",
+        "safety_notes": "Use boxes with no staples, no peeling tape, and no edges that can scrape. Supervise throughout.",
+        "variations": ["Add a third container of medium size.", "Use stacking plastic cups instead of boxes."],
+        "materials_text": "One large box and one small box"
+      }
+    }
+  },
+  {
+    "id": "ACT-0037",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "early_literacy", "secondary_domains": ["language"],
+    "skill_codes": ["book_handling", "vocabulary"],
+    "duration_minutes": 7, "difficulty": 1,
+    "materials": ["buku"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Biarkan Ia Membuka Halaman",
+        "summary": "Baca buku bersama, tapi serahkan tugas membuka halaman kepada bayi.",
+        "learning_goal": "Rasa memiliki kendali atas buku, dan latihan jari untuk membalik halaman.",
+        "steps": [
+          { "title": "Pangku dengan buku di depan", "body": "Duduk dengan bayi di pangkuan dan buku terbuka di hadapan kalian berdua." },
+          { "title": "Bicarakan satu gambar", "body": "Sebut satu benda di halaman itu dan tunggu. Tidak perlu membaca teksnya." },
+          { "title": "Serahkan tepi halaman", "body": "Angkat sedikit tepi halaman supaya mudah dipegang, lalu biarkan ia yang membalik." },
+          { "title": "Ikuti arahnya", "body": "Kalau ia melompat ke belakang atau kembali ke halaman yang sama, ikuti saja. Pengulangan adalah pilihannya." }
+        ],
+        "parent_tip": "Membaca buku dari awal sampai akhir bukan tujuan di usia ini. Kembali ke halaman yang sama sepuluh kali justru tanda ia sedang belajar.",
+        "safety_notes": "Gunakan buku papan tebal atau buku kain. Hindari halaman kertas tipis yang bisa merobek dan masuk mulut.",
+        "variations": ["Sembunyikan satu gambar dengan tangan Anda dan buka saat halaman terbuka.", "Gunakan buku bertekstur supaya ada yang diraba."],
+        "materials_text": "Satu buku papan atau buku kain"
+      },
+      "en": {
+        "title": "Let Them Turn The Page",
+        "summary": "Read together, but hand the job of turning pages to your baby.",
+        "learning_goal": "A sense of control over the book, plus finger practice for turning pages.",
+        "steps": [
+          { "title": "Hold them with the book in front", "body": "Sit with your baby on your lap and the book open in front of you both." },
+          { "title": "Talk about one picture", "body": "Name one thing on the page and wait. There's no need to read the text." },
+          { "title": "Offer the page edge", "body": "Lift the corner slightly so it's easy to grip, then let them do the turning." },
+          { "title": "Follow their lead", "body": "If they skip ahead or come back to the same page, go with it. The repetition is their choice." }
+        ],
+        "parent_tip": "Finishing a book isn't the goal at this age. Coming back to the same page ten times is a sign they're learning.",
+        "safety_notes": "Use a thick board book or a cloth book. Avoid thin paper pages that can tear and go in the mouth.",
+        "variations": ["Hide one picture with your hand and reveal it as the page opens.", "Use a touch-and-feel book so there's something to stroke."],
+        "materials_text": "One board book or cloth book"
+      }
+    }
+  },
+  {
+    "id": "ACT-0038",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "self_care", "secondary_domains": ["cognitive", "social_emotional"],
+    "skill_codes": ["tidying", "routine"],
+    "duration_minutes": 6, "difficulty": 2,
+    "materials": ["keranjang"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Masukkan Mainan ke Kotak",
+        "summary": "Merapikan sebagai permainan, satu mainan per kali, dengan lagu yang sama setiap kali.",
+        "learning_goal": "Mengaitkan akhir bermain dengan rutinitas yang bisa diprediksi, bukan dengan protes.",
+        "steps": [
+          { "title": "Nyanyikan lagu penanda", "body": "Mulai dengan lagu atau kalimat yang sama setiap kali: \"Waktunya rapi.\" Penanda yang konsisten lebih efektif daripada instruksi." },
+          { "title": "Masukkan satu, Anda dulu", "body": "Ambil satu mainan, masukkan ke keranjang, dan katakan \"masuk\"." },
+          { "title": "Serahkan mainan berikutnya ke tangannya", "body": "Berikan satu mainan dan arahkan ke keranjang. Jangan minta ia merapikan semuanya." },
+          { "title": "Berhenti setelah dua atau tiga", "body": "Dua atau tiga mainan sudah berhasil. Sisanya Anda rapikan tanpa berkomentar." }
+        ],
+        "parent_tip": "Tujuannya bukan ruangan yang bersih, tapi kebiasaan. Dua mainan per hari, konsisten, lebih baik daripada memaksa sekali.",
+        "safety_notes": "Gunakan keranjang tanpa penutup yang bisa menjepit tangan, dan tanpa tepi tajam.",
+        "variations": ["Pakai dua keranjang, satu untuk bola dan satu untuk buku.", "Jadikan permainan memasukkan dari jarak satu langkah."],
+        "materials_text": "Satu keranjang terbuka"
+      },
+      "en": {
+        "title": "Toys Into The Box",
+        "summary": "Tidying as a game, one toy at a time, with the same song every time.",
+        "learning_goal": "Links the end of play to a predictable routine rather than to a protest.",
+        "steps": [
+          { "title": "Sing the signal song", "body": "Start with the same song or phrase every time: \"Tidy-up time.\" A consistent signal works better than an instruction." },
+          { "title": "Put one in yourself first", "body": "Pick up one toy, drop it in the basket, and say \"in\"." },
+          { "title": "Hand them the next one", "body": "Give them one toy and point to the basket. Don't ask them to tidy everything." },
+          { "title": "Stop after two or three", "body": "Two or three toys is a success. Do the rest yourself without comment." }
+        ],
+        "parent_tip": "The goal isn't a clean room, it's the habit. Two toys a day, consistently, beats forcing it once.",
+        "safety_notes": "Use a basket with no lid that can trap fingers, and no sharp edges.",
+        "variations": ["Use two baskets, one for balls and one for books.", "Make it a game of dropping one in from a step away."],
+        "materials_text": "One open basket"
+      }
+    }
+  },
+  {
+    "id": "ACT-0039",
+    "age_min_months": 10, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "creativity", "secondary_domains": ["motor", "sensory"],
+    "skill_codes": ["art_making", "tactile"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["kertas", "krayon"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Goresan Pertama",
+        "summary": "Satu krayon tebal dan satu kertas besar, tanpa instruksi apa pun.",
+        "learning_goal": "Menemukan bahwa gerakan tangannya meninggalkan jejak yang bisa dilihat.",
+        "steps": [
+          { "title": "Rekatkan kertas ke meja", "body": "Tempelkan kertas besar ke nampan kursi makan atau meja dengan lakban, supaya tidak bergeser." },
+          { "title": "Beri satu krayon tebal", "body": "Serahkan satu krayon besar yang mudah digenggam. Satu warna dulu, bukan satu kotak." },
+          { "title": "Buat satu garis, lalu diam", "body": "Gores satu garis di kertas, lalu berhenti dan serahkan kembali krayonnya." },
+          { "title": "Jangan arahkan", "body": "Biarkan goresannya acak, di luar kertas, atau cuma satu titik. Jangan minta ia menggambar sesuatu." }
+        ],
+        "parent_tip": "Jangan tanya \"ini gambar apa?\" Di usia ini belum ada gambarnya. Yang ia nikmati adalah sebab dan akibat dari tangannya sendiri.",
+        "safety_notes": "Gunakan krayon besar berlabel tidak beracun. Krayon akan masuk mulut, jadi dampingi tanpa jeda dan simpan setelah selesai. Hentikan jika ia lebih banyak menggigit daripada menggores.",
+        "variations": ["Pakai jari dengan bubur makanan sebagai pengganti krayon.", "Gambar di kertas yang direkatkan di dinding supaya ia berdiri."],
+        "materials_text": "Kertas besar, lakban, dan satu krayon tebal tidak beracun"
+      },
+      "en": {
+        "title": "First Marks",
+        "summary": "One chunky crayon and one big sheet of paper, with no instructions at all.",
+        "learning_goal": "Discovering that their hand movement leaves a mark they can see.",
+        "steps": [
+          { "title": "Tape the paper down", "body": "Fix a large sheet to the high-chair tray or table with tape so it can't slide." },
+          { "title": "Offer one chunky crayon", "body": "Hand over a single large, easy-to-grip crayon. One colour to start, not a whole box." },
+          { "title": "Make one line, then stop", "body": "Draw a single line on the paper, then stop and hand the crayon back." },
+          { "title": "Don't direct it", "body": "Let the marks be random, off the paper, or a single dot. Don't ask them to draw anything." }
+        ],
+        "parent_tip": "Don't ask \"what is it?\" At this age there is no it. What they enjoy is cause and effect from their own hand.",
+        "safety_notes": "Use large crayons labelled non-toxic. The crayon will go in the mouth, so supervise without a break and put it away afterwards. Stop if they are biting more than marking.",
+        "variations": ["Use fingers and food purée instead of a crayon.", "Tape paper to a wall so they stand to draw."],
+        "materials_text": "Large paper, tape, and one chunky non-toxic crayon"
+      }
+    }
+  },
+  {
+    "id": "ACT-0040",
+    "age_min_months": 9, "age_max_months": 12, "age_band_code": "m09_12",
+    "primary_domain": "social_emotional", "secondary_domains": ["language"],
+    "skill_codes": ["bonding", "emotion_naming"],
+    "duration_minutes": 8, "difficulty": 1,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": true, "source_reference": "WHO Nurturing Care",
+    "t": {
+      "id": {
+        "title": "Namai Perasaannya",
+        "summary": "Saat bayi senang, kesal, atau takut, sebutkan perasaan itu dengan kata sederhana.",
+        "learning_goal": "Memberi nama pada pengalaman dalam dirinya, langkah pertama untuk nanti bisa mengelolanya.",
+        "steps": [
+          { "title": "Perhatikan saat perasaannya jelas", "body": "Tunggu momen yang nyata: terkejut suara keras, senang melihat Anda, kesal mainan diambil." },
+          { "title": "Sebut dengan satu kata", "body": "Katakan perlahan: \"Kaget, ya.\" Satu kata yang tepat lebih berguna daripada penjelasan panjang." },
+          { "title": "Akui dulu sebelum menenangkan", "body": "Sebut perasaannya dulu, baru peluk atau alihkan. Urutan ini membuat bayi merasa dipahami." },
+          { "title": "Gunakan kata yang sama konsisten", "body": "Pakai kata yang sama untuk perasaan yang sama setiap kali, supaya kaitannya terbentuk." }
+        ],
+        "parent_tip": "Menamai perasaan tidak membuat tangisan berhenti lebih cepat. Yang dibangun adalah kosakata untuk perasaan, dan itu terbayar bertahun-tahun kemudian.",
+        "safety_notes": "Tidak ada risiko khusus. Kalau bayi menangis berkepanjangan dan tidak bisa ditenangkan dengan cara biasa, hubungi tenaga kesehatan.",
+        "variations": ["Namai juga perasaan Anda sendiri dengan tenang: \"Ibu capek.\"", "Gunakan ekspresi wajah yang sesuai sambil menyebut katanya."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Name The Feeling",
+        "summary": "When your baby is happy, cross, or frightened, put a simple word to it.",
+        "learning_goal": "Gives a name to what they feel inside, the first step towards managing it later.",
+        "steps": [
+          { "title": "Notice a clear moment", "body": "Wait for a real one: startled by a loud noise, delighted to see you, cross that a toy was taken." },
+          { "title": "Say it in one word", "body": "Say slowly: \"Startled, weren't you.\" One accurate word does more than a long explanation." },
+          { "title": "Acknowledge before soothing", "body": "Name the feeling first, then hug or redirect. That order is what makes a baby feel understood." },
+          { "title": "Use the same word every time", "body": "Keep the same word for the same feeling so the link can form." }
+        ],
+        "parent_tip": "Naming a feeling won't stop the crying any faster. What you're building is a vocabulary for feelings, and that pays off years later.",
+        "safety_notes": "No particular risk. If your baby cries for long stretches and can't be settled the usual way, contact a health professional.",
+        "variations": ["Calmly name your own feelings too: \"Mum's tired.\"", "Match your face to the word as you say it."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  }
+]

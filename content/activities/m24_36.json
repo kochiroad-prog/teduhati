@@ -1,0 +1,590 @@
+[
+  {
+    "id": "ACT-0065",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "language", "secondary_domains": ["early_literacy", "cognitive"],
+    "skill_codes": ["storytelling", "conversation"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["kartu_gambar"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Cerita dari Tiga Gambar",
+        "summary": "Tiga gambar diurutkan, lalu anak menceritakan apa yang terjadi.",
+        "learning_goal": "Menyusun kalimat berurutan, dan memahami bahwa cerita punya awal dan akhir.",
+        "steps": [
+          { "title": "Pilih tiga gambar yang berhubungan", "body": "Boleh potongan majalah atau foto di ponsel: anak bangun, makan, bermain. Harus ada urutan waktu yang jelas." },
+          { "title": "Letakkan acak, lalu urutkan bersama", "body": "Taruh ketiganya tidak berurutan dan tanya: \"Mana yang pertama?\"" },
+          { "title": "Ceritakan versi Anda dulu", "body": "Ceritakan dengan tiga kalimat pendek sambil menunjuk tiap gambar. Contoh dulu, baru giliran anak." },
+          { "title": "Minta ia bercerita", "body": "Terima versi apa pun. Dua kata per gambar sudah cerita." }
+        ],
+        "parent_tip": "Jangan koreksi urutannya. Kalau ia menaruh makan sebelum bangun, tanyakan saja: \"Terus apa?\" Pertanyaan bekerja lebih baik daripada perbaikan.",
+        "safety_notes": "Kalau memakai ponsel untuk menunjukkan foto, buka hanya foto yang dimaksud dan simpan kembali setelah selesai, supaya aktivitas ini tidak berubah menjadi waktu layar.",
+        "variations": ["Pakai foto kegiatan keluarga kemarin.", "Tambah gambar keempat setelah tiga terasa mudah."],
+        "materials_text": "Tiga gambar atau foto yang berhubungan"
+      },
+      "en": {
+        "title": "A Story From Three Pictures",
+        "summary": "Three pictures put in order, then your child tells what happened.",
+        "learning_goal": "Building sentences in sequence, and learning that stories have a beginning and an end.",
+        "steps": [
+          { "title": "Choose three connected pictures", "body": "Magazine cuttings or photos on your phone: waking up, eating, playing. There must be a clear order in time." },
+          { "title": "Lay them out jumbled, then sort together", "body": "Put all three out of order and ask: \"Which one's first?\"" },
+          { "title": "Tell your version first", "body": "Tell it in three short sentences, pointing at each picture. Model first, then their turn." },
+          { "title": "Ask them to tell it", "body": "Accept any version. Two words per picture is a story." }
+        ],
+        "parent_tip": "Don't correct the order. If eating comes before waking, just ask: \"And then?\" A question works better than a correction.",
+        "safety_notes": "If you use your phone for the photos, open only the photos in question and put it away afterwards, so this doesn't turn into screen time.",
+        "variations": ["Use photos of what the family did yesterday.", "Add a fourth picture once three feels easy."],
+        "materials_text": "Three related pictures or photos"
+      }
+    }
+  },
+  {
+    "id": "ACT-0066",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "motor", "secondary_domains": ["cognitive"],
+    "skill_codes": ["fine_motor", "counting"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["pom_pom", "sendok", "mangkuk"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Pindahkan Pom-Pom",
+        "summary": "Pindahkan pom-pom dari satu mangkuk ke mangkuk lain dengan sendok.",
+        "learning_goal": "Koordinasi tangan dan mata yang halus, dan ketekunan menyelesaikan satu tugas.",
+        "steps": [
+          { "title": "Siapkan dua mangkuk berdampingan", "body": "Isi mangkuk kiri dengan enam pom-pom, mangkuk kanan kosong. Dekatkan keduanya." },
+          { "title": "Pindahkan satu, pelan", "body": "Ambil satu dengan sendok dan pindahkan. Lakukan lambat supaya gerakannya terlihat jelas." },
+          { "title": "Serahkan sendoknya", "body": "Berikan sendok dan mundur. Memakai tangan dulu itu normal; sendok datang kemudian." },
+          { "title": "Hitung di akhir", "body": "Setelah pindah semua, hitung bersama sambil menyentuh satu per satu." }
+        ],
+        "parent_tip": "Kalau sendok terlalu sulit, mulai dengan jari. Keberhasilan memindahkan lebih penting daripada alat yang dipakai.",
+        "safety_notes": "Pom-pom adalah risiko tersedak. Dampingi dari dekat tanpa jeda, gunakan ukuran yang jelas lebih besar dari mulut anak, hitung jumlahnya sebelum dan sesudah, dan simpan di luar jangkauan setelah selesai. Jangan gunakan jika anak masih sering memasukkan benda ke mulut.",
+        "variations": ["Pakai kacang atau beras di mangkuk besar untuk versi yang lebih berantakan.", "Pakai penjepit makanan, bukan sendok, untuk anak yang sudah mahir."],
+        "materials_text": "Enam pom-pom besar, dua mangkuk, satu sendok"
+      },
+      "en": {
+        "title": "Move The Pom-Poms",
+        "summary": "Move pom-poms from one bowl to another with a spoon.",
+        "learning_goal": "Fine hand-eye coordination, and the persistence to finish one task.",
+        "steps": [
+          { "title": "Set two bowls side by side", "body": "Six pom-poms in the left bowl, the right one empty. Keep them close together." },
+          { "title": "Move one, slowly", "body": "Scoop one with the spoon and move it. Go slowly so the movement is clearly visible." },
+          { "title": "Hand over the spoon", "body": "Give them the spoon and step back. Using fingers first is normal; the spoon comes later." },
+          { "title": "Count at the end", "body": "Once they're all moved, count them together, touching each one." }
+        ],
+        "parent_tip": "If the spoon is too hard, start with fingers. Succeeding at the move matters more than the tool.",
+        "safety_notes": "Pom-poms are a choking hazard. Supervise closely without a break, use a size clearly bigger than your child's mouth, count them before and after, and store them out of reach. Don't use this with a child who still mouths objects.",
+        "variations": ["Use beans or rice in a larger bowl for a messier version.", "Use kitchen tongs instead of a spoon once they're confident."],
+        "materials_text": "Six large pom-poms, two bowls, one spoon"
+      }
+    }
+  },
+  {
+    "id": "ACT-0067",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "creativity", "secondary_domains": ["motor", "cognitive"],
+    "skill_codes": ["art_making", "shape_size"],
+    "duration_minutes": 12, "difficulty": 2,
+    "materials": ["kertas", "cat_air", "kardus"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Cap Bentuk",
+        "summary": "Celupkan potongan kardus ke cat dan cap ke kertas, berulang kali.",
+        "learning_goal": "Mengenali bentuk lewat jejak yang berulang, dan mengalami bahwa satu benda bisa membuat banyak jejak sama.",
+        "steps": [
+          { "title": "Potong dua bentuk dari kardus", "body": "Satu kotak dan satu lingkaran, seukuran telapak anak. Dua bentuk saja supaya perbedaannya jelas." },
+          { "title": "Tuang cat tipis di piring", "body": "Secukupnya saja. Cat yang terlalu banyak membuat jejaknya tidak berbentuk." },
+          { "title": "Cap satu kali, lalu serahkan", "body": "Celup dan cap sekali sambil menyebut bentuknya: \"Kotak.\" Lalu berikan ke anak." },
+          { "title": "Biarkan ia mengulang sebanyak yang ia mau", "body": "Dua puluh cap kotak itu bukan kebosanan, melainkan cara ia memastikan hasilnya selalu sama." }
+        ],
+        "parent_tip": "Jangan minta ia membuat gambar dari cap-cap itu. Jejak yang berulang sudah merupakan karyanya.",
+        "safety_notes": "Gunakan cat berlabel tidak beracun dan aman untuk anak. Dampingi sepanjang waktu, lindungi meja dan baju, dan cuci tangan setelah selesai. Jangan biarkan cat dekat mulut atau mata.",
+        "variations": ["Cap dengan potongan sayur seperti wortel atau okra.", "Cap dengan jari saja, tanpa alat."],
+        "materials_text": "Kertas, cat air tidak beracun, dan potongan kardus"
+      },
+      "en": {
+        "title": "Shape Stamps",
+        "summary": "Dip cardboard shapes in paint and stamp them onto paper, again and again.",
+        "learning_goal": "Recognising shapes through a repeated mark, and discovering one object can make many identical prints.",
+        "steps": [
+          { "title": "Cut two shapes from cardboard", "body": "A square and a circle, about palm-sized. Two only, so the difference is clear." },
+          { "title": "Pour a thin layer of paint", "body": "Just enough on a plate. Too much paint and the print loses its shape." },
+          { "title": "Stamp once, then hand over", "body": "Dip and stamp once while naming the shape: \"Square.\" Then give it to your child." },
+          { "title": "Let them repeat as much as they like", "body": "Twenty square prints isn't boredom; it's how they confirm the result is always the same." }
+        ],
+        "parent_tip": "Don't ask them to turn the prints into a picture. The repeated marks are the work.",
+        "safety_notes": "Use paint labelled non-toxic and child-safe. Supervise throughout, protect the table and clothes, and wash hands afterwards. Keep paint away from mouth and eyes.",
+        "variations": ["Stamp with cut vegetables such as carrot or okra.", "Stamp with fingers alone, no tools."],
+        "materials_text": "Paper, non-toxic paint, and cardboard offcuts"
+      }
+    }
+  },
+  {
+    "id": "ACT-0068",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "cognitive", "secondary_domains": ["motor"],
+    "skill_codes": ["problem_solving", "building"],
+    "duration_minutes": 12, "difficulty": 3,
+    "materials": ["balok", "boneka"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Jembatan untuk Boneka",
+        "summary": "Boneka harus menyeberang, dan anak membangun jembatannya.",
+        "learning_goal": "Memecahkan masalah dengan tujuan jelas, dan mencoba lagi setelah gagal.",
+        "steps": [
+          { "title": "Buat masalahnya dulu", "body": "Letakkan dua buku berjarak sejengkal dan katakan: \"Bonekanya mau nyeberang, tapi tidak bisa.\"" },
+          { "title": "Sediakan bahan, bukan jawaban", "body": "Taruh balok di dekatnya. Jangan tunjukkan cara memasangnya." },
+          { "title": "Tunggu dan biarkan runtuh", "body": "Jembatan pertama hampir pasti roboh. Jangan perbaiki; biarkan ia melihat apa yang terjadi." },
+          { "title": "Tanya, jangan jawab", "body": "Kalau ia buntu, tanyakan: \"Kurang panjang atau kurang kuat?\" Pertanyaan membuat ia tetap yang memecahkan." }
+        ],
+        "parent_tip": "Godaan terbesar adalah membangunkan jembatan yang bagus. Tahan. Jembatan jelek buatannya lebih berharga daripada jembatan bagus buatan Anda.",
+        "safety_notes": "Gunakan balok kayu atau plastik tanpa tepi tajam. Jauhkan dari wajah saat roboh, dan jangan membangun lebih tinggi dari dada anak.",
+        "variations": ["Ganti balok dengan buku-buku tebal.", "Buat jaraknya lebih lebar setelah berhasil sekali."],
+        "materials_text": "Balok susun, dua buku tebal, dan satu boneka"
+      },
+      "en": {
+        "title": "A Bridge For Teddy",
+        "summary": "Teddy needs to cross, and your child builds the bridge.",
+        "learning_goal": "Solving a problem with a clear goal, and trying again after it fails.",
+        "steps": [
+          { "title": "Set up the problem first", "body": "Place two books a hand's width apart and say: \"Teddy wants to cross, but he can't.\"" },
+          { "title": "Offer materials, not answers", "body": "Put blocks nearby. Don't show how they fit together." },
+          { "title": "Wait, and let it collapse", "body": "The first bridge will almost certainly fall. Don't fix it; let them see what happened." },
+          { "title": "Ask, don't answer", "body": "If they're stuck, ask: \"Too short, or not strong enough?\" A question keeps them the one solving it." }
+        ],
+        "parent_tip": "The strongest temptation is to build a good bridge. Resist it. Their bad bridge is worth more than your good one.",
+        "safety_notes": "Use wooden or plastic blocks with no sharp edges. Keep them away from faces as things fall, and build no higher than your child's chest.",
+        "variations": ["Use thick books instead of blocks.", "Widen the gap once they manage it once."],
+        "materials_text": "Building blocks, two thick books, and a soft toy"
+      }
+    }
+  },
+  {
+    "id": "ACT-0069",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "creativity", "secondary_domains": ["social_emotional", "language"],
+    "skill_codes": ["pretend_play", "conversation"],
+    "duration_minutes": 14, "difficulty": 2,
+    "materials": ["kardus", "keranjang"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Toko-Tokoan",
+        "summary": "Satu meja jadi toko, dan kalian bergantian jadi penjual dan pembeli.",
+        "learning_goal": "Bermain peran dengan aturan sosial sederhana, dan latihan percakapan bolak-balik.",
+        "steps": [
+          { "title": "Susun barang di satu meja", "body": "Pakai benda rumah yang sudah dikenal. Lima sampai enam barang sudah cukup banyak." },
+          { "title": "Mulai dengan satu kalimat", "body": "Katakan: \"Saya mau beli bola.\" Mulai langsung sebagai pembeli, tanpa menjelaskan permainannya." },
+          { "title": "Bergantian peran", "body": "Setelah beberapa kali, katakan: \"Sekarang kamu yang beli.\" Berganti peran yang membuat ini latihan sosial, bukan sekadar menyusun barang." },
+          { "title": "Masukkan satu kata sopan", "body": "Pakai \"terima kasih\" setiap transaksi. Satu kata, diulang konsisten, lebih melekat daripada diajarkan terpisah." }
+        ],
+        "parent_tip": "Permainan ini memberi anak kesempatan memegang kendali, yang jarang ia dapat di hari biasa. Biarkan ia jadi penjual lebih sering daripada Anda.",
+        "safety_notes": "Jangan gunakan uang koin asli, benda kecil, atau pecah belah sebagai barang dagangan.",
+        "variations": ["Ganti jadi warung makan dan pesan makanan pura-pura.", "Pakai daun sebagai uang-uangan, bukan koin."],
+        "materials_text": "Satu meja, beberapa benda rumah, dan satu keranjang belanja"
+      },
+      "en": {
+        "title": "Playing Shop",
+        "summary": "One table becomes a shop, and you swap between seller and buyer.",
+        "learning_goal": "Role play with simple social rules, and practice at back-and-forth conversation.",
+        "steps": [
+          { "title": "Lay goods out on a table", "body": "Use familiar household objects. Five or six items is already plenty." },
+          { "title": "Start with one line", "body": "Say: \"I'd like to buy the ball.\" Start as the buyer without explaining the game." },
+          { "title": "Swap roles", "body": "After a few rounds, say: \"Now you buy.\" Swapping is what makes this social practice rather than arranging objects." },
+          { "title": "Work in one polite word", "body": "Use \"thank you\" every transaction. One word, repeated consistently, sticks better than a separate lesson." }
+        ],
+        "parent_tip": "This game gives a child control, which they rarely get in an ordinary day. Let them be the shopkeeper more often than you are.",
+        "safety_notes": "Don't use real coins, small objects, or breakables as stock.",
+        "variations": ["Make it a food stall and order pretend meals.", "Use leaves as money rather than coins."],
+        "materials_text": "A table, some household objects, and a shopping basket"
+      }
+    }
+  },
+  {
+    "id": "ACT-0070",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "self_care", "secondary_domains": ["cognitive"],
+    "skill_codes": ["routine", "following_steps"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["kertas", "spidol"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "morning",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Urutan Pagi di Dinding",
+        "summary": "Gambar tiga langkah rutinitas pagi, dan anak yang menunjuk urutannya.",
+        "learning_goal": "Memahami urutan waktu, dan mengurangi tarik-ulur di pagi hari lewat urutan yang bisa dilihat.",
+        "steps": [
+          { "title": "Gambar tiga langkah saja", "body": "Misalnya: bangun, cuci muka, pakai baju. Gambar sederhana sudah cukup; tidak perlu bagus." },
+          { "title": "Tempel setinggi mata anak", "body": "Pasang di tempat yang ia lewati setiap pagi, pada ketinggian pandangannya, bukan ketinggian Anda." },
+          { "title": "Minta ia yang menunjuk", "body": "Setiap pagi tanyakan: \"Sekarang yang mana?\" Biarkan ia yang menentukan, bukan Anda yang memerintah." },
+          { "title": "Tandai setiap langkah selesai", "body": "Beri centang atau balik gambarnya. Tanda yang terlihat membuat kemajuan jadi nyata." }
+        ],
+        "parent_tip": "Urutan yang terlihat memindahkan perintah dari Anda ke dinding. Itu mengurangi perlawanan jauh lebih efektif daripada mengingatkan berkali-kali.",
+        "safety_notes": "Gunakan spidol yang tidak beracun dan tempel gambarnya dengan aman supaya tidak lepas dan jadi mainan.",
+        "variations": ["Buat versi rutinitas tidur malam.", "Pakai foto anak sendiri melakukan tiap langkah, bukan gambar."],
+        "materials_text": "Kertas, spidol tidak beracun, dan lakban"
+      },
+      "en": {
+        "title": "The Morning Order On The Wall",
+        "summary": "Draw three steps of the morning routine, and your child points to what's next.",
+        "learning_goal": "Understanding order in time, and reducing morning friction with a sequence they can see.",
+        "steps": [
+          { "title": "Draw three steps only", "body": "For example: wake up, wash face, get dressed. Simple drawings are fine; they don't need to be good." },
+          { "title": "Stick it at their eye level", "body": "Put it somewhere they pass every morning, at their height, not yours." },
+          { "title": "Let them do the pointing", "body": "Each morning ask: \"Which one now?\" Let them decide, rather than you instructing." },
+          { "title": "Mark each finished step", "body": "Add a tick or turn the picture over. A visible mark makes progress real." }
+        ],
+        "parent_tip": "A visible sequence moves the instruction from you to the wall. That cuts resistance far better than repeated reminders.",
+        "safety_notes": "Use non-toxic markers and fix the chart securely so it doesn't come down and become a toy.",
+        "variations": ["Make a bedtime version.", "Use photos of your own child doing each step instead of drawings."],
+        "materials_text": "Paper, non-toxic markers, and tape"
+      }
+    }
+  },
+  {
+    "id": "ACT-0071",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "early_numeracy", "secondary_domains": ["cognitive"],
+    "skill_codes": ["pattern", "sorting"],
+    "duration_minutes": 9, "difficulty": 2,
+    "materials": ["balok", "pom_pom"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Lanjutkan Polanya",
+        "summary": "Susun dua warna bergantian, lalu anak menebak yang berikutnya.",
+        "learning_goal": "Mengenali pola berulang, dasar dari matematika dan juga dari membaca.",
+        "steps": [
+          { "title": "Buat pola paling sederhana", "body": "Merah, biru, merah, biru. Pola dua warna bergantian dulu, jangan lebih rumit." },
+          { "title": "Sebut polanya keras-keras", "body": "Tunjuk tiap benda sambil menyebut warnanya. Mendengar polanya membantu sama banyaknya dengan melihatnya." },
+          { "title": "Berhenti dan tunggu", "body": "Setelah empat benda, berhenti dan sodorkan dua pilihan. Tunggu ia memilih." },
+          { "title": "Lanjutkan bersama", "body": "Setelah benar sekali, teruskan polanya sampai delapan benda." }
+        ],
+        "parent_tip": "Kalau dua warna masih sulit, susun pola dengan benda yang sangat berbeda, misalnya sendok dan balok. Perbedaan besar lebih mudah dilihat daripada perbedaan warna.",
+        "safety_notes": "Semua benda harus lebih besar dari mulut anak dan tanpa tepi tajam.",
+        "variations": ["Buat pola bunyi: tepuk, hentak, tepuk, hentak.", "Buat pola tiga unsur setelah dua terasa mudah."],
+        "materials_text": "Delapan benda dalam dua warna atau dua jenis"
+      },
+      "en": {
+        "title": "Carry On The Pattern",
+        "summary": "Lay out two colours alternating, then your child works out what comes next.",
+        "learning_goal": "Recognising a repeating pattern, the basis of both maths and reading.",
+        "steps": [
+          { "title": "Make the simplest pattern", "body": "Red, blue, red, blue. Two alternating colours first, nothing more complicated." },
+          { "title": "Say the pattern out loud", "body": "Point at each item while naming its colour. Hearing the pattern helps as much as seeing it." },
+          { "title": "Stop and wait", "body": "After four items, stop and offer two choices. Wait for them to pick." },
+          { "title": "Carry on together", "body": "Once they get one right, continue the pattern out to eight items." }
+        ],
+        "parent_tip": "If two colours are still hard, build the pattern from very different objects, such as a spoon and a block. A big difference is easier to see than a colour difference.",
+        "safety_notes": "Everything used must be bigger than your child's mouth, with no sharp edges.",
+        "variations": ["Make a sound pattern: clap, stamp, clap, stamp.", "Move to a three-part pattern once two feels easy."],
+        "materials_text": "Eight objects in two colours or two kinds"
+      }
+    }
+  },
+  {
+    "id": "ACT-0072",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "social_emotional", "secondary_domains": ["language"],
+    "skill_codes": ["emotion_naming", "conversation"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["kartu_gambar"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Kartu Perasaan",
+        "summary": "Empat gambar wajah, dan anak memilih mana yang seperti perasaannya hari ini.",
+        "learning_goal": "Punya kata untuk perasaan sendiri, yang membuat perasaan lebih mudah dikelola.",
+        "steps": [
+          { "title": "Buat empat kartu wajah", "body": "Gambar senang, sedih, marah, takut. Garis sederhana saja; wajah yang terlalu detail justru lebih sulit dibaca." },
+          { "title": "Sebut satu per satu", "body": "Tunjuk tiap kartu dan sebut namanya. Buat ekspresi yang sama di wajah Anda saat menyebutnya." },
+          { "title": "Pilih kartu Anda sendiri dulu", "body": "Katakan: \"Hari ini Ibu senang, karena kita jalan-jalan.\" Perasaan plus alasannya, dalam satu kalimat." },
+          { "title": "Tanyakan giliran anak", "body": "Terima pilihan apa pun tanpa membantah. Kalau ia memilih marah di hari yang menyenangkan, tanyakan saja: \"Apa yang bikin marah?\"" }
+        ],
+        "parent_tip": "Jangan membantah perasaan yang ia pilih. \"Masa sedih, tadi kan senang\" mengajarkan anak bahwa perasaannya salah, dan anak yang begitu berhenti bercerita.",
+        "safety_notes": "Kalau anak terus-menerus memilih sedih atau takut selama berminggu-minggu, atau menceritakan hal yang mengkhawatirkan, bicarakan dengan dokter anak atau tenaga profesional yang sesuai.",
+        "variations": ["Pakai cermin dan buat ekspresinya, bukan kartu.", "Pilih kartu untuk tokoh dalam cerita yang baru dibaca."],
+        "materials_text": "Empat kartu bergambar wajah"
+      },
+      "en": {
+        "title": "Feelings Cards",
+        "summary": "Four face cards, and your child picks which one matches today.",
+        "learning_goal": "Having words for their own feelings, which makes those feelings easier to handle.",
+        "steps": [
+          { "title": "Make four face cards", "body": "Draw happy, sad, angry, scared. Simple lines are best; detailed faces are harder to read." },
+          { "title": "Name them one at a time", "body": "Point at each card and name it. Make the same expression on your own face as you say it." },
+          { "title": "Pick your own card first", "body": "Say: \"Today I'm happy, because we went out.\" The feeling plus the reason, in one sentence." },
+          { "title": "Ask for their turn", "body": "Accept any choice without arguing. If they pick angry on a lovely day, just ask: \"What made you angry?\"" }
+        ],
+        "parent_tip": "Don't argue with the feeling they choose. \"You can't be sad, you had a nice time\" teaches a child their feelings are wrong, and children who learn that stop telling you.",
+        "safety_notes": "If your child picks sad or scared consistently over weeks, or tells you something worrying, talk to your child's doctor or an appropriate professional.",
+        "variations": ["Use a mirror and make the faces instead of cards.", "Pick a card for a character in a story you've just read."],
+        "materials_text": "Four cards with drawn faces"
+      }
+    }
+  },
+  {
+    "id": "ACT-0073",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "motor", "secondary_domains": ["cognitive"],
+    "skill_codes": ["walking_balance", "following_steps"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["lakban", "bola"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Lompat Kotak",
+        "summary": "Empat kotak lakban di lantai, untuk dilompati satu per satu.",
+        "learning_goal": "Melompat dengan dua kaki dan mendarat seimbang, keterampilan motorik kasar yang berkembang di usia ini.",
+        "steps": [
+          { "title": "Buat empat kotak berdekatan", "body": "Tempel empat kotak lakban berurutan, berjarak satu telapak kaki. Dekat dulu, jangan jauh." },
+          { "title": "Lompat duluan", "body": "Lompati kotaknya sambil menghitung. Anak meniru gerakan jauh lebih cepat daripada mengikuti penjelasan." },
+          { "title": "Pegang tangannya di percobaan pertama", "body": "Melompat dengan dua kaki bersamaan itu sulit. Dukung dulu, lalu lepaskan." },
+          { "title": "Terima melangkah, bukan melompat", "body": "Banyak anak dua tahun masih melangkah, belum melompat. Itu tahap yang benar, bukan kegagalan." }
+        ],
+        "parent_tip": "Melompat dengan dua kaki sekaligus biasanya matang antara dua dan tiga tahun. Kalau belum bisa, cukup melangkah dulu di jalur yang sama.",
+        "safety_notes": "Lantai harus tidak licin dan jauh dari sudut meja. Lepas kaus kaki. Dampingi dari dekat, dan lepas lakban setelah selesai supaya tidak jadi bahaya tersandung.",
+        "variations": ["Letakkan bola di tiap kotak untuk diambil sambil lewat.", "Buat kotak berwarna berbeda dan sebut warnanya saat mendarat."],
+        "materials_text": "Lakban kertas dan lantai tidak licin"
+      },
+      "en": {
+        "title": "Jump The Squares",
+        "summary": "Four taped squares on the floor, to jump through one at a time.",
+        "learning_goal": "Jumping with both feet and landing balanced, a gross motor skill that develops at this age.",
+        "steps": [
+          { "title": "Tape four close squares", "body": "Lay four squares in a row, a foot's width apart. Close together first, not far." },
+          { "title": "Jump it first", "body": "Jump through the squares, counting as you go. Children copy a movement far faster than they follow an explanation." },
+          { "title": "Hold their hand on the first go", "body": "Jumping with both feet at once is hard. Support first, then let go." },
+          { "title": "Accept stepping instead of jumping", "body": "Plenty of two-year-olds still step rather than jump. That's the right stage, not a failure." }
+        ],
+        "parent_tip": "Two-footed jumping usually matures between two and three. If it hasn't yet, stepping through the same course is fine.",
+        "safety_notes": "Use a non-slip floor away from table corners. Take socks off. Stay close, and remove the tape afterwards so it isn't a trip hazard.",
+        "variations": ["Put a ball in each square to pick up on the way.", "Use different coloured squares and name the colour on landing."],
+        "materials_text": "Paper tape and a non-slip floor"
+      }
+    }
+  },
+  {
+    "id": "ACT-0074",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "sensory", "secondary_domains": ["cognitive", "language"],
+    "skill_codes": ["tactile", "vocabulary"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": ["kain", "keranjang", "bola", "sendok"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Tebak dengan Tangan",
+        "summary": "Benda disembunyikan di dalam kantong kain, dan ditebak hanya dengan meraba.",
+        "learning_goal": "Mengenali benda lewat sentuhan saja, dan mencari kata untuk menggambarkan apa yang dirasakan.",
+        "steps": [
+          { "title": "Masukkan tiga benda ke kantong", "body": "Pilih benda yang bentuknya jelas berbeda dan sudah dikenal: bola, sendok, balok." },
+          { "title": "Masukkan tangan bersama", "body": "Masukkan tangan Anda dulu dan katakan apa yang Anda rasakan: \"Bulat dan licin.\"" },
+          { "title": "Giliran anak meraba", "body": "Minta ia meraba tanpa melihat. Kalau ia langsung mengintip, tidak apa-apa; coba lagi besok." },
+          { "title": "Keluarkan dan cocokkan", "body": "Keluarkan bendanya dan bandingkan dengan tebakannya, tanpa menilai benar atau salah." }
+        ],
+        "parent_tip": "Kata-kata seperti licin, kasar, keras, lembut paling mudah dipelajari saat anak sedang benar-benar merasakannya.",
+        "safety_notes": "Hanya gunakan benda yang jelas lebih besar dari mulut anak, tanpa tepi tajam dan tanpa bagian yang bisa lepas. Dampingi sepanjang waktu, dan jangan gunakan kantong plastik.",
+        "variations": ["Pakai benda dengan suhu berbeda, misalnya sendok logam dingin.", "Minta ia yang memasukkan benda untuk Anda tebak."],
+        "materials_text": "Satu kantong kain dan tiga benda yang dikenal"
+      },
+      "en": {
+        "title": "Guess By Touch",
+        "summary": "Objects hidden in a cloth bag, identified by feel alone.",
+        "learning_goal": "Recognising objects through touch, and finding words for what a thing feels like.",
+        "steps": [
+          { "title": "Put three objects in the bag", "body": "Choose clearly different, familiar shapes: a ball, a spoon, a block." },
+          { "title": "Reach in together", "body": "Put your hand in first and say what you feel: \"Round and smooth.\"" },
+          { "title": "Their turn to feel", "body": "Ask them to feel without looking. If they peek straight away, that's fine; try again tomorrow." },
+          { "title": "Take it out and compare", "body": "Pull the object out and compare it to their guess, without marking it right or wrong." }
+        ],
+        "parent_tip": "Words like smooth, rough, hard and soft are learned most easily while a child is actually feeling the thing.",
+        "safety_notes": "Use only objects clearly bigger than your child's mouth, with no sharp edges and no removable parts. Supervise throughout, and never use a plastic bag.",
+        "variations": ["Include objects at different temperatures, such as a cold metal spoon.", "Let them load the bag for you to guess."],
+        "materials_text": "One cloth bag and three familiar objects"
+      }
+    }
+  },
+  {
+    "id": "ACT-0075",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "language", "secondary_domains": ["social_emotional"],
+    "skill_codes": ["conversation", "memory"],
+    "duration_minutes": 8, "difficulty": 2,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Cerita Hari Ini",
+        "summary": "Setiap malam, ceritakan bergantian satu hal yang terjadi hari itu.",
+        "learning_goal": "Mengingat dan menceritakan kejadian yang sudah lewat, kemampuan bahasa yang cukup sulit di usia ini.",
+        "steps": [
+          { "title": "Mulai dari Anda", "body": "Ceritakan satu hal kecil dari hari Anda dalam dua kalimat. Contoh dulu memberi tahu panjang yang diharapkan." },
+          { "title": "Tanyakan satu hal spesifik", "body": "Jangan tanya \"hari ini ngapain?\" Tanyakan \"tadi di taman main apa?\" Pertanyaan sempit jauh lebih mudah dijawab." },
+          { "title": "Tunggu, jangan isi jedanya", "body": "Mengingat butuh waktu. Hening lima detik bukan tanda ia tidak tahu." },
+          { "title": "Tutup dengan satu hal menyenangkan", "body": "Akhiri dengan bagian terbaik dari hari itu, supaya rutinitas ini terasa hangat." }
+        ],
+        "parent_tip": "Pertanyaan luas seperti \"hari ini gimana?\" hampir selalu dijawab \"nggak tahu\". Pertanyaan sempit tentang satu momen hampir selalu dapat jawaban.",
+        "safety_notes": "Kalau anak menceritakan sesuatu yang mengkhawatirkan, dengarkan tanpa menyela dan tanpa membantah, lalu tindak lanjuti dengan orang dewasa yang tepat.",
+        "variations": ["Lakukan di meja makan, bukan sebelum tidur.", "Ceritakan satu hal yang sulit dan satu hal yang menyenangkan."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Today's Story",
+        "summary": "Each evening, take turns telling one thing that happened that day.",
+        "learning_goal": "Recalling and recounting something already past, which is genuinely hard language work at this age.",
+        "steps": [
+          { "title": "Start with yourself", "body": "Tell one small thing from your day in two sentences. Modelling it shows the expected length." },
+          { "title": "Ask one specific question", "body": "Don't ask \"what did you do today?\" Ask \"what did you play at the park?\" A narrow question is far easier to answer." },
+          { "title": "Wait, and don't fill the pause", "body": "Remembering takes time. Five seconds of silence isn't a sign they don't know." },
+          { "title": "Close on something good", "body": "Finish with the best part of the day, so the routine stays warm." }
+        ],
+        "parent_tip": "Broad questions like \"how was your day?\" almost always get \"don't know\". Narrow questions about one moment almost always get an answer.",
+        "safety_notes": "If your child tells you something worrying, listen without interrupting or contradicting, then follow it up with the right adult.",
+        "variations": ["Do it at the dinner table rather than at bedtime.", "Tell one hard thing and one good thing."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0076",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "cognitive", "secondary_domains": ["motor", "self_care"],
+    "skill_codes": ["sorting", "tidying"],
+    "duration_minutes": 10, "difficulty": 2,
+    "materials": ["keranjang"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Pasangkan Kaus Kaki",
+        "summary": "Cucian bersih jadi permainan mencocokkan pasangan.",
+        "learning_goal": "Mencocokkan dua benda yang sama, dan ikut mengerjakan pekerjaan rumah yang nyata.",
+        "steps": [
+          { "title": "Mulai dari empat pasang saja", "body": "Pilih kaus kaki yang warnanya jelas berbeda satu sama lain. Satu keranjang penuh terlalu banyak." },
+          { "title": "Pasangkan satu di depannya", "body": "Ambil satu kaus kaki, cari pasangannya sambil berpikir keras: \"Yang ini biru. Mana biru lagi?\"" },
+          { "title": "Serahkan satu kaus kaki", "body": "Berikan satu dan biarkan ia mencari pasangannya di tumpukan." },
+          { "title": "Masukkan pasangan ke keranjang", "body": "Tiap pasang yang ketemu masuk keranjang. Wadah terpisah membuat kemajuan terlihat." }
+        ],
+        "parent_tip": "Ini pekerjaan rumah yang betul-betul membantu, dan anak merasakan bedanya. Tugas nyata selalu lebih menarik daripada tugas yang dibuat-buat.",
+        "safety_notes": "Pakai cucian yang sudah bersih dan kering. Jangan gunakan pakaian yang baru keluar dari mesin dan masih basah, dan jauhkan dari deterjen atau pelembut.",
+        "variations": ["Pasangkan sepatu, bukan kaus kaki.", "Kelompokkan berdasarkan ukuran: punya ayah, punya anak."],
+        "materials_text": "Empat pasang kaus kaki bersih dan satu keranjang"
+      },
+      "en": {
+        "title": "Match The Socks",
+        "summary": "Clean laundry becomes a matching game.",
+        "learning_goal": "Matching two identical things, and taking part in a real household job.",
+        "steps": [
+          { "title": "Start with four pairs only", "body": "Choose socks in clearly different colours. A full laundry basket is too much." },
+          { "title": "Match one in front of them", "body": "Pick up a sock and find its pair while thinking aloud: \"This one's blue. Where's the other blue?\"" },
+          { "title": "Hand them one sock", "body": "Give them one and let them look for its pair in the pile." },
+          { "title": "Put each pair in the basket", "body": "Every matched pair goes in the basket. A separate container makes progress visible." }
+        ],
+        "parent_tip": "This is a household job that genuinely helps, and children can tell the difference. Real tasks always hold more interest than invented ones.",
+        "safety_notes": "Use laundry that is already clean and dry. Don't use wet washing straight from the machine, and keep detergent and softener away.",
+        "variations": ["Match shoes instead of socks.", "Sort by size: grown-up's and child's."],
+        "materials_text": "Four pairs of clean socks and a basket"
+      }
+    }
+  },
+  {
+    "id": "ACT-0077",
+    "age_min_months": 24, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "creativity", "secondary_domains": ["motor", "social_emotional"],
+    "skill_codes": ["music_movement", "cooperation"],
+    "duration_minutes": 9, "difficulty": 1,
+    "materials": ["alat_musik", "mangkuk", "sendok"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Band Rumah",
+        "summary": "Setiap orang pegang satu alat bunyi, dan main bersama dalam satu irama.",
+        "learning_goal": "Menyelaraskan diri dengan orang lain, dan merasakan irama lewat badan.",
+        "steps": [
+          { "title": "Bagikan satu alat per orang", "body": "Mangkuk dan sendok, atau alat musik mainan. Satu per orang, supaya tidak ada rebutan." },
+          { "title": "Mulai dengan ketukan lambat", "body": "Ketuk pelan dan teratur. Lambat jauh lebih mudah diikuti daripada cepat." },
+          { "title": "Berhenti bersama", "body": "Angkat tangan sebagai aba-aba berhenti. Berhenti bersama lebih sulit, dan lebih bermanfaat, daripada mulai bersama." },
+          { "title": "Biarkan anak memimpin", "body": "Katakan: \"Sekarang kamu yang mulai.\" Ikuti ketukannya, secepat atau selambat apa pun." }
+        ],
+        "parent_tip": "Jangan perbaiki iramanya. Anak usia ini belum bisa menjaga tempo, dan mengoreksi membuat permainan berubah menjadi ujian.",
+        "safety_notes": "Jangan dekatkan alat berbunyi keras ke telinga anak. Gunakan wadah yang tidak pecah, dan jauhkan kaca atau keramik.",
+        "variations": ["Mainkan sambil berjalan keliling ruangan.", "Pelan untuk bagian tenang, keras untuk bagian ramai."],
+        "materials_text": "Satu alat bunyi per orang, dari dapur atau mainan"
+      },
+      "en": {
+        "title": "Kitchen Band",
+        "summary": "Everyone holds one noisemaker and plays together on one beat.",
+        "learning_goal": "Synchronising with other people, and feeling rhythm through the body.",
+        "steps": [
+          { "title": "One instrument each", "body": "A bowl and spoon, or a toy instrument. One each, so there's nothing to fight over." },
+          { "title": "Start with a slow beat", "body": "Tap softly and steadily. Slow is far easier to follow than fast." },
+          { "title": "Stop together", "body": "Raise a hand as the stop signal. Stopping together is harder, and more useful, than starting together." },
+          { "title": "Let your child lead", "body": "Say: \"Now you start.\" Follow their beat, however fast or slow." }
+        ],
+        "parent_tip": "Don't correct the rhythm. A child this age can't hold a tempo, and correcting turns the game into a test.",
+        "safety_notes": "Keep loud noisemakers away from your child's ears. Use unbreakable containers, nothing glass or ceramic.",
+        "variations": ["Play while walking round the room.", "Quiet for calm parts, loud for busy parts."],
+        "materials_text": "One noisemaker each, from the kitchen or the toy box"
+      }
+    }
+  },
+  {
+    "id": "ACT-0078",
+    "age_min_months": 30, "age_max_months": 36, "age_band_code": "m24_36",
+    "primary_domain": "early_literacy", "secondary_domains": ["language"],
+    "skill_codes": ["phonological", "attention"],
+    "duration_minutes": 7, "difficulty": 3,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Kata yang Bunyinya Mirip",
+        "summary": "Sebut dua kata yang berima, dan cari kata ketiga bersama.",
+        "learning_goal": "Mendengar bunyi di dalam kata, bukan hanya artinya. Ini keterampilan yang paling kuat memprediksi kemampuan membaca.",
+        "steps": [
+          { "title": "Mulai dari kata yang ia kenal", "body": "Pilih kata dari hidupnya: \"bola\". Kata asing membuat permainan ini jadi tentang arti, bukan bunyi." },
+          { "title": "Sebut pasangannya", "body": "Katakan: \"Bola, pola. Bunyinya mirip, ya.\" Tekankan bagian akhirnya saat menyebut." },
+          { "title": "Ajak mencari kata ketiga", "body": "Katakan: \"Apa lagi yang bunyinya begitu?\" Terima kata yang tidak ada artinya; itu justru tanda ia mendengar bunyinya." },
+          { "title": "Berhenti setelah tiga kata", "body": "Tiga sudah cukup untuk satu sesi. Permainan ini melelahkan meski terlihat ringan." }
+        ],
+        "parent_tip": "Kata yang dibuat-buat seperti \"bola, pola, nola\" adalah jawaban terbaik, bukan kesalahan. Artinya ia sedang mendengarkan bunyi dan bukan makna.",
+        "safety_notes": "Tidak ada risiko khusus.",
+        "variations": ["Nyanyikan lagu anak yang memang berima.", "Cari kata yang berawalan bunyi sama, bukan berakhiran."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Words That Sound Alike",
+        "summary": "Say two rhyming words, then find a third one together.",
+        "learning_goal": "Hearing the sounds inside words rather than only their meaning. This is the strongest single predictor of later reading.",
+        "steps": [
+          { "title": "Start with a word they know", "body": "Pick one from their life: \"cat\". An unfamiliar word turns this into a game about meaning rather than sound." },
+          { "title": "Say the pair", "body": "Say: \"Cat, hat. They sound the same at the end.\" Stress the ending as you say it." },
+          { "title": "Look for a third together", "body": "Ask: \"What else sounds like that?\" Accept made-up words; they're a sign the sound is being heard." },
+          { "title": "Stop after three words", "body": "Three is enough for one session. This game is tiring even though it looks light." }
+        ],
+        "parent_tip": "Invented words like \"cat, hat, nat\" are the best possible answer, not a mistake. They mean your child is listening to sound rather than meaning.",
+        "safety_notes": "No particular risk.",
+        "variations": ["Sing a nursery rhyme that already rhymes.", "Look for words starting with the same sound instead."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  }
+]

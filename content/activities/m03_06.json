@@ -1,0 +1,422 @@
+[
+  {
+    "id": "ACT-0011",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "motor", "secondary_domains": ["cognitive"],
+    "skill_codes": ["reaching", "cause_effect"],
+    "duration_minutes": 6, "difficulty": 1,
+    "materials": ["kain", "tali"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Raih Kain Gantung",
+        "summary": "Gantung kain tepat di atas jangkauan bayi, dan biarkan ia belajar bahwa tangannya bisa menggapai.",
+        "learning_goal": "Menghubungkan niat dengan gerakan tangan, langkah pertama menuju meraih dengan sengaja.",
+        "steps": [
+          { "title": "Gantung kain rendah", "body": "Ikat kain di antara dua kursi atau pegang sendiri, sekitar 20 cm di atas dada bayi yang terlentang. Harus bisa disentuh, bukan hanya dilihat." },
+          { "title": "Sentuhkan dulu ke tangannya", "body": "Bawa kain menyentuh tangannya satu kali, supaya ia tahu benda itu bisa dijangkau." },
+          { "title": "Diamkan dan tunggu", "body": "Kembalikan kain ke posisi gantung. Tunggu dan jangan bantu. Gerakan pertamanya mungkin acak, itu normal." },
+          { "title": "Rayakan sentuhan pertama", "body": "Saat tangannya kena, katakan: \"Kamu kena!\" Kainnya bergerak, dan itu hadiah yang langsung ia rasakan." }
+        ],
+        "parent_tip": "Letakkan sedikit lebih rendah dari yang Anda kira perlu. Keberhasilan di awal membuat bayi mau mencoba lagi.",
+        "safety_notes": "Jangan gunakan tali panjang yang bisa melilit. Jangan tinggalkan bayi sendiri dengan benda yang tergantung di atasnya.",
+        "variations": ["Ganti kain dengan sendok plastik yang berbunyi saat tersentuh.", "Lakukan sambil bayi duduk di pangkuan Anda."],
+        "materials_text": "Satu kain ringan dan tali pendek, atau cukup tangan Anda"
+      },
+      "en": {
+        "title": "Reach The Hanging Cloth",
+        "summary": "Hang a cloth just within reach and let your baby discover that their hand can get there.",
+        "learning_goal": "Links intention to hand movement, the first step towards reaching on purpose.",
+        "steps": [
+          { "title": "Hang it low", "body": "Tie a cloth between two chairs, or just hold it, about 20 cm above the chest of your baby lying on their back. It has to be touchable, not only visible." },
+          { "title": "Touch it to their hand first", "body": "Bring the cloth to brush their hand once, so they learn this thing is within reach." },
+          { "title": "Hold still and wait", "body": "Return the cloth to its hanging position. Wait, and don't help. Their first movements may be random; that's normal." },
+          { "title": "Celebrate the first contact", "body": "When their hand connects, say: \"You got it!\" The cloth moves, and that is an immediate reward." }
+        ],
+        "parent_tip": "Hang it lower than you think you need to. Early success is what makes a baby try again.",
+        "safety_notes": "Never use a long cord that could wrap around them. Don't leave your baby alone with anything suspended above them.",
+        "variations": ["Swap the cloth for a plastic spoon that clicks when touched.", "Try it with your baby sitting on your lap."],
+        "materials_text": "One light cloth and a short tie, or just your hands"
+      }
+    }
+  },
+  {
+    "id": "ACT-0012",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "sensory", "secondary_domains": ["social_emotional"],
+    "skill_codes": ["visual_tracking", "social_response"],
+    "duration_minutes": 5, "difficulty": 1,
+    "materials": ["cermin"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Siapa di Cermin",
+        "summary": "Duduk bersama di depan cermin dan tunjukkan wajah Anda berdua.",
+        "learning_goal": "Mengenalkan wajah dan ekspresi, serta memberi bayi sesuatu yang menanggapi gerakannya sendiri.",
+        "steps": [
+          { "title": "Duduk menghadap cermin", "body": "Gendong bayi menghadap cermin, punggungnya bersandar ke dada Anda, sehingga Anda berdua terlihat." },
+          { "title": "Sebut nama", "body": "Tunjuk pantulannya: \"Itu kamu.\" Lalu tunjuk pantulan Anda: \"Itu Ibu.\"" },
+          { "title": "Buat satu ekspresi besar", "body": "Buka mulut lebar, lalu julurkan lidah. Tunggu, lihat apakah ia memperhatikan atau mencoba menirukan." },
+          { "title": "Biarkan ia memimpin", "body": "Kalau ia menggerakkan tangan dan melihat pantulannya bergerak, berhenti bicara dan biarkan ia mengamati." }
+        ],
+        "parent_tip": "Bayi di usia ini belum tahu itu dirinya sendiri. Yang menarik baginya adalah ada wajah yang bergerak serentak dengan gerakannya.",
+        "safety_notes": "Gunakan cermin yang terpasang kuat di dinding atau cermin bayi berbahan akrilik. Jangan pakai cermin kaca lepas yang bisa pecah.",
+        "variations": ["Lakukan sambil menyanyikan satu bait pendek.", "Tambahkan topi atau kain di kepala Anda dan lihat reaksinya."],
+        "materials_text": "Cermin yang aman dan terpasang kuat"
+      },
+      "en": {
+        "title": "Who's In The Mirror",
+        "summary": "Sit together in front of a mirror and point out both your faces.",
+        "learning_goal": "Introduces faces and expressions, and gives your baby something that answers their own movement.",
+        "steps": [
+          { "title": "Sit facing the mirror", "body": "Hold your baby facing the mirror, their back against your chest, so you are both in view." },
+          { "title": "Name who is who", "body": "Point at their reflection: \"That's you.\" Then at yours: \"That's Mum.\"" },
+          { "title": "Make one big expression", "body": "Open your mouth wide, then stick out your tongue. Wait, and see whether they watch or try to copy." },
+          { "title": "Let them lead", "body": "If they move a hand and notice the reflection move with it, stop talking and let them study it." }
+        ],
+        "parent_tip": "At this age a baby doesn't know that is themselves. What grips them is a face that moves exactly when they do.",
+        "safety_notes": "Use a mirror firmly fixed to a wall, or an acrylic baby mirror. Never a loose glass mirror.",
+        "variations": ["Sing a short verse while you do it.", "Put a hat or cloth on your head and watch their reaction."],
+        "materials_text": "A safe, firmly mounted mirror"
+      }
+    }
+  },
+  {
+    "id": "ACT-0013",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "cognitive", "secondary_domains": ["sensory", "motor"],
+    "skill_codes": ["cause_effect", "auditory"],
+    "duration_minutes": 5, "difficulty": 1,
+    "materials": ["botol", "beras"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Botol Berisik",
+        "summary": "Buat satu botol berisi beras, dan tunjukkan bahwa menggoyangnya menghasilkan suara.",
+        "learning_goal": "Memahami sebab dan akibat: saya menggerakkan sesuatu, lalu sesuatu terjadi.",
+        "steps": [
+          { "title": "Buat botolnya", "body": "Isi botol plastik kecil dengan beras sampai sepertiga penuh. Tutup rapat, lalu kencangkan tutupnya dengan lakban keliling." },
+          { "title": "Goyangkan di depannya", "body": "Goyang sekali, lalu diam. Beri jeda supaya bayi menghubungkan gerakan dengan suara." },
+          { "title": "Letakkan di tangannya", "body": "Taruh botol di telapak bayi dan tutup tangannya dengan tangan Anda. Goyangkan bersama." },
+          { "title": "Lepaskan dan tunggu", "body": "Lepas tangan Anda. Kalau ia menggoyang sendiri, sebut: \"Kamu yang bikin suara.\"" }
+        ],
+        "parent_tip": "Bunyi yang pelan lebih menarik daripada yang keras. Isi botol jangan terlalu penuh, supaya suaranya lembut.",
+        "safety_notes": "Tutup botol harus benar-benar tidak bisa dibuka, dan dikunci dengan lakban. Beras adalah risiko tersedak serius. Periksa botol setiap kali sebelum dipakai, dan simpan di luar jangkauan setelah selesai.",
+        "variations": ["Buat dua botol dengan isi berbeda, misalnya beras dan kacang hijau, lalu bandingkan suaranya.", "Gulirkan botol di lantai dan biarkan ia mengikuti dengan mata."],
+        "materials_text": "Botol plastik kecil, beras, dan lakban"
+      },
+      "en": {
+        "title": "The Noisy Bottle",
+        "summary": "Make one rice-filled bottle and show that shaking it makes a sound.",
+        "learning_goal": "Understanding cause and effect: I move something, and then something happens.",
+        "steps": [
+          { "title": "Make the bottle", "body": "Fill a small plastic bottle a third full with rice. Close it tightly, then seal the cap all the way round with tape." },
+          { "title": "Shake it in front of them", "body": "Shake once, then stop. The pause lets your baby connect the movement to the sound." },
+          { "title": "Put it in their hand", "body": "Place the bottle in their palm and close your hand over theirs. Shake it together." },
+          { "title": "Let go and wait", "body": "Release your hand. If they shake it themselves, name it: \"You made that sound.\"" }
+        ],
+        "parent_tip": "A quiet rattle holds attention better than a loud one. Don't overfill the bottle, so the sound stays soft.",
+        "safety_notes": "The cap must be impossible to open and sealed with tape. Loose rice is a serious choking hazard. Check the bottle every time before use, and put it out of reach afterwards.",
+        "variations": ["Make two bottles with different fillings, such as rice and dried beans, and compare the sounds.", "Roll the bottle along the floor and let them track it with their eyes."],
+        "materials_text": "A small plastic bottle, rice, and tape"
+      }
+    }
+  },
+  {
+    "id": "ACT-0014",
+    "age_min_months": 4, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "motor", "secondary_domains": [],
+    "skill_codes": ["head_control", "sitting_crawling"],
+    "duration_minutes": 5, "difficulty": 2,
+    "materials": ["selimut", "bantal"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": "CDC Developmental Milestones",
+    "t": {
+      "id": {
+        "title": "Berguling Setengah Jalan",
+        "summary": "Bantu bayi berguling dari telentang ke samping, lalu biarkan ia kembali sendiri.",
+        "learning_goal": "Melatih otot sisi badan yang dipakai untuk berguling penuh dan nanti untuk duduk.",
+        "steps": [
+          { "title": "Siapkan lantai, bukan kasur", "body": "Gelar selimut di lantai yang rata dan luas. Kasur terlalu lembut dan bisa menyulitkan." },
+          { "title": "Tarik perhatiannya ke satu sisi", "body": "Letakkan benda menarik di sisi kanan, sejajur matanya. Biarkan ia menoleh dulu." },
+          { "title": "Bantu lewat pinggul", "body": "Dorong lembut pinggul kirinya ke arah kanan. Dorong dari pinggul, bukan dari tangan atau kaki." },
+          { "title": "Berhenti di posisi samping", "body": "Tahan di posisi menyamping beberapa detik, lalu lepaskan. Biarkan ia kembali telentang sendiri." }
+        ],
+        "parent_tip": "Dorong dari pinggul, bukan menarik tangan. Pinggul adalah titik yang dipakai bayi untuk berguling secara alami.",
+        "safety_notes": "Lakukan di lantai, jauh dari tepi tempat tidur atau sofa. Setelah bayi mulai bisa berguling sendiri, jangan pernah tinggalkan di permukaan tinggi.",
+        "variations": ["Ulangi ke sisi kiri supaya kedua sisi terlatih.", "Gunakan wajah Anda sebagai benda yang menarik perhatian."],
+        "materials_text": "Selimut dan lantai yang rata"
+      },
+      "en": {
+        "title": "Halfway Roll",
+        "summary": "Help your baby roll from their back onto their side, then let them come back on their own.",
+        "learning_goal": "Works the side muscles they need for a full roll, and later for sitting.",
+        "steps": [
+          { "title": "Use the floor, not a bed", "body": "Spread a blanket on a flat, open floor. A mattress is too soft and makes it harder." },
+          { "title": "Draw their attention to one side", "body": "Put something interesting to their right, level with their eyes. Let them turn their head first." },
+          { "title": "Help from the hip", "body": "Gently guide their left hip towards the right. Push from the hip, never from an arm or leg." },
+          { "title": "Stop on their side", "body": "Hold them on their side for a few seconds, then let go. Let them come back onto their back themselves." }
+        ],
+        "parent_tip": "Guide from the hip rather than pulling an arm. The hip is what a baby naturally rolls from.",
+        "safety_notes": "Do this on the floor, away from the edge of a bed or sofa. Once a baby can roll, never leave them on a raised surface.",
+        "variations": ["Repeat to the left so both sides get practice.", "Use your own face as the thing that draws them."],
+        "materials_text": "A blanket and a flat floor"
+      }
+    }
+  },
+  {
+    "id": "ACT-0015",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "language", "secondary_domains": ["early_literacy"],
+    "skill_codes": ["vocal_response", "book_handling"],
+    "duration_minutes": 5, "difficulty": 1,
+    "materials": ["buku"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Buku Pertama",
+        "summary": "Buka satu buku bergambar, dan bicarakan satu gambar saja.",
+        "learning_goal": "Mengenalkan buku sebagai benda yang menyenangkan, jauh sebelum anak bisa membaca.",
+        "steps": [
+          { "title": "Duduk berdempetan", "body": "Pangku bayi atau duduk bersandar bersama, dengan buku di depan kalian berdua." },
+          { "title": "Pilih satu halaman saja", "body": "Buka satu halaman dengan gambar besar dan sederhana. Tidak perlu membacanya dari awal." },
+          { "title": "Tunjuk dan sebut", "body": "Tunjuk satu benda dan sebut namanya pelan: \"Bola.\" Ulangi dua tiga kali." },
+          { "title": "Berhenti saat ia bosan", "body": "Satu atau dua halaman sudah cukup. Tujuannya menyenangkan, bukan menyelesaikan buku." }
+        ],
+        "parent_tip": "Tidak perlu membaca kalimat yang tertulis. Menyebut nama benda dan menunggu reaksinya lebih bermanfaat di usia ini.",
+        "safety_notes": "Gunakan buku kain atau buku papan tebal tanpa sudut tajam. Bayi akan memasukkannya ke mulut, jadi pastikan tidak ada bagian yang bisa lepas.",
+        "variations": ["Biarkan ia memegang dan menggigit bukunya, itu juga cara mengenal buku.", "Pakai buku yang sama setiap hari selama seminggu."],
+        "materials_text": "Satu buku kain atau buku papan dengan gambar besar"
+      },
+      "en": {
+        "title": "First Book",
+        "summary": "Open one picture book and talk about a single picture.",
+        "learning_goal": "Introduces books as something enjoyable, long before a child can read.",
+        "steps": [
+          { "title": "Sit close together", "body": "Hold your baby on your lap or lean back together, with the book in front of you both." },
+          { "title": "Pick just one page", "body": "Open to a page with one big, simple picture. There's no need to start from the beginning." },
+          { "title": "Point and name", "body": "Point at one object and say its name slowly: \"Ball.\" Repeat it two or three times." },
+          { "title": "Stop when they lose interest", "body": "One or two pages is plenty. The aim is enjoyment, not finishing the book." }
+        ],
+        "parent_tip": "You don't have to read the printed words. Naming objects and waiting for a reaction does more at this age.",
+        "safety_notes": "Use a cloth or thick board book with no sharp corners. Your baby will put it in their mouth, so check nothing can come loose.",
+        "variations": ["Let them hold and chew the book; that is also how they get to know books.", "Use the same book every day for a week."],
+        "materials_text": "One cloth or board book with large pictures"
+      }
+    }
+  },
+  {
+    "id": "ACT-0016",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "social_emotional", "secondary_domains": ["cognitive"],
+    "skill_codes": ["turn_taking", "attention"],
+    "duration_minutes": 5, "difficulty": 1,
+    "materials": ["kain"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Ciluk Ba Pelan",
+        "summary": "Tutup wajah Anda dengan kain sebentar, lalu muncul lagi.",
+        "learning_goal": "Membangun pemahaman bahwa yang hilang bisa kembali, dan melatih bergiliran dalam permainan.",
+        "steps": [
+          { "title": "Tunjukkan kainnya dulu", "body": "Perlihatkan kain ke bayi sebelum dipakai, supaya tidak mengejutkan." },
+          { "title": "Tutup wajah satu detik saja", "body": "Tutup wajah Anda sebentar, lalu singkap sambil berkata \"ba!\" dengan suara hangat, tidak mengagetkan." },
+          { "title": "Beri jeda panjang", "body": "Tunggu sampai ia bereaksi sebelum mengulangi. Antisipasinya adalah bagian yang paling ia nikmati." },
+          { "title": "Coba tutup wajahnya", "body": "Kalau ia sudah santai, tutup wajahnya sangat sebentar dan biarkan ia menyingkap sendiri." }
+        ],
+        "parent_tip": "Kalau ia tampak kaget atau mau menangis, perpendek waktu tertutupnya jadi setengah detik. Permainan ini soal kembali, bukan soal hilang.",
+        "safety_notes": "Jangan pernah tinggalkan kain menutupi wajah bayi, dan jangan gunakan kain tebal atau plastik.",
+        "variations": ["Sembunyi di balik pintu, bukan di balik kain.", "Ganti \"ba\" dengan menyebut namanya."],
+        "materials_text": "Satu kain tipis"
+      },
+      "en": {
+        "title": "Gentle Peekaboo",
+        "summary": "Cover your face with a cloth for a moment, then appear again.",
+        "learning_goal": "Builds the understanding that what disappears can come back, and practises taking turns.",
+        "steps": [
+          { "title": "Show the cloth first", "body": "Let your baby see the cloth before you use it, so it isn't a surprise." },
+          { "title": "Cover for just one second", "body": "Hide your face briefly, then lift the cloth saying \"boo!\" warmly, not startlingly." },
+          { "title": "Leave a long pause", "body": "Wait for their reaction before repeating. The anticipation is the part they enjoy most." },
+          { "title": "Try covering them", "body": "Once they are relaxed, cover their face very briefly and let them pull it off themselves." }
+        ],
+        "parent_tip": "If they look startled or close to crying, shorten the hidden moment to half a second. This game is about coming back, not about disappearing.",
+        "safety_notes": "Never leave a cloth over a baby's face, and never use thick fabric or plastic.",
+        "variations": ["Hide behind a door instead of a cloth.", "Swap \"boo\" for saying their name."],
+        "materials_text": "One thin cloth"
+      }
+    }
+  },
+  {
+    "id": "ACT-0017",
+    "age_min_months": 4, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "sensory", "secondary_domains": ["motor"],
+    "skill_codes": ["tactile", "fine_motor"],
+    "duration_minutes": 6, "difficulty": 1,
+    "materials": ["mangkuk", "air"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Tangan Masuk Air",
+        "summary": "Satu mangkuk air hangat, dan biarkan bayi menepuk permukaannya.",
+        "learning_goal": "Mengenalkan sensasi basah dan hangat, serta memberi respons langsung atas setiap gerakan tangan.",
+        "steps": [
+          { "title": "Siapkan air hangat yang dangkal", "body": "Isi mangkuk dengan air hangat setinggi dua jari saja. Uji suhunya di pergelangan tangan Anda sendiri." },
+          { "title": "Pangku bayi menghadap mangkuk", "body": "Duduk dengan bayi di pangkuan dan mangkuk di meja rendah di depan kalian." },
+          { "title": "Masukkan tangannya pelan", "body": "Bimbing satu tangannya masuk sampai pergelangan. Katakan: \"Basah.\"" },
+          { "title": "Biarkan ia menepuk", "body": "Lepaskan dan biarkan ia memukul permukaan air. Cipratan adalah akibat dari perbuatannya, dan itu intinya." }
+        ],
+        "parent_tip": "Siapkan handuk di dekat Anda sejak awal. Aktivitas ini memang akan membuat basah, dan itu bukan masalah.",
+        "safety_notes": "Jangan pernah tinggalkan bayi sendiri dengan air, bahkan air yang sangat dangkal, bahkan untuk sedetik. Tetap pegang badannya sepanjang aktivitas.",
+        "variations": ["Letakkan satu sendok di dalam air supaya ada benda yang bergerak.", "Lakukan saat mandi, bukan di mangkuk terpisah."],
+        "materials_text": "Satu mangkuk, air hangat, dan handuk"
+      },
+      "en": {
+        "title": "Hands In Water",
+        "summary": "One bowl of warm water, and let your baby pat the surface.",
+        "learning_goal": "Introduces wet and warm, and gives an immediate response to every hand movement.",
+        "steps": [
+          { "title": "Set up shallow warm water", "body": "Fill a bowl with warm water no deeper than two fingers. Test the temperature on your own wrist." },
+          { "title": "Hold them facing the bowl", "body": "Sit with your baby on your lap and the bowl on a low table in front of you." },
+          { "title": "Guide a hand in slowly", "body": "Lower one hand in up to the wrist. Say: \"Wet.\"" },
+          { "title": "Let them pat", "body": "Let go and let them hit the surface. The splash is a consequence of what they did, and that's the point." }
+        ],
+        "parent_tip": "Have a towel beside you from the start. This activity will make a mess, and that's fine.",
+        "safety_notes": "Never leave a baby alone with water, however shallow, not even for a second. Keep a hand on their body throughout.",
+        "variations": ["Put a spoon in the water so there is something that moves.", "Do it at bath time instead of in a separate bowl."],
+        "materials_text": "A bowl, warm water, and a towel"
+      }
+    }
+  },
+  {
+    "id": "ACT-0018",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "creativity", "secondary_domains": ["motor", "language"],
+    "skill_codes": ["music_movement", "vocal_response"],
+    "duration_minutes": 6, "difficulty": 1,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "play",
+    "is_premium": false, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Lagu dengan Gerakan Tangan",
+        "summary": "Nyanyikan satu lagu pendek sambil menggerakkan tangannya mengikuti irama.",
+        "learning_goal": "Menghubungkan bunyi dengan gerakan, dan mengenalkan irama bahasa lewat tubuh.",
+        "steps": [
+          { "title": "Pilih lagu dengan irama jelas", "body": "Lagu apa pun dengan ketukan yang tegas. Irama yang jelas lebih penting daripada melodinya." },
+          { "title": "Pegang kedua tangannya", "body": "Baringkan bayi telentang dan pegang kedua pergelangan tangannya dengan longgar." },
+          { "title": "Gerakkan mengikuti ketukan", "body": "Tepuk tangannya bersama, atau buka-tutup ke samping, mengikuti irama lagu." },
+          { "title": "Berhenti di tengah lagu", "body": "Diam mendadak di satu bagian. Tunggu reaksinya, lalu lanjutkan. Jeda ini sering jadi bagian favorit bayi." }
+        ],
+        "parent_tip": "Gunakan lagu yang sama berulang kali selama beberapa hari. Bayi mulai mengantisipasi gerakannya, dan di situlah ia belajar.",
+        "safety_notes": "Gerakkan dengan sangat lembut dan jangan tarik lengannya. Pegang di pergelangan, bukan di tangan.",
+        "variations": ["Gerakkan kakinya alih-alih tangan.", "Nyanyikan sambil menggendong dan bergoyang."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "A Song With Hands",
+        "summary": "Sing one short song while moving their hands to the beat.",
+        "learning_goal": "Links sound to movement, and introduces the rhythm of language through the body.",
+        "steps": [
+          { "title": "Pick a song with a clear beat", "body": "Any song with a firm pulse. A clear rhythm matters more than the melody." },
+          { "title": "Hold both their hands", "body": "Lay your baby on their back and hold both wrists loosely." },
+          { "title": "Move to the beat", "body": "Clap their hands together, or open and close them sideways, following the rhythm." },
+          { "title": "Stop mid-song", "body": "Go suddenly still at one point. Wait for their reaction, then carry on. That pause is often the bit babies love most." }
+        ],
+        "parent_tip": "Use the same song over several days. Your baby starts to anticipate the movement, and that is where the learning is.",
+        "safety_notes": "Move very gently and never pull on their arms. Hold at the wrist, not the hand.",
+        "variations": ["Move their feet instead of their hands.", "Sing while holding them and swaying."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  },
+  {
+    "id": "ACT-0019",
+    "age_min_months": 4, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "cognitive", "secondary_domains": ["motor"],
+    "skill_codes": ["attention", "fine_motor"],
+    "duration_minutes": 6, "difficulty": 2,
+    "materials": ["sendok", "mangkuk"], "no_materials": false,
+    "needs_supervision": true, "bonding_level": 2, "music_mode": "play",
+    "is_premium": true, "source_reference": null,
+    "t": {
+      "id": {
+        "title": "Dua Benda, Satu Pilihan",
+        "summary": "Tawarkan dua benda sekaligus, dan lihat mana yang ia pilih.",
+        "learning_goal": "Melatih perhatian memilih dan memperkuat koordinasi mata dengan tangan.",
+        "steps": [
+          { "title": "Siapkan dua benda berbeda", "body": "Satu sendok dan satu mangkuk kecil. Bentuk dan beratnya harus terasa jelas berbeda." },
+          { "title": "Tunjukkan satu per satu", "body": "Perlihatkan benda pertama, sebut namanya, lalu benda kedua. Beri waktu melihat keduanya." },
+          { "title": "Sodorkan bersamaan", "body": "Pegang kedua benda di jarak yang sama dari tangannya. Tunggu, jangan dorong salah satunya." },
+          { "title": "Sebut pilihannya", "body": "Saat ia meraih satu, katakan: \"Kamu pilih sendok.\" Lalu biarkan ia memeriksanya selama ia mau." }
+        ],
+        "parent_tip": "Memilih adalah keterampilan yang dipelajari. Kalau ia hanya menatap tanpa meraih, dekatkan sedikit dan tunggu lebih lama.",
+        "safety_notes": "Gunakan benda yang jelas lebih besar dari mulut bayi, tanpa bagian kecil yang bisa lepas, tanpa sudut tajam. Semua benda akan masuk mulut, jadi harus bersih.",
+        "variations": ["Ganti salah satu benda setiap hari, satu benda tetap sebagai pembanding.", "Taruh kedua benda di lantai dan biarkan ia memilih sambil tengkurap."],
+        "materials_text": "Satu sendok dan satu mangkuk kecil yang bersih"
+      },
+      "en": {
+        "title": "Two Things, One Choice",
+        "summary": "Offer two objects at once and see which one they go for.",
+        "learning_goal": "Practises choosing where to put attention, and strengthens hand-eye coordination.",
+        "steps": [
+          { "title": "Prepare two different objects", "body": "A spoon and a small bowl. Their shape and weight should feel clearly different." },
+          { "title": "Show them one at a time", "body": "Show the first, name it, then the second. Give them time to look at both." },
+          { "title": "Offer both together", "body": "Hold both at the same distance from their hands. Wait, and don't nudge either one forward." },
+          { "title": "Name their choice", "body": "When they reach for one, say: \"You chose the spoon.\" Then let them examine it as long as they like." }
+        ],
+        "parent_tip": "Choosing is a learned skill. If they only stare without reaching, move the objects slightly closer and wait longer.",
+        "safety_notes": "Use objects clearly bigger than your baby's mouth, with no small removable parts and no sharp edges. Everything goes in the mouth, so it must be clean.",
+        "variations": ["Swap one object each day and keep the other as a constant.", "Put both on the floor and let them choose from their tummy."],
+        "materials_text": "One clean spoon and one small bowl"
+      }
+    }
+  },
+  {
+    "id": "ACT-0020",
+    "age_min_months": 3, "age_max_months": 6, "age_band_code": "m03_06",
+    "primary_domain": "social_emotional", "secondary_domains": ["sensory"],
+    "skill_codes": ["bonding", "tactile"],
+    "duration_minutes": 8, "difficulty": 1,
+    "materials": [], "no_materials": true,
+    "needs_supervision": true, "bonding_level": 3, "music_mode": "bonding",
+    "is_premium": true, "source_reference": "WHO Nurturing Care",
+    "t": {
+      "id": {
+        "title": "Usap Tenang Sebelum Tidur",
+        "summary": "Usapan lembut dan berirama di punggung dan kaki, sambil bersuara pelan.",
+        "learning_goal": "Membantu bayi belajar menenangkan diri, dan memperkuat rasa aman lewat sentuhan yang bisa diprediksi.",
+        "steps": [
+          { "title": "Redupkan dan tenangkan ruangan", "body": "Kurangi cahaya dan matikan suara latar. Aktivitas ini soal menurunkan intensitas, bukan menambahnya." },
+          { "title": "Mulai dari punggung", "body": "Dengan bayi tengkurap di pangkuan atau telentang, usap punggung atau dadanya dari atas ke bawah, lambat dan berirama." },
+          { "title": "Pertahankan irama yang sama", "body": "Satu usapan tiap dua detik, dan jangan berubah kecepatan. Keteraturan inilah yang menenangkan." },
+          { "title": "Turun ke kaki, lalu berhenti", "body": "Pindah ke kaki dengan irama yang sama, lalu perlambat sampai berhenti total. Akhiri dengan satu tangan diam di perutnya." }
+        ],
+        "parent_tip": "Perlambat sampai setengah dari kecepatan yang Anda rasa wajar. Bayi menyelaraskan diri dengan irama Anda, termasuk irama napas Anda.",
+        "safety_notes": "Hentikan jika bayi menegang, menangis, atau memalingkan badan. Jangan menekan perut, dan jangan lakukan segera setelah menyusu.",
+        "variations": ["Tambahkan humming dengan nada yang sama rendah sepanjang usapan.", "Lakukan setelah mandi sore sebagai rangkaian rutinitas."],
+        "materials_text": "Tidak perlu bahan apa pun"
+      },
+      "en": {
+        "title": "Calm Strokes Before Sleep",
+        "summary": "Slow, rhythmic stroking on the back and legs, with a quiet voice alongside.",
+        "learning_goal": "Helps your baby learn to settle, and builds security through touch they can predict.",
+        "steps": [
+          { "title": "Dim and quiet the room", "body": "Lower the light and turn off background noise. This activity is about turning the intensity down, not up." },
+          { "title": "Start at the back", "body": "With your baby on your lap face down, or on their back, stroke from the top down, slowly and rhythmically." },
+          { "title": "Keep the same rhythm", "body": "One stroke every two seconds, and don't change pace. The regularity is what settles them." },
+          { "title": "Move to the legs, then stop", "body": "Move to the legs at the same tempo, then slow until you come to a complete stop. Finish with one still hand on their tummy." }
+        ],
+        "parent_tip": "Slow down to about half the speed that feels natural. Babies tune themselves to your rhythm, including your breathing.",
+        "safety_notes": "Stop if your baby stiffens, cries, or turns away. Don't press on the tummy, and don't do this right after a feed.",
+        "variations": ["Add humming on one low note throughout.", "Do it after the evening bath as part of a sequence."],
+        "materials_text": "Nothing needed"
+      }
+    }
+  }
+]

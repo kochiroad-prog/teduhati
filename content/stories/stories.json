@@ -1,0 +1,184 @@
+[
+  {
+    "id": "STR-0001", "age_min_months": 6, "age_max_months": 24, "theme": "bedtime",
+    "is_interactive": false, "reading_minutes": 3, "music_mode": "bedtime", "is_premium": false,
+    "t": {
+      "id": {
+        "title": "Selamat Malam, Semuanya",
+        "blurb": "Cerita pendek untuk mengucapkan selamat malam kepada benda-benda di rumah.",
+        "pages": [
+          { "text": "Hari sudah gelap. Tumi mengantuk." },
+          { "text": "Tumi bilang selamat malam kepada bola. Bola sudah berhenti menggelinding." },
+          { "text": "Tumi bilang selamat malam kepada sendok. Sendok sudah dicuci bersih." },
+          { "text": "Tumi bilang selamat malam kepada jendela. Di luar, bulan sudah naik." },
+          { "text": "Sekarang giliran kamu. Selamat malam.", "speaker": "Tumi" }
+        ]
+      },
+      "en": {
+        "title": "Goodnight, Everyone",
+        "blurb": "A short story for saying goodnight to the things around the house.",
+        "pages": [
+          { "text": "It's dark outside now. Tumi is sleepy." },
+          { "text": "Tumi says goodnight to the ball. The ball has stopped rolling." },
+          { "text": "Tumi says goodnight to the spoon. The spoon is washed and clean." },
+          { "text": "Tumi says goodnight to the window. Outside, the moon is up." },
+          { "text": "Now it's your turn. Goodnight.", "speaker": "Tumi" }
+        ]
+      }
+    }
+  },
+  {
+    "id": "STR-0002", "age_min_months": 12, "age_max_months": 36, "theme": "sounds",
+    "is_interactive": true, "reading_minutes": 4, "music_mode": "play", "is_premium": false,
+    "t": {
+      "id": {
+        "title": "Suara Apa Itu",
+        "blurb": "Cerita interaktif tentang menebak suara di sekitar rumah.",
+        "pages": [
+          { "text": "Tumi mendengar sesuatu di luar jendela." },
+          { "text": "Kamu dengar suara apa?", "speaker": "Tumi", "choices": [{ "label": "Burung", "sound": "tiny_bell" }, { "label": "Hujan", "sound": "sleep_wind" }, { "label": "Kucing", "sound": "gentle_boop" }] },
+          { "text": "Tumi mendekat ke pintu. Ada suara lagi." },
+          { "text": "Kira-kira dari mana datangnya?", "speaker": "Tumi", "choices": [{ "label": "Dari atas" }, { "label": "Dari bawah" }] },
+          { "text": "Ternyata suaranya dari halaman. Hujan baru saja berhenti." }
+        ]
+      },
+      "en": {
+        "title": "What's That Sound",
+        "blurb": "An interactive story about guessing sounds around the house.",
+        "pages": [
+          { "text": "Tumi hears something outside the window." },
+          { "text": "What sound do you hear?", "speaker": "Tumi", "choices": [{ "label": "A bird", "sound": "tiny_bell" }, { "label": "Rain", "sound": "sleep_wind" }, { "label": "A cat", "sound": "gentle_boop" }] },
+          { "text": "Tumi moves closer to the door. There it is again." },
+          { "text": "Where do you think it's coming from?", "speaker": "Tumi", "choices": [{ "label": "From above" }, { "label": "From below" }] },
+          { "text": "It was coming from the garden. The rain has just stopped." }
+        ]
+      }
+    }
+  },
+  {
+    "id": "STR-0003", "age_min_months": 24, "age_max_months": 48, "theme": "feelings",
+    "is_interactive": true, "reading_minutes": 5, "music_mode": "bonding", "is_premium": false,
+    "t": {
+      "id": {
+        "title": "Tumi Kehilangan Topinya",
+        "blurb": "Cerita tentang kecewa, mencari, dan menemukan jalan keluar.",
+        "pages": [
+          { "text": "Pagi ini Tumi tidak bisa menemukan topinya." },
+          { "text": "Tumi mencari di bawah bantal. Tidak ada." },
+          { "text": "Tumi mencari di dalam keranjang. Tidak ada juga." },
+          { "text": "Tumi duduk dan diam. Dadanya terasa berat.", "speaker": "" },
+          { "text": "Menurutmu Tumi merasa apa?", "speaker": "Tumi", "choices": [{ "label": "Sedih" }, { "label": "Kesal" }, { "label": "Bingung" }] },
+          { "text": "Tumi menarik napas panjang. Lalu Tumi ingat satu tempat lagi." },
+          { "text": "Topinya ada di dekat pintu, tempat Tumi melepasnya kemarin." },
+          { "text": "Kadang kita menemukan sesuatu setelah berhenti sebentar." }
+        ]
+      },
+      "en": {
+        "title": "Tumi Loses A Hat",
+        "blurb": "A story about disappointment, searching, and finding a way through.",
+        "pages": [
+          { "text": "This morning Tumi can't find the hat anywhere." },
+          { "text": "Tumi looks under the pillow. Not there." },
+          { "text": "Tumi looks in the basket. Not there either." },
+          { "text": "Tumi sits down and goes quiet. Everything feels heavy." },
+          { "text": "How do you think Tumi feels?", "speaker": "Tumi", "choices": [{ "label": "Sad" }, { "label": "Cross" }, { "label": "Confused" }] },
+          { "text": "Tumi takes a long breath. Then Tumi remembers one more place." },
+          { "text": "The hat is by the door, where Tumi left it yesterday." },
+          { "text": "Sometimes we find things after we stop for a moment." }
+        ]
+      }
+    }
+  },
+  {
+    "id": "STR-0004", "age_min_months": 24, "age_max_months": 48, "theme": "routine",
+    "is_interactive": false, "reading_minutes": 4, "music_mode": "bedtime", "is_premium": false,
+    "t": {
+      "id": {
+        "title": "Urutan Sebelum Tidur",
+        "blurb": "Cerita tenang yang mengikuti rutinitas malam dari awal sampai akhir.",
+        "pages": [
+          { "text": "Lampu sudah diredupkan. Malam sudah mulai." },
+          { "text": "Pertama, Tumi mandi. Airnya hangat." },
+          { "text": "Kedua, Tumi pakai baju tidur. Yang paling lembut." },
+          { "text": "Ketiga, Tumi sikat gigi. Atas, bawah, selesai." },
+          { "text": "Keempat, satu cerita. Cerita ini." },
+          { "text": "Terakhir, Tumi berbaring. Besok kita mulai lagi dari awal." }
+        ]
+      },
+      "en": {
+        "title": "The Order Before Bed",
+        "blurb": "A calm story that follows the evening routine from start to finish.",
+        "pages": [
+          { "text": "The lights are low. The evening has started." },
+          { "text": "First, Tumi has a bath. The water is warm." },
+          { "text": "Second, Tumi puts on pyjamas. The softest ones." },
+          { "text": "Third, Tumi brushes teeth. Top, bottom, done." },
+          { "text": "Fourth, one story. This story." },
+          { "text": "Last, Tumi lies down. Tomorrow we start again from the beginning." }
+        ]
+      }
+    }
+  },
+  {
+    "id": "STR-0005", "age_min_months": 36, "age_max_months": 60, "theme": "friendship",
+    "is_interactive": true, "reading_minutes": 6, "music_mode": "play", "is_premium": true,
+    "t": {
+      "id": {
+        "title": "Dua Anak, Satu Bola",
+        "blurb": "Cerita tentang berebut, dan menemukan cara supaya dua-duanya main.",
+        "pages": [
+          { "text": "Tumi sedang main bola di halaman." },
+          { "text": "Lalu datang Nara. Nara juga mau main bola itu." },
+          { "text": "Mereka berdua memegang bolanya. Tidak ada yang mau melepas." },
+          { "text": "Menurutmu, apa yang sebaiknya mereka lakukan?", "speaker": "Tumi", "choices": [{ "label": "Main bergantian" }, { "label": "Main bersama" }, { "label": "Cari bola lain" }] },
+          { "text": "Tumi melepas bolanya dulu. Nara menendang satu kali, lalu mengembalikannya." },
+          { "text": "Ternyata menendang bergantian lebih seru daripada menendang sendirian." },
+          { "text": "Sekarang halamannya ramai, dan bolanya cukup untuk berdua." }
+        ]
+      },
+      "en": {
+        "title": "Two Children, One Ball",
+        "blurb": "A story about wanting the same thing, and finding a way for both to play.",
+        "pages": [
+          { "text": "Tumi is playing with a ball in the garden." },
+          { "text": "Then Nara arrives. Nara wants that ball too." },
+          { "text": "They both hold on to it. Neither wants to let go." },
+          { "text": "What do you think they should do?", "speaker": "Tumi", "choices": [{ "label": "Take turns" }, { "label": "Play together" }, { "label": "Find another ball" }] },
+          { "text": "Tumi lets go first. Nara kicks it once, then passes it back." },
+          { "text": "It turns out kicking in turns is better than kicking alone." },
+          { "text": "Now the garden is busy, and one ball is enough for two." }
+        ]
+      }
+    }
+  },
+  {
+    "id": "STR-0006", "age_min_months": 36, "age_max_months": 60, "theme": "trying_again",
+    "is_interactive": false, "reading_minutes": 5, "music_mode": "bonding", "is_premium": false,
+    "t": {
+      "id": {
+        "title": "Menara yang Roboh Tiga Kali",
+        "blurb": "Cerita tentang mencoba lagi setelah gagal, dan mengubah satu hal setiap kali.",
+        "pages": [
+          { "text": "Tumi mau membuat menara yang tinggi." },
+          { "text": "Menara pertama roboh. Bagian bawahnya terlalu kecil." },
+          { "text": "Tumi mencoba lagi dengan bawah yang lebih lebar. Roboh lagi, tapi lebih lambat." },
+          { "text": "Tumi berhenti sebentar. Tumi melihat bagian mana yang jatuh duluan." },
+          { "text": "Menara ketiga berdiri. Tidak terlalu tinggi, tapi berdiri." },
+          { "text": "Tumi tahu sekarang: ubah satu hal, lalu coba lagi." }
+        ]
+      },
+      "en": {
+        "title": "The Tower That Fell Three Times",
+        "blurb": "A story about trying again after failing, changing one thing each time.",
+        "pages": [
+          { "text": "Tumi wants to build a tall tower." },
+          { "text": "The first tower falls. The bottom was too small." },
+          { "text": "Tumi tries again with a wider bottom. It still falls, but more slowly." },
+          { "text": "Tumi stops for a moment and looks at which part went first." },
+          { "text": "The third tower stands. Not very tall, but standing." },
+          { "text": "Now Tumi knows: change one thing, then try again." }
+        ]
+      }
+    }
+  }
+]
