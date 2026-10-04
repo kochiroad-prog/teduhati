@@ -2,8 +2,20 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { DEFAULT_LOCALE, LOCALES, type Locale } from "@/i18n/config";
 
-// /pratinjau is the design reference, which only exists outside production.
-const PUBLIC_PATHS = ["/masuk", "/daftar", "/auth", "/tentang", "/pratinjau"];
+// Pages a signed-out visitor may open. Matched against the path *after* the
+// locale segment. /pratinjau is the design reference, which only exists outside
+// production.
+const PUBLIC_PATHS = ["/masuk", "/daftar", "/lupa-sandi", "/tentang", "/pratinjau"];
+
+// Route handlers, not pages: they have no locale segment and must never be
+// redirected into one. Email links (sign-up confirmation, password reset) land
+// on /auth/callback and the assistant posts to /api/ai/ask; prefixing either
+// with a locale turns it into a 404.
+const NON_LOCALIZED = ["/api", "/auth"];
+
+function isNonLocalized(pathname: string): boolean {
+  return NON_LOCALIZED.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+}
 
 function pickLocale(request: NextRequest): Locale {
   const fromCookie = request.cookies.get("teduhati_locale")?.value;
@@ -23,7 +35,13 @@ function pickLocale(request: NextRequest): Locale {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Every route lives under a locale segment. Anything without one is redirected.
+  // Route handlers own their own auth, and a redirect here would drop the POST
+  // body or the one-time code in the query string.
+  if (isNonLocalized(pathname)) {
+    return NextResponse.next();
+  }
+
+  // Every page lives under a locale segment. Anything without one is redirected.
   const first = pathname.split("/")[1];
   if (!(LOCALES as readonly string[]).includes(first)) {
     const url = request.nextUrl.clone();
@@ -70,7 +88,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (user && (rest === "/masuk" || rest === "/daftar")) {
+  if (user && (rest === "/masuk" || rest === "/daftar" || rest === "/lupa-sandi")) {
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}`;
     url.search = "";

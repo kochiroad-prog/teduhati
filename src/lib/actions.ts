@@ -1,9 +1,11 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { href, isLocale, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { entitlements } from "@/lib/entitlements";
 import type { PlanTier } from "@/types/db";
 
@@ -12,7 +14,9 @@ import type { PlanTier } from "@/types/db";
  * a plain object the form can render. Nothing throws at the user.
  */
 
-export type ActionResult = { ok: true } | { ok: false; message: string };
+export type ActionResult =
+  | { ok: true; needsConfirmation?: boolean }
+  | { ok: false; message: string };
 
 function locale(value: FormDataEntryValue | null): Locale {
   const v = typeof value === "string" ? value : "id";
@@ -147,32 +151,122 @@ export async function logBonding(formData: FormData): Promise<ActionResult> {
 /* -------------------------------------------------------------------------- */
 /* auth                                                                       */
 /* -------------------------------------------------------------------------- */
-export async function sendMagicLink(formData: FormData): Promise<ActionResult> {
+/**
+ * Where email links come back to. NEXT_PUBLIC_SITE_URL is authoritative when it
+ * is set; otherwise the request's own host is used, which keeps preview
+ * deployments working without a per-environment variable.
+ */
+async function siteOrigin(): Promise<string> {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  if (configured) return configured;
+
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host");
+  if (!host) return "http://localhost:3000";
+  const protocol = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
+  return `${protocol}://${host}`;
+}
+
+function isEmail(value: string): boolean {
+  return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
+}
+
+export async function signIn(formData: FormData): Promise<ActionResult> {
   const supabase = await createClient();
-  const email = String(formData.get("email") ?? "").trim();
   const loc = locale(formData.get("locale"));
+  const dict = getDictionary(loc);
+  const email = String(formData.get("email") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
   const next = String(formData.get("next") ?? href(loc, "home"));
 
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    return {
-      ok: false,
-      message: loc === "en" ? "Check the email address." : "Periksa alamat emailnya.",
-    };
+  if (!isEmail(email)) return { ok: false, message: dict.auth.errorEmail };
+  if (!password) return { ok: false, message: dict.auth.errorBadCredentials };
+
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+  if (error) {
+    // Supabase distinguishes these two, and the difference matters to the reader:
+    // one means "try again", the other means "go and click the email".
+    const message = /not confirmed/i.test(error.message)
+      ? dict.auth.errorNotConfirmed
+      : dict.auth.errorBadCredentials;
+    return { ok: false, message };
   }
 
-  const origin =
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "http://localhost:3000";
+  revalidatePath(`/${loc}`, "layout");
+  redirect(next.startsWith("/") ? next : href(loc, "home"));
+}
 
-  const { error } = await supabase.auth.signInWithOtp({
+export async function signUp(formData: FormData): Promise<ActionResult> {
+  const supabase = await createClient();
+  const loc = locale(formData.get("locale"));
+  const dict = getDictionary(loc);
+  const email = String(formData.get("email") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
+  const displayName = String(formData.get("display_name") ?? "").trim();
+
+  if (!isEmail(email)) return { ok: false, message: dict.auth.errorEmail };
+  if (password.length < 8) return { ok: false, message: dict.auth.errorPasswordShort };
+
+  const origin = await siteOrigin();
+
+  const { data, error } = await supabase.auth.signUp({
     email,
+    password,
     options: {
-      emailRedirectTo: `${origin}/auth/callback?next=${encodeURIComponent(next)}`,
-      data: { locale: loc },
+      emailRedirectTo: `${origin}/auth/callback?next=${encodeURIComponent(href(loc, "child"))}`,
+      data: { locale: loc, display_name: displayName || null },
     },
   });
 
-  if (error) return { ok: false, message: error.message };
+  if (error) {
+    const message = /already registered|already exists/i.test(error.message)
+      ? dict.auth.errorExists
+      : error.message;
+    return { ok: false, message };
+  }
+
+  // With email confirmation on, signUp returns a user but no session. The caller
+  // shows "check your email" rather than pretending the account is ready.
+  if (!data.session) return { ok: true, needsConfirmation: true };
+
+  revalidatePath(`/${loc}`, "layout");
+  redirect(href(loc, "child"));
+}
+
+export async function requestPasswordReset(formData: FormData): Promise<ActionResult> {
+  const supabase = await createClient();
+  const loc = locale(formData.get("locale"));
+  const dict = getDictionary(loc);
+  const email = String(formData.get("email") ?? "").trim();
+
+  if (!isEmail(email)) return { ok: false, message: dict.auth.errorEmail };
+
+  const origin = await siteOrigin();
+
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${origin}/auth/callback?next=${encodeURIComponent(href(loc, "newPassword"))}`,
+  });
+
+  // A failure here would tell a stranger whether an address has an account, so
+  // the caller always shows the same "check your email" screen.
+  if (error) console.error("resetPasswordForEmail failed", error.message);
   return { ok: true };
+}
+
+export async function updatePassword(formData: FormData): Promise<ActionResult> {
+  const supabase = await createClient();
+  const loc = locale(formData.get("locale"));
+  const dict = getDictionary(loc);
+  const password = String(formData.get("password") ?? "");
+
+  if (password.length < 8) return { ok: false, message: dict.auth.errorPasswordShort };
+
+  const { error } = await supabase.auth.updateUser({ password });
+  if (error) return { ok: false, message: error.message };
+
+  revalidatePath(`/${loc}`, "layout");
+  redirect(href(loc, "home"));
 }
 
 export async function signOut(formData: FormData): Promise<void> {

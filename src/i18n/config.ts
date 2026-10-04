@@ -19,6 +19,9 @@ export function isLocale(value: string): value is Locale {
 export const ROUTES = {
   home: "",
   signIn: "masuk",
+  signUp: "daftar",
+  forgotPassword: "lupa-sandi",
+  newPassword: "sandi-baru",
   child: "anak",
   activities: "aktivitas",
   stories: "cerita",
