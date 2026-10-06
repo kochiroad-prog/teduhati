@@ -15,7 +15,7 @@
  *
  *   node --env-file-if-exists=.env.local scripts/import-worksheets.mjs \
  *     --dir "D:\\TEDUHATI\\worksheet\\pra-menulis" \
- *     --age 24-48 --domain fine_motor --premium --dry-run
+ *     --age 24-48 --domain motor --premium --dry-run
  *
  * Flags:
  *   --dir      folder to walk (recursively). Required.
@@ -56,7 +56,7 @@ if (!DIR || !AGE || !DOMAIN) {
       "",
       '  --dir "D:\\\\TEDUHATI\\\\worksheet\\\\pra-menulis"',
       "  --age 24-48",
-      "  --domain fine_motor",
+      "  --domain motor",
       "",
       "Optional: --prefix <folder> --premium --limit N --dry-run",
     ].join("\n"),

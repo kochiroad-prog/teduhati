@@ -137,8 +137,8 @@ export default async function WorksheetsPage({
           lead={
             total === 0
               ? locale === "en"
-                ? "Import a folder of PDFs with: npm run worksheets:import -- --dir ... --age 24-48 --domain fine_motor"
-                : "Impor satu folder PDF dengan: npm run worksheets:import -- --dir ... --age 24-48 --domain fine_motor"
+                ? "Import a folder of PDFs with: npm run worksheets:import -- --dir ... --age 24-48 --domain motor"
+                : "Impor satu folder PDF dengan: npm run worksheets:import -- --dir ... --age 24-48 --domain motor"
               : t.common.noResultsLead
           }
         />
