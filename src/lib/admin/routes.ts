@@ -8,6 +8,7 @@ import type { Locale } from "@/i18n/config";
  */
 export const ADMIN = {
   overview: "",
+  preview: "pratinjau",
   activities: "konten/aktivitas",
   stories: "konten/cerita",
   bonding: "konten/bonding",

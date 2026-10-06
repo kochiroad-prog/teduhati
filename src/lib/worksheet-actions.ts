@@ -138,3 +138,132 @@ export async function saveWorksheet(form: FormData): Promise<AdminResult> {
   revalidatePath(`/${locale}/admin`, "layout");
   return { ok: true };
 }
+
+/* -------------------------------------------------------------------------- */
+/* bulk                                                                       */
+/* -------------------------------------------------------------------------- */
+/**
+ * Edits many worksheets at once.
+ *
+ * With a thousand sheets arriving from one folder, tagging them one at a time
+ * is not a workflow. Only the fields actually given are written, so "set the
+ * domain on these forty" cannot quietly reset their age ranges.
+ */
+export async function bulkUpdateWorksheets(form: FormData): Promise<AdminResult> {
+  const supabase = await createClient();
+  const locale = loc(form.get("locale"));
+  const ids = form.getAll("ids").map(String).filter(Boolean);
+
+  if (ids.length === 0) {
+    return {
+      ok: false,
+      message: locale === "en" ? "Nothing selected." : "Belum ada yang dipilih.",
+    };
+  }
+
+  const domain = String(form.get("domain") ?? "").trim() || null;
+  const ageMinRaw = String(form.get("age_min_months") ?? "").trim();
+  const ageMaxRaw = String(form.get("age_max_months") ?? "").trim();
+  const premiumRaw = String(form.get("is_premium") ?? "");
+
+  const ageMin = ageMinRaw === "" ? null : Number.parseInt(ageMinRaw, 10);
+  const ageMax = ageMaxRaw === "" ? null : Number.parseInt(ageMaxRaw, 10);
+  const premium = premiumRaw === "" ? null : premiumRaw === "true";
+
+  if (domain === null && ageMin === null && ageMax === null && premium === null) {
+    return {
+      ok: false,
+      message:
+        locale === "en"
+          ? "Nothing to change — fill in at least one field."
+          : "Tidak ada yang diubah — isi minimal satu kolom.",
+    };
+  }
+
+  const { data, error } = await supabase.rpc("admin_bulk_update_worksheets", {
+    p_ids: ids,
+    p_domain: domain,
+    p_age_min: ageMin,
+    p_age_max: ageMax,
+    p_is_premium: premium,
+  });
+
+  if (error) return { ok: false, message: error.message };
+
+  revalidatePath(`/${locale}/admin`, "layout");
+  return {
+    ok: true,
+    message:
+      locale === "en" ? `${data ?? 0} updated.` : `${data ?? 0} baris diperbarui.`,
+  };
+}
+
+/**
+ * Publishes or withdraws many at once, one `set_content_status` call each.
+ *
+ * Deliberately not a single UPDATE: that function is where the validation and
+ * the audit entry live, and a bulk path that skipped them would be a way to put
+ * a worksheet with no file in front of a parent. The sheets that cannot be
+ * published are reported by name rather than silently dropped.
+ */
+export async function bulkSetWorksheetStatus(form: FormData): Promise<AdminResult> {
+  const supabase = await createClient();
+  const locale = loc(form.get("locale"));
+  const ids = form.getAll("ids").map(String).filter(Boolean);
+  const status = String(form.get("status") ?? "");
+
+  if (!["draft", "review", "published", "retired"].includes(status)) {
+    return { ok: false, message: "Unknown status." };
+  }
+  if (ids.length === 0) {
+    return {
+      ok: false,
+      message: locale === "en" ? "Nothing selected." : "Belum ada yang dipilih.",
+    };
+  }
+  if (ids.length > 200) {
+    return {
+      ok: false,
+      message:
+        locale === "en"
+          ? "Too many at once — 200 is the limit."
+          : "Terlalu banyak sekaligus — batasnya 200.",
+    };
+  }
+
+  const refused: string[] = [];
+  let done = 0;
+
+  for (const id of ids) {
+    const { data, error } = await supabase.rpc("set_content_status", {
+      p_table: "worksheets",
+      p_id: id,
+      p_status: status as "draft" | "review" | "published" | "retired",
+    });
+    if (error) {
+      refused.push(`${id}: ${error.message}`);
+      continue;
+    }
+    const problems = (data ?? []) as string[];
+    if (problems.length > 0) refused.push(`${id}: ${problems.join("; ")}`);
+    else done += 1;
+  }
+
+  revalidatePath(`/${locale}/admin`, "layout");
+
+  if (refused.length > 0) {
+    return {
+      ok: false,
+      message:
+        locale === "en"
+          ? `${done} done, ${refused.length} refused.`
+          : `${done} berhasil, ${refused.length} ditolak.`,
+      problems: refused.slice(0, 20),
+    };
+  }
+
+  return {
+    ok: true,
+    message: locale === "en" ? `${done} done.` : `${done} selesai.`,
+  };
+}

@@ -82,15 +82,19 @@ export default async function ActivitiesPage({
   if (access === "premium") query = query.eq("is_premium", true);
   if (access === "free") query = query.eq("is_premium", false);
   // PostgREST cannot `or` across a table and its embedded resource in one
-  // filter, so the search picks a side: anything that looks like an id searches
-  // ids, everything else searches titles. That matches how the search is
-  // actually used — either you have the code or you have the words.
+  // filter, so the search used to pick a side: ids or titles, never both. SQL
+  // has no such limit, so the matching happens there and comes back as a list
+  // of ids. One extra round trip buys a search that behaves the way anyone
+  // would expect — id, title and summary at once.
   if (q) {
-    if (/^(act|\d)/i.test(q)) {
-      query = query.ilike("id", `%${q}%`);
-    } else {
-      query = query.ilike("activity_translations.title", `%${q}%`);
-    }
+    const { data: ids } = await supabase.rpc("admin_search_activity_ids", {
+      p_q: q,
+      p_locale: locale,
+    });
+    // An empty array is a real answer: nothing matched. `.in` with it returns
+    // no rows, which is correct — falling back to "show everything" would be
+    // the opposite of what was asked.
+    query = query.in("id", (ids ?? []) as string[]);
   }
 
   const { data, count, error } = await query

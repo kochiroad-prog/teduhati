@@ -14,7 +14,12 @@ import {
 import type { Locale } from "@/i18n/config";
 import { adminCopy } from "@/lib/admin/copy";
 import { setContentStatus } from "@/lib/admin-actions";
-import { saveWorksheet, worksheetDownloadUrl } from "@/lib/worksheet-actions";
+import {
+  bulkSetWorksheetStatus,
+  bulkUpdateWorksheets,
+  saveWorksheet,
+  worksheetDownloadUrl,
+} from "@/lib/worksheet-actions";
 import type { Option } from "@/lib/admin/options";
 import type { WorksheetRow, WorksheetTranslationRow } from "@/types/db";
 import { cn } from "@/lib/utils";
@@ -44,17 +49,22 @@ function Row({
   row,
   domains,
   canPublish,
+  selected,
+  onToggle,
   onMessage,
 }: {
   locale: Locale;
   row: Joined;
   domains: Option[];
   canPublish: boolean;
+  selected: boolean;
+  onToggle: (id: string) => void;
   onMessage: (m: { ok: boolean; text: string }) => void;
 }) {
   const t = adminCopy(locale);
   const [open, setOpen] = useState(false);
   const [problems, setProblems] = useState<string[]>([]);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [pending, start] = useTransition();
 
   const tr = {
@@ -86,10 +96,20 @@ function Row({
     });
   }
 
+  /**
+   * Fetches the same signed URL a paying parent would get and shows the PDF in
+   * place. There is no separate, laxer route for staff on purpose: if the
+   * download is broken for a parent it is broken here too, which is how it gets
+   * noticed before release rather than after.
+   */
   function preview() {
+    if (previewUrl) {
+      setPreviewUrl(null);
+      return;
+    }
     start(async () => {
       const r = await worksheetDownloadUrl(row.id, locale);
-      if (r.ok) window.open(r.url, "_blank", "noopener,noreferrer");
+      if (r.ok) setPreviewUrl(r.url);
       else onMessage({ ok: false, text: r.message });
     });
   }
@@ -97,6 +117,15 @@ function Row({
   return (
     <Fragment>
       <tr className="transition-colors hover:bg-black/[0.015]">
+        <Td className="w-9 pr-0">
+          <input
+            type="checkbox"
+            checked={selected}
+            onChange={() => onToggle(row.id)}
+            aria-label={row.id}
+            className="size-4 accent-[var(--color-sage)]"
+          />
+        </Td>
         <Td className="font-mono text-[0.8125rem] text-ink-faint">{row.id}</Td>
         <Td>
           <button
@@ -139,7 +168,7 @@ function Row({
 
       {open ? (
         <tr>
-          <td colSpan={8} className="bg-cream-deep/60 px-4 py-5">
+          <td colSpan={9} className="bg-cream-deep/60 px-4 py-5">
             {problems.length > 0 ? (
               <div className="mb-4">
                 <Problems problems={problems} title={t.common.problems} />
@@ -256,7 +285,13 @@ function Row({
                 </Button>
 
                 <Button type="button" tone="secondary" onClick={preview} disabled={pending}>
-                  {locale === "en" ? "Open the PDF" : "Buka PDF"}
+                  {previewUrl
+                    ? locale === "en"
+                      ? "Hide the PDF"
+                      : "Tutup PDF"
+                    : locale === "en"
+                      ? "Preview the PDF"
+                      : "Pratinjau PDF"}
                 </Button>
 
                 {canPublish ? (
@@ -282,6 +317,21 @@ function Row({
                 ) : null}
               </div>
             </form>
+
+            {previewUrl ? (
+              <div className="mt-4 overflow-hidden rounded-[16px] border border-line bg-white">
+                <iframe
+                  src={previewUrl}
+                  title={tr.id?.title ?? row.id}
+                  className="h-[70vh] w-full"
+                />
+                <p className="text-meta border-t border-line px-4 py-2 text-ink-faint">
+                  {locale === "en"
+                    ? "A signed link that expires in two minutes. Reopen it if the view goes blank."
+                    : "Tautan bertanda tangan yang kedaluwarsa dalam dua menit. Buka lagi kalau tampilannya kosong."}
+                </p>
+              </div>
+            ) : null}
           </td>
         </tr>
       ) : null}
@@ -302,15 +352,61 @@ export function WorksheetManager({
 }) {
   const t = adminCopy(locale);
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [problems, setProblems] = useState<string[]>([]);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [pending, start] = useTransition();
 
   const drafts = rows.filter((r) => r.status !== "published").length;
   const noFile = rows.filter((r) => !r.file_path).length;
+  const allSelected = rows.length > 0 && selected.size === rows.length;
+
+  function toggle(id: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function toggleAll() {
+    setSelected(allSelected ? new Set() : new Set(rows.map((r) => r.id)));
+  }
+
+  function withSelection(data: FormData) {
+    for (const id of selected) data.append("ids", id);
+    data.set("locale", locale);
+    return data;
+  }
+
+  function bulkEdit(data: FormData) {
+    start(async () => {
+      setProblems([]);
+      const r = await bulkUpdateWorksheets(withSelection(data));
+      setMessage({ ok: r.ok, text: r.message ?? t.common.saved });
+      if (r.ok) setSelected(new Set());
+    });
+  }
+
+  function bulkStatus(status: "published" | "draft") {
+    const data = withSelection(new FormData());
+    data.set("status", status);
+    start(async () => {
+      setProblems([]);
+      const r = await bulkSetWorksheetStatus(data);
+      setMessage({ ok: r.ok, text: r.message ?? "" });
+      if (!r.ok) setProblems(r.problems ?? []);
+      else setSelected(new Set());
+    });
+  }
 
   return (
     <div className="space-y-4">
       {message ? (
         <Notice tone={message.ok ? "neutral" : "care"}>{message.text}</Notice>
       ) : null}
+
+      <Problems problems={problems} title={t.common.problems} />
 
       {noFile > 0 ? (
         <Notice tone="care">
@@ -320,9 +416,100 @@ export function WorksheetManager({
         </Notice>
       ) : null}
 
+      {/* The bulk bar only exists while something is selected: a toolbar of
+          controls that act on nothing is worse than no toolbar. */}
+      {selected.size > 0 ? (
+        <form
+          action={bulkEdit}
+          className="sticky top-20 z-10 rounded-[16px] border border-sage bg-sage-soft p-4"
+        >
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-small font-semibold text-sage-dark">
+              {selected.size} {t.common.rows}
+            </p>
+            <button
+              type="button"
+              onClick={() => setSelected(new Set())}
+              className="text-meta text-ink-muted hover:text-ink"
+            >
+              {t.common.cancel}
+            </button>
+          </div>
+
+          <div className="flex flex-wrap items-end gap-2">
+            <label className="text-meta block">
+              <span className="mb-1 block text-ink-muted">{t.content.filterDomain}</span>
+              <select name="domain" defaultValue="" className={SELECT_CLASS}>
+                <option value="">{t.bulk.unchanged}</option>
+                {domains.map((d) => (
+                  <option key={d.value} value={d.value}>
+                    {d.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="text-meta block">
+              <span className="mb-1 block text-ink-muted">{t.content.ageMin}</span>
+              <Input name="age_min_months" type="number" min={0} max={72} className="w-24" />
+            </label>
+
+            <label className="text-meta block">
+              <span className="mb-1 block text-ink-muted">{t.content.ageMax}</span>
+              <Input name="age_max_months" type="number" min={1} max={72} className="w-24" />
+            </label>
+
+            <label className="text-meta block">
+              <span className="mb-1 block text-ink-muted">{t.content.filterPremium}</span>
+              <select name="is_premium" defaultValue="" className={SELECT_CLASS}>
+                <option value="">{t.bulk.unchanged}</option>
+                <option value="true">{t.content.premiumOnly}</option>
+                <option value="false">{t.content.freeOnly}</option>
+              </select>
+            </label>
+
+            <Button type="submit" disabled={pending}>
+              {pending ? t.common.saving : t.bulk.apply}
+            </Button>
+
+            {canPublish ? (
+              <>
+                <Button
+                  type="button"
+                  tone="secondary"
+                  onClick={() => bulkStatus("published")}
+                  disabled={pending}
+                >
+                  {t.common.publish}
+                </Button>
+                <Button
+                  type="button"
+                  tone="quiet"
+                  onClick={() => bulkStatus("draft")}
+                  disabled={pending}
+                >
+                  {t.common.unpublish}
+                </Button>
+              </>
+            ) : null}
+          </div>
+
+          <p className="text-meta mt-3 text-ink-muted">{t.bulk.note}</p>
+        </form>
+      ) : null}
+
       <TableFrame
         head={
           <tr>
+            <Th className="w-9 pr-0">
+              <input
+                type="checkbox"
+                checked={allSelected}
+                onChange={toggleAll}
+                aria-label={t.bulk.selectAll}
+                className="size-4 accent-[var(--color-sage)]"
+              />
+            </Th>
             <Th className="w-[6.5rem]">ID</Th>
             <Th>{t.content.colTitle}</Th>
             <Th>{t.content.colDomain}</Th>
@@ -347,6 +534,8 @@ export function WorksheetManager({
             row={row}
             domains={domains}
             canPublish={canPublish}
+            selected={selected.has(row.id)}
+            onToggle={toggle}
             onMessage={setMessage}
           />
         ))}

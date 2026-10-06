@@ -5,7 +5,8 @@ import { Button, Card, Field, Input, Notice } from "@/components/ui";
 import { Td, Th, TableFrame } from "@/components/admin/parts";
 import type { Locale } from "@/i18n/config";
 import { adminCopy } from "@/lib/admin/copy";
-import { saveAudioTrack, uploadAudioFile } from "@/lib/admin-actions";
+import { recordAudioFile, saveAudioTrack } from "@/lib/admin-actions";
+import { uploadToBucket } from "@/lib/admin/upload";
 import { AUDIO_KINDS, MUSIC_MODES } from "@/lib/admin/options";
 import { publicFileUrl } from "@/lib/storage";
 import type { AudioTrackRow } from "@/types/db";
@@ -45,9 +46,37 @@ function TrackRow({
     });
   }
 
+  /**
+   * The file goes browser → bucket, then the server is told where it landed.
+   *
+   * It does not travel through a server action: Next.js caps those request
+   * bodies at 1MB, which is how this silently failed for every real MP3 before.
+   */
   function upload(data: FormData) {
+    const file = data.get("file");
+    if (!(file instanceof File) || file.size === 0) {
+      onMessage({
+        ok: false,
+        text: locale === "en" ? "Choose a file first." : "Pilih berkasnya dulu.",
+      });
+      return;
+    }
+
+    const ext = file.name.toLowerCase().endsWith(".ogg") ? "ogg" : "mp3";
+    const path = `${track.id}.${ext}`;
+
     start(async () => {
-      const r = await uploadAudioFile(data);
+      const up = await uploadToBucket("audio", path, file, 15 * 1024 * 1024, locale);
+      if (!up.ok) {
+        onMessage({ ok: false, text: up.message });
+        return;
+      }
+      const record = new FormData();
+      record.set("locale", locale);
+      record.set("id", track.id);
+      record.set("path", up.path);
+      record.set("bytes", String(up.bytes));
+      const r = await recordAudioFile(record);
       onMessage({ ok: r.ok, text: r.ok ? t.common.saved : r.message });
     });
   }

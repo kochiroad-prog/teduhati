@@ -150,6 +150,19 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   the database decides what is *allowed*.
 - Routes under `/admin` are listed in `src/lib/admin/routes.ts` and the sidebar is
   generated from it. Adding a section means one entry there.
+- **Never upload a file through a server action.** Next.js caps a server
+  action's request body at 1MB, so an MP3 or a PDF is rejected by the framework
+  before any of our code runs — with no useful message. Files go browser →
+  bucket via `src/lib/admin/upload.ts`, and the server only records the path.
+  Raising `serverActions.bodySizeLimit` is the wrong fix: it routes every byte
+  through the server twice.
+- `/admin/pratinjau` shows the library at a chosen age. It is **not**
+  `recommend_activities`: that ranks against a child's history, and an age has
+  none. It shows the first-day view, and says so on the page. Don't quietly
+  swap one for the other.
+- Bulk edits go through `admin_bulk_update_worksheets`, but bulk *publishing*
+  loops `set_content_status` one row at a time on purpose — that function is
+  where the validation and the audit entry live.
 - Admin copy is `src/lib/admin/copy.ts`, separate from the parent dictionary: the
   console has its own vocabulary. Do not put `as const` on the Indonesian object —
   it makes every string a literal type and the English object stops type-checking.

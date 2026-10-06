@@ -454,36 +454,32 @@ export async function saveAudioTrack(form: FormData): Promise<AdminResult> {
 }
 
 /**
- * Uploads an MP3 into the `audio` bucket and points the track at it.
+ * Records where an uploaded audio file landed.
  *
- * The file goes in under the track's id, so re-uploading replaces the old one
- * instead of accumulating orphans nobody can identify later.
+ * The bytes never reach this function. They go from the browser straight into
+ * the bucket (see `src/lib/admin/upload.ts`), because a server action's request
+ * body is capped at 1MB by Next.js and an MP3 is comfortably larger — the first
+ * version of this pushed the whole file through here and was rejected by the
+ * framework before any of it ran.
+ *
+ * The path is still checked rather than trusted: a client could post any string,
+ * and `file_path` decides what the player fetches.
  */
-export async function uploadAudioFile(form: FormData): Promise<AdminResult> {
+export async function recordAudioFile(form: FormData): Promise<AdminResult> {
   const supabase = await createClient();
   const locale = loc(form.get("locale"));
   const id = text(form, "id", 40);
-  const file = form.get("file");
+  const path = text(form, "path", 300);
+  const bytes = int(form, "bytes", 0);
 
-  if (!(file instanceof File) || file.size === 0) {
-    return { ok: false, message: locale === "en" ? "Choose a file first." : "Pilih berkasnya dulu." };
+  if (!/^[A-Za-z0-9._-]+\.(mp3|ogg)$/.test(path)) {
+    return { ok: false, message: `"${path}" is not an audio file name.` };
   }
-  if (file.size > 15 * 1024 * 1024) {
-    return {
-      ok: false,
-      message:
-        locale === "en"
-          ? "That file is over 15MB. A looping track should be far smaller."
-          : "Berkasnya lebih dari 15MB. Trek yang diulang seharusnya jauh lebih kecil.",
-    };
+  // The uploader names the object after the track, so anything else means the
+  // form and the row have drifted apart.
+  if (!path.startsWith(`${id}.`)) {
+    return { ok: false, message: "That file does not belong to this track." };
   }
-  const ext = file.name.toLowerCase().endsWith(".ogg") ? "ogg" : "mp3";
-  const path = `${id}.${ext}`;
-
-  const { error: uploadError } = await supabase.storage
-    .from("audio")
-    .upload(path, file, { upsert: true, contentType: file.type || "audio/mpeg" });
-  if (uploadError) return { ok: false, message: uploadError.message };
 
   const { error } = await supabase
     .from("audio_tracks")
@@ -495,7 +491,7 @@ export async function uploadAudioFile(form: FormData): Promise<AdminResult> {
     p_action: "audio.upload",
     p_object_type: "audio_tracks",
     p_object_id: id,
-    p_summary: `${path} (${Math.round(file.size / 1024)} KB)`,
+    p_summary: `${path} (${Math.round(bytes / 1024)} KB)`,
   });
 
   revalidatePath(`/${locale}/admin`, "layout");

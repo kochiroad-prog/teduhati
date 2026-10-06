@@ -169,6 +169,59 @@ export type AdminUserRow = {
   created_at: string;
 };
 
+/** What a parent of a given age sees on their first day. */
+export type PreviewActivity = {
+  activity_id: string;
+  title: string;
+  summary: string;
+  duration_minutes: number;
+  primary_domain: string;
+  domain_name: string | null;
+  difficulty: number;
+  is_premium: boolean;
+  illustration_path: string | null;
+  age_min_months: number;
+  age_max_months: number;
+};
+
+export type PreviewBonding = {
+  bonding_moment_id: string;
+  title: string;
+  prompt: string;
+  why_it_matters: string;
+  moment_type: BondingMomentType;
+  duration_minutes: number;
+  is_premium: boolean;
+};
+
+export type PreviewWorksheet = {
+  worksheet_id: string;
+  title: string;
+  description: string;
+  primary_domain: string;
+  page_count: number;
+  is_premium: boolean;
+};
+
+export type PreviewStory = {
+  story_id: string;
+  title: string;
+  blurb: string;
+  theme: string;
+  reading_minutes: number;
+  is_premium: boolean;
+};
+
+/** The gaps are the point: an age with no stories is a hole in the product. */
+export type PreviewCounts = {
+  activities: number;
+  activities_free: number;
+  bonding: number;
+  stories: number;
+  worksheets: number;
+  band: string | null;
+};
+
 export type AppSettingRow = {
   key: string;
   value: Json;
@@ -583,6 +636,42 @@ export type Database = {
       validate_worksheet: { Args: { p_id: string }; Returns: string[] };
       /** Raises rather than returning null when the caller may not download. */
       worksheet_path_for_download: { Args: { p_id: string }; Returns: string };
+      admin_preview_activities: {
+        Args: {
+          p_months: number;
+          p_locale?: string;
+          p_limit?: number;
+          p_include_premium?: boolean;
+        };
+        Returns: PreviewActivity[];
+      };
+      admin_preview_bonding: {
+        Args: { p_months: number; p_locale?: string; p_limit?: number };
+        Returns: PreviewBonding[];
+      };
+      admin_preview_worksheets: {
+        Args: { p_months: number; p_locale?: string; p_limit?: number };
+        Returns: PreviewWorksheet[];
+      };
+      admin_preview_stories: {
+        Args: { p_months: number; p_locale?: string; p_limit?: number };
+        Returns: PreviewStory[];
+      };
+      admin_preview_counts: { Args: { p_months: number }; Returns: PreviewCounts | null };
+      admin_search_activity_ids: {
+        Args: { p_q: string; p_locale?: string };
+        Returns: string[];
+      };
+      admin_bulk_update_worksheets: {
+        Args: {
+          p_ids: string[];
+          p_domain?: string | null;
+          p_age_min?: number | null;
+          p_age_max?: number | null;
+          p_is_premium?: boolean | null;
+        };
+        Returns: number;
+      };
       worksheets_for_child: {
         Args: { p_child_id: string; p_locale?: string; p_limit?: number };
         Returns: WorksheetForChild[];

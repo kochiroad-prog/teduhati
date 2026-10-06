@@ -32,7 +32,13 @@ export function AdminNav({
   const [open, setOpen] = useState(false);
 
   const groups: { heading: string | null; items: Item[] }[] = [
-    { heading: null, items: [{ route: "overview", label: t.nav.overview }] },
+    {
+      heading: null,
+      items: [
+        { route: "overview", label: t.nav.overview },
+        { route: "preview", label: t.nav.preview },
+      ],
+    },
     {
       heading: t.nav.content,
       items: [

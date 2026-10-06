@@ -14,6 +14,7 @@ import type { Locale } from "@/i18n/config";
 const ID = {
   nav: {
     overview: "Ringkasan",
+    preview: "Pratinjau usia",
     content: "Konten",
     activities: "Aktivitas",
     stories: "Cerita",
@@ -113,6 +114,26 @@ const ID = {
     todoAudio: (n: number) => `${n} trek audio belum punya berkas.`,
     todoDraft: (n: number) => `${n} aktivitas masih draf.`,
     vsPrev: "vs periode sebelumnya",
+  },
+  bulk: {
+    unchanged: "Biarkan",
+    apply: "Terapkan",
+    selectAll: "Pilih semua di halaman ini",
+    note: "Kolom yang dibiarkan kosong tidak diubah. Penayangan tetap melewati pemeriksaan yang sama, jadi lembar tanpa berkas akan ditolak dan disebutkan.",
+  },
+  preview: {
+    title: "Pratinjau usia",
+    lead: "Apa yang ditemukan orang tua dengan anak di usia ini, pada hari pertama mereka memakai aplikasi.",
+    age: "Usia anak",
+    show: "Tampilkan",
+    band: "Kelompok usia",
+    firstDay:
+      "Urutan ini adalah yang dilihat anak baru. Rekomendasi asli ikut riwayat anak — domain yang sudah sering dimainkan, aktivitas yang sudah selesai, minat yang diisi orang tua — dan usia saja tidak punya riwayat itu.",
+    empty: "Tidak ada apa pun untuk usia ini.",
+    emptyTitle: "Lubang di pustaka",
+    allPremiumTitle: "Semua terkunci",
+    allPremium:
+      "Semua aktivitas di usia ini hanya untuk Premium. Orang tua baru yang mencoba aplikasi akan melihat layar yang seluruhnya terkunci.",
   },
   content: {
     title: "Konten",
@@ -285,6 +306,7 @@ type AdminCopy = typeof ID;
 const EN: AdminCopy = {
   nav: {
     overview: "Overview",
+    preview: "Age preview",
     content: "Content",
     activities: "Activities",
     stories: "Stories",
@@ -380,6 +402,26 @@ const EN: AdminCopy = {
     todoAudio: (n: number) => `${n} audio track(s) have no file.`,
     todoDraft: (n: number) => `${n} activity(s) are still drafts.`,
     vsPrev: "vs the period before",
+  },
+  bulk: {
+    unchanged: "Leave as is",
+    apply: "Apply",
+    selectAll: "Select everything on this page",
+    note: "A field left blank is not changed. Publishing still goes through the same checks, so a sheet with no file is refused and named.",
+  },
+  preview: {
+    title: "Age preview",
+    lead: "What a parent of a child this age finds, on their first day with the app.",
+    age: "Child's age",
+    show: "Show",
+    band: "Age band",
+    firstDay:
+      "This is the order a brand-new child gets. The real recommendation follows a child's history — domains already played, activities already done, interests the parent listed — and an age on its own has none of that.",
+    empty: "Nothing at all for this age.",
+    emptyTitle: "A hole in the library",
+    allPremiumTitle: "Everything is locked",
+    allPremium:
+      "Every activity at this age is Premium only. A new parent trying the app would meet a screen that is entirely locked.",
   },
   content: {
     title: "Content",
