@@ -25,6 +25,14 @@
  *   --premium  mark these as Premium-only. Default: free.
  *   --limit    stop after N files. Useful for a first run.
  *   --dry-run  list what would happen and write nothing.
+ *   --match    only files whose name matches this regex (case-insensitive).
+ *   --exclude  skip files whose name matches this regex. Applied after --match.
+ *
+ * --match and --exclude exist because these packs are not sorted by age. One
+ * folder holds preschool tracing sheets next to primary-school grammar, and the
+ * filenames are the only signal. Importing a folder wholesale would tag both
+ * with the same age, which is how a five-year-old ends up being offered a
+ * lesson on figures of speech.
  */
 
 import { readdir, readFile, stat } from "node:fs/promises";
@@ -48,6 +56,20 @@ const PREFIX = flag("prefix") ?? DOMAIN;
 const PREMIUM = flag("premium") !== null;
 const DRY_RUN = flag("dry-run") !== null;
 const LIMIT = Number.parseInt(flag("limit") ?? "0", 10) || Infinity;
+
+function compile(name) {
+  const raw = flag(name);
+  if (!raw || raw === "true") return null;
+  try {
+    return new RegExp(raw, "i");
+  } catch (error) {
+    console.error(`--${name} is not a valid regular expression: ${error.message}`);
+    process.exit(1);
+  }
+}
+
+const MATCH = compile("match");
+const EXCLUDE = compile("exclude");
 
 if (!DIR || !AGE || !DOMAIN) {
   console.error(
@@ -182,10 +204,24 @@ if (domainError || !domainRow) {
   process.exit(1);
 }
 
-const files = (await walk(DIR)).slice(0, LIMIT === Infinity ? undefined : LIMIT);
+const found = await walk(DIR);
+const filtered = found.filter((f) => {
+  const name = basename(f);
+  if (MATCH && !MATCH.test(name)) return false;
+  if (EXCLUDE && EXCLUDE.test(name)) return false;
+  return true;
+});
+const files = filtered.slice(0, LIMIT === Infinity ? undefined : LIMIT);
 
-if (files.length === 0) {
+if (found.length === 0) {
   console.error(`No PDF files under ${DIR}.`);
+  process.exit(1);
+}
+if (files.length === 0) {
+  console.error(
+    `${found.length} PDF(s) found, but none survived the filters.\n` +
+      `  --match   ${MATCH ?? "(none)"}\n  --exclude ${EXCLUDE ?? "(none)"}`,
+  );
   process.exit(1);
 }
 
@@ -201,7 +237,9 @@ const { data: nextIdRaw } = await supabase.rpc("next_content_id", { p_table: "wo
 let counter = Number.parseInt((nextIdRaw ?? "WRK-0001").slice(4), 10);
 
 console.log(
-  `${files.length} PDF(s) under ${DIR}\n` +
+  `${files.length} of ${found.length} PDF(s) under ${DIR}\n` +
+    (MATCH ? `  --match   ${MATCH}\n` : "") +
+    (EXCLUDE ? `  --exclude ${EXCLUDE}\n` : "") +
     `  age ${AGE_MIN}-${AGE_MAX} months · domain ${DOMAIN} · ${PREMIUM ? "Premium" : "free"}\n` +
     `  ${DRY_RUN ? "DRY RUN — nothing will be written" : "importing as drafts"}\n`,
 );
