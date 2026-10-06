@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "content:check": "node scripts/validate-content.mjs",
     "content:export": "node --env-file-if-exists=.env.local scripts/export-content.mjs && node scripts/validate-content.mjs",
+    "worksheets:import": "node --env-file-if-exists=.env.local scripts/import-worksheets.mjs",
     "db:seed": "node scripts/validate-content.mjs && node --env-file-if-exists=.env.local scripts/seed-content.mjs",
     "db:types": "npx --yes supabase gen types typescript --project-id ridvgknfehphnzijvgzb > src/types/db.ts",
     "check": "npm run content:check && npm run typecheck && npm run lint"

@@ -1,121 +1,154 @@
 import { notFound } from "next/navigation";
-import {
-  PageHead,
-  StatusBadge,
-  QueryError,
-  TableFrame,
-  Td,
-  Th,
-  fmtDate,
-  fmtNumber,
-} from "@/components/admin/parts";
+import { FilterBar } from "@/components/admin/FilterBar";
+import { PageHead, QueryError } from "@/components/admin/parts";
+import { WorksheetManager } from "@/components/admin/WorksheetManager";
 import { EmptyState, Notice } from "@/components/ui";
 import { isLocale } from "@/i18n/config";
 import { adminCopy } from "@/lib/admin/copy";
+import { getAdminContext } from "@/lib/admin/guard";
+import { adminHref } from "@/lib/admin/routes";
+import { getTaxonomy } from "@/lib/admin/taxonomy";
 import { getSettings } from "@/lib/settings";
 import { createClient } from "@/lib/supabase/server";
-import type { WorksheetRow, WorksheetTranslationRow } from "@/types/db";
+import type { ContentStatus, WorksheetRow, WorksheetTranslationRow } from "@/types/db";
 
 /**
  * Worksheets.
  *
- * There is no PDF yet and no upload pipeline for one, so this page lists what
- * exists and says plainly what is missing rather than offering a "new worksheet"
- * button that would create a row pointing at no file. A row with no file is
- * worse than no row: the app would offer a parent a download that 404s.
+ * Rows get here through `npm run worksheets:import`, which uploads a folder of
+ * PDFs into the private bucket and writes one draft row each. The work on this
+ * screen is correcting what the importer could only guess — the age range, the
+ * domain, the title taken from a filename — and then publishing.
  */
 
 export const dynamic = "force-dynamic";
 
+const PAGE_SIZE = 50;
+const STATUSES: ContentStatus[] = ["draft", "review", "published", "retired"];
+
 export default async function WorksheetsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string; domain?: string; status?: string; page?: string }>;
 }) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) notFound();
   const locale = raw;
   const t = adminCopy(locale);
 
-  const supabase = await createClient();
-  const [{ data, error }, settings] = await Promise.all([
-    supabase
-      .from("worksheets")
-      .select("*, worksheet_translations(worksheet_id, locale, title, description)")
-      .order("id"),
+  const sp = await searchParams;
+  const q = (sp.q ?? "").trim();
+  const domain = sp.domain ?? "";
+  const status = sp.status ?? "";
+  const page = Math.max(1, Number.parseInt(sp.page ?? "1", 10) || 1);
+  const from = (page - 1) * PAGE_SIZE;
+
+  const [ctx, settings, taxonomy] = await Promise.all([
+    getAdminContext(),
     getSettings(),
+    getTaxonomy(locale),
   ]);
+  const supabase = await createClient();
+
+  let query = supabase
+    .from("worksheets")
+    .select(
+      "*, worksheet_translations(worksheet_id, locale, title, description)",
+      { count: "exact" },
+    );
+
+  if (domain) query = query.eq("primary_domain", domain);
+  if (status && (STATUSES as string[]).includes(status)) {
+    query = query.eq("status", status as ContentStatus);
+  }
+  // Searching the original filename, not the title: that is what an editor has
+  // in hand when they are looking for a particular sheet from the pack.
+  if (q) query = query.ilike("source_name", `%${q}%`);
+
+  const { data, count, error } = await query
+    .order("sort_order")
+    .order("id")
+    .range(from, from + PAGE_SIZE - 1);
 
   type Joined = WorksheetRow & { worksheet_translations: WorksheetTranslationRow[] };
   const rows = (data ?? []) as unknown as Joined[];
+  const total = count ?? 0;
 
   return (
     <div>
-      <PageHead title={t.content.worksheetsTitle} lead={t.content.lead} />
+      <PageHead
+        title={t.content.worksheetsTitle}
+        lead={
+          locale === "en"
+            ? "A private bucket: downloads go through a short-lived signed URL, issued only after the subscription has been checked."
+            : "Bucket privat: unduhan lewat URL bertanda tangan berumur pendek, diterbitkan hanya setelah langganan diperiksa."
+        }
+      />
 
-      <div className="mb-5">
-        <Notice title={settings.features.worksheets ? t.settings.on : t.settings.off}>
-          {locale === "en"
-            ? "Worksheets need a PDF in the illustrations bucket and a download route before a row here means anything to a parent. Until both exist, the feature switch stays off and the app does not show the section at all."
-            : "Lembar kerja memerlukan berkas PDF di bucket illustrations dan rute unduhan sebelum baris di sini berarti apa pun bagi orang tua. Sampai keduanya ada, sakelar fiturnya tetap mati dan aplikasi tidak menampilkan bagian ini."}
-        </Notice>
-      </div>
+      {!settings.features.worksheets ? (
+        <div className="mb-5">
+          <Notice title={t.settings.off}>
+            {locale === "en"
+              ? "The worksheet section is switched off, so parents cannot see or download any of these yet. Turn it on under Settings once enough sheets are published."
+              : "Bagian lembar kerja sedang dimatikan, jadi orang tua belum bisa melihat atau mengunduhnya. Nyalakan di Pengaturan setelah cukup banyak yang tayang."}
+          </Notice>
+        </div>
+      ) : null}
+
+      <FilterBar
+        action={adminHref(locale, "worksheets")}
+        search={q}
+        searchLabel={t.common.search}
+        searchPlaceholder={
+          locale === "en" ? "Original filename…" : "Nama berkas asli…"
+        }
+        applyLabel={t.common.search}
+        selects={[
+          {
+            name: "domain",
+            label: t.content.filterDomain,
+            value: domain,
+            options: taxonomy.domains,
+            allLabel: t.common.all,
+          },
+          {
+            name: "status",
+            label: t.content.filterStatus,
+            value: status,
+            options: STATUSES.map((s) => ({ value: s, label: t.status[s] })),
+            allLabel: t.common.all,
+          },
+        ]}
+      />
 
       <QueryError error={error} locale={locale} />
 
       {rows.length === 0 ? (
         <EmptyState
-          title={locale === "en" ? "No worksheets yet." : "Belum ada lembar kerja."}
+          title={
+            total === 0
+              ? locale === "en"
+                ? "No worksheets yet."
+                : "Belum ada lembar kerja."
+              : t.common.noResults
+          }
           lead={
-            locale === "en"
-              ? "They will appear here once the PDFs are produced."
-              : "Akan muncul di sini setelah berkas PDF-nya dibuat."
+            total === 0
+              ? locale === "en"
+                ? "Import a folder of PDFs with: npm run worksheets:import -- --dir ... --age 24-48 --domain fine_motor"
+                : "Impor satu folder PDF dengan: npm run worksheets:import -- --dir ... --age 24-48 --domain fine_motor"
+              : t.common.noResultsLead
           }
         />
       ) : (
-        <TableFrame
-          head={
-            <tr>
-              <Th className="w-[6.5rem]">ID</Th>
-              <Th>{t.content.colTitle}</Th>
-              <Th>{t.content.colDomain}</Th>
-              <Th>{t.content.colAge}</Th>
-              <Th numeric>{t.content.colPages}</Th>
-              <Th>{t.content.colFile}</Th>
-              <Th>{t.content.colStatus}</Th>
-              <Th>{t.content.colUpdated}</Th>
-            </tr>
-          }
-          footer={`${fmtNumber(rows.length)} ${t.common.rows}`}
-        >
-          {rows.map((row) => {
-            const tr =
-              row.worksheet_translations.find((r) => r.locale === locale) ??
-              row.worksheet_translations.find((r) => r.locale === "id");
-            return (
-              <tr key={row.id}>
-                <Td className="font-mono text-[0.8125rem] text-ink-faint">{row.id}</Td>
-                <Td>{tr?.title ?? row.id}</Td>
-                <Td className="text-ink-muted">{row.primary_domain}</Td>
-                <Td className="whitespace-nowrap text-ink-muted">
-                  {row.age_min_months}–{row.age_max_months}
-                </Td>
-                <Td numeric className="text-ink-muted">
-                  {row.page_count}
-                </Td>
-                <Td className={row.file_path ? "text-ink-muted" : "text-terracotta"}>
-                  {row.file_path ?? t.content.audioMissing}
-                </Td>
-                <Td>
-                  <StatusBadge status={row.status} locale={locale} />
-                </Td>
-                <Td className="whitespace-nowrap text-ink-faint">
-                  {fmtDate(row.updated_at, locale)}
-                </Td>
-              </tr>
-            );
-          })}
-        </TableFrame>
+        <WorksheetManager
+          locale={locale}
+          rows={rows}
+          domains={taxonomy.domains}
+          canPublish={ctx.isAdmin}
+        />
       )}
     </div>
   );

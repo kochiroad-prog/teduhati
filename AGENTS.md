@@ -39,6 +39,29 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
 - An editor drafts; only an admin publishes. That split is `guard_publish_role`,
   one trigger shared by all four content tables, not eight policies.
 
+## Worksheets
+
+- The `worksheets` bucket is **private**, and everything else follows from that.
+  `audio` and `illustrations` are public because that content is free; a
+  worksheet PDF is the thing a parent pays for, and a public URL would be
+  copyable into a group chat with the paywall left as decoration.
+- A download is a short-lived signed URL, minted in `src/lib/worksheet-actions.ts`
+  **after** `worksheet_path_for_download` in Postgres has approved the caller. A
+  signed URL bypasses RLS by design, which is exactly why the permission question
+  cannot be asked afterwards. There is no second, laxer route for staff: the
+  preview button in the console takes the same path a paying parent does.
+- `npm run worksheets:import` takes one folder, one age range and one domain per
+  run. The filenames in these packs describe the artwork ("Hijau Putih
+  Ilustrasi"), not the pedagogy, so nothing in them can be trusted to say which
+  age a sheet suits. Every row lands as a draft.
+- The importer leaves the English title identical to the Indonesian one on
+  purpose. An obviously untranslated title is a visible prompt for the editor;
+  a machine-translated guess would look finished and be wrong.
+- `validate_worksheet` refuses to publish a sheet with no file, with an age range
+  outside 0–72 months, or missing a language. It is wired into
+  `set_content_status` alongside the other three validators — leaving it out is
+  how an admin ends up seeing a raw constraint error instead of a readable list.
+
 ## The product rules that shape the code
 
 - **Never let the AI invent curriculum.** `src/lib/ai/provider.ts` sends the model

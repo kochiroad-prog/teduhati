@@ -202,8 +202,24 @@ export type WorksheetRow = {
   preview_path: string | null;
   status: ContentStatus;
   is_premium: boolean;
+  /** Size of the PDF, so the list can warn about a sheet nobody will wait for. */
+  file_bytes: number | null;
+  /** The filename it arrived as, which is how a re-import recognises it. */
+  source_name: string | null;
+  sort_order: number;
+  skill_codes: string[];
   created_at: string;
   updated_at: string;
+};
+
+export type WorksheetForChild = {
+  worksheet_id: string;
+  title: string;
+  description: string;
+  primary_domain: string;
+  page_count: number;
+  is_premium: boolean;
+  preview_path: string | null;
 };
 
 export type WorksheetTranslationRow = {
@@ -564,6 +580,13 @@ export type Database = {
       validate_activity: { Args: { p_id: string }; Returns: string[] };
       validate_story: { Args: { p_id: string }; Returns: string[] };
       validate_bonding: { Args: { p_id: string }; Returns: string[] };
+      validate_worksheet: { Args: { p_id: string }; Returns: string[] };
+      /** Raises rather than returning null when the caller may not download. */
+      worksheet_path_for_download: { Args: { p_id: string }; Returns: string };
+      worksheets_for_child: {
+        Args: { p_child_id: string; p_locale?: string; p_limit?: number };
+        Returns: WorksheetForChild[];
+      };
       /** Returns the problems that stopped a publish, or an empty array on success. */
       set_content_status: {
         Args: { p_table: string; p_id: string; p_status: ContentStatus };
