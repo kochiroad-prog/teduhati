@@ -5,7 +5,7 @@ import { EmptyState } from "@/components/ui";
 import { isLocale } from "@/i18n/config";
 import { adminCopy } from "@/lib/admin/copy";
 import { createClient } from "@/lib/supabase/server";
-import type { AudioTrackRow } from "@/types/db";
+import type { AudioStatusRow, AudioTrackRow } from "@/types/db";
 
 export const dynamic = "force-dynamic";
 
@@ -20,13 +20,17 @@ export default async function AudioPage({
   const t = adminCopy(locale);
 
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("audio_tracks")
-    .select("*")
-    .order("kind")
-    .order("sort_order");
+  // Two queries, because file_path alone cannot say whether a file exists: the
+  // taxonomy seed wrote paths for tracks nobody had uploaded.
+  const [{ data, error }, { data: statusRaw }] = await Promise.all([
+    supabase.from("audio_tracks").select("*").order("kind").order("sort_order"),
+    supabase.rpc("admin_audio_status"),
+  ]);
 
   const tracks = (data ?? []) as AudioTrackRow[];
+  const present = new Set(
+    ((statusRaw ?? []) as AudioStatusRow[]).filter((r) => r.has_object).map((r) => r.id),
+  );
 
   return (
     <div>
@@ -51,7 +55,7 @@ export default async function AudioPage({
           }
         />
       ) : (
-        <AudioManager locale={locale} tracks={tracks} />
+        <AudioManager locale={locale} tracks={tracks} present={present} />
       )}
     </div>
   );

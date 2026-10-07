@@ -28,16 +28,19 @@ const SELECT_CLASS =
 function TrackRow({
   locale,
   track,
+  hasFile,
   onMessage,
 }: {
   locale: Locale;
   track: AudioTrackRow;
+  /** Whether the object is really in the bucket, not merely named in the row. */
+  hasFile: boolean;
   onMessage: (m: { ok: boolean; text: string }) => void;
 }) {
   const t = adminCopy(locale);
   const [open, setOpen] = useState(false);
   const [pending, start] = useTransition();
-  const url = track.file_path ? publicFileUrl("audio", track.file_path) : null;
+  const url = hasFile && track.file_path ? publicFileUrl("audio", track.file_path) : null;
 
   function save(data: FormData) {
     start(async () => {
@@ -254,14 +257,17 @@ function TrackRow({
 export function AudioManager({
   locale,
   tracks,
+  present,
 }: {
   locale: Locale;
   tracks: AudioTrackRow[];
+  /** Ids whose object exists in the bucket. */
+  present: Set<string>;
 }) {
   const t = adminCopy(locale);
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
-  const missing = tracks.filter((tr) => !tr.file_path).length;
+  const missing = tracks.filter((tr) => !present.has(tr.id)).length;
 
   return (
     <div className="space-y-4">
@@ -293,6 +299,7 @@ export function AudioManager({
             key={track.id}
             locale={locale}
             track={track}
+            hasFile={present.has(track.id)}
             onMessage={setMessage}
           />
         ))}

@@ -114,6 +114,8 @@ export type AdminOverview = {
   bonding_published: number;
   bonding_total: number;
   worksheets_total: number;
+  worksheets_published: number;
+  worksheets_draft: number;
   audio_total: number;
   audio_missing_file: number;
   signups_7d: number;
@@ -220,6 +222,18 @@ export type PreviewCounts = {
   stories: number;
   worksheets: number;
   band: string | null;
+};
+
+/**
+ * Whether a track's object actually exists in the bucket.
+ *
+ * `audio_tracks.file_path` cannot answer this: the taxonomy seed filled it in
+ * for files nobody had uploaded, so a non-null path proves nothing.
+ */
+export type AudioStatusRow = {
+  id: string;
+  file_path: string | null;
+  has_object: boolean;
 };
 
 export type AppSettingRow = {
@@ -658,6 +672,7 @@ export type Database = {
         Returns: PreviewStory[];
       };
       admin_preview_counts: { Args: { p_months: number }; Returns: PreviewCounts | null };
+      admin_audio_status: { Args: Record<string, never>; Returns: AudioStatusRow[] };
       admin_search_activity_ids: {
         Args: { p_q: string; p_locale?: string };
         Returns: string[];
