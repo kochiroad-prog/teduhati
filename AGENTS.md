@@ -118,6 +118,20 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   that made the audio counter report "0 missing" while 22 of 23 were broken.
   Only the bucket settles whether a file exists; `illustration_index()` is how
   you ask.
+- **The ten domain pictures in the bucket today are sheet crops, not final art.**
+  They were cut out of one generated 1627x967 sticker sheet holding 49 scenes,
+  so each is only about 170x180px. That is enough for the 64px list thumbnail
+  and the 96px activity picture, and nothing larger. Replace them one at a time
+  with full-canvas generations from `docs/illustration-prompts.md` — the ladder
+  takes the new file with no code change. Don't reuse them at a bigger size on
+  the landing page.
+- `art:upload` pads every image to a square the size of its own longest edge,
+  because `ActivityImage` draws into a square box with `object-cover` and would
+  otherwise crop the heads off a portrait source. Don't pad to `--max` instead:
+  that centres a 170px sticker in a 640px canvas and leaves the subject
+  occupying a third of the frame.
+- Source images live in `gambar/`, which is gitignored. The bucket is the home
+  for a picture; git is not.
 - Tumi in `src/components/Tumi.tsx` is that artwork, not a drawing. Six product
   states map onto the three poses that exist; a state without artwork borrows its
   nearest neighbour rather than introducing a second-looking mascot.

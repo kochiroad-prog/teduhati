@@ -43,3 +43,8 @@ next-env.d.ts
 # local env
 .env.local
 .env*.local
+
+# illustration sources. These are inputs to `npm run art:upload`, not code: the
+# bucket is where the pictures live, and a 2.6 MB PNG in git is 2.6 MB in every
+# clone forever. Keep the originals in Drive if they matter.
+/gambar/
