@@ -227,14 +227,46 @@ if (files.length === 0) {
 
 // Already-imported files are recognised by their original filename, so a run
 // that is interrupted can simply be run again.
-const { data: existingRows } = await supabase
+const { data: existingRows, error: existingError } = await supabase
   .from("worksheets")
-  .select("source_name")
-  .not("source_name", "is", null);
-const existing = new Set((existingRows ?? []).map((r) => r.source_name));
+  .select("id, source_name");
 
-const { data: nextIdRaw } = await supabase.rpc("next_content_id", { p_table: "worksheets" });
-let counter = Number.parseInt((nextIdRaw ?? "WRK-0001").slice(4), 10);
+if (existingError) {
+  console.error(`Could not read the existing worksheets: ${existingError.message}`);
+  process.exit(1);
+}
+
+const existing = new Set(
+  (existingRows ?? []).map((r) => r.source_name).filter(Boolean),
+);
+
+/**
+ * Ids are allocated here, from the ids that already exist.
+ *
+ * This used to call `next_content_id`, which is SECURITY DEFINER and checks
+ * `is_staff()`. This script runs as the service role, which has no auth.uid()
+ * and is therefore not staff, so the call raised — and the error was ignored,
+ * falling back to a hardcoded "WRK-0001". Every wave then started at 1 and
+ * collided with the first run, while the file had *already* been uploaded,
+ * leaving orphans in the bucket with no row pointing at them.
+ *
+ * The service role bypasses row level security, so reading the ids directly is
+ * both simpler and correct. `taken` also guards against a gap-filling mistake:
+ * the next id is the next one nobody holds, not merely max + 1.
+ */
+const taken = new Set((existingRows ?? []).map((r) => r.id));
+let counter = 1;
+
+function allocateId() {
+  for (;;) {
+    const id = `WRK-${String(counter).padStart(4, "0")}`;
+    counter += 1;
+    if (!taken.has(id)) {
+      taken.add(id);
+      return id;
+    }
+  }
+}
 
 console.log(
   `${files.length} of ${found.length} PDF(s) under ${DIR}\n` +
@@ -248,6 +280,27 @@ let imported = 0;
 let skipped = 0;
 let failed = 0;
 
+/**
+ * Stop early when the failures are clearly systemic.
+ *
+ * The previous version ground through hundreds of files repeating the same
+ * error, uploading each one before failing on it. A run that has failed ten
+ * times in a row is not going to recover by trying the eleventh: something is
+ * wrong with the arguments or the database, and the right thing is to say so
+ * and stop rather than keep going.
+ */
+let consecutive = 0;
+const GIVE_UP_AFTER = 10;
+
+function stopIfHopeless() {
+  if (consecutive < GIVE_UP_AFTER) return false;
+  console.error(
+    `\nStopped: ${GIVE_UP_AFTER} failures in a row. Nothing below this point was tried.\n` +
+      "Fix the cause above and run again — whatever did import is recognised and skipped.",
+  );
+  return true;
+}
+
 for (const file of files) {
   const name = basename(file);
   if (existing.has(name)) {
@@ -255,7 +308,7 @@ for (const file of files) {
     continue;
   }
 
-  const id = `WRK-${String(counter).padStart(4, "0")}`;
+  const id = allocateId();
   const storagePath = `${PREFIX}/${slugify(basename(file, extname(file)))}-${id}.pdf`;
   const title = titleFromFilename(name);
   const info = await stat(file);
@@ -263,7 +316,6 @@ for (const file of files) {
   if (DRY_RUN) {
     console.log(`  ${id}  ${title}`);
     console.log(`         ${storagePath}  (${Math.round(info.size / 1024)} KB)`);
-    counter += 1;
     imported += 1;
     continue;
   }
@@ -276,6 +328,8 @@ for (const file of files) {
   if (uploadError) {
     console.error(`  ${name}: upload failed — ${uploadError.message}`);
     failed += 1;
+    consecutive += 1;
+    if (stopIfHopeless()) break;
     continue;
   }
 
@@ -294,7 +348,13 @@ for (const file of files) {
 
   if (rowError) {
     console.error(`  ${name}: row failed — ${rowError.message}`);
+    // The file is already in the bucket, so leaving it there would orphan it:
+    // storage filling up with objects no row points at. An earlier version did
+    // exactly that and left 169 of them behind after one bad id.
+    await supabase.storage.from("worksheets").remove([storagePath]);
     failed += 1;
+    consecutive += 1;
+    if (stopIfHopeless()) break;
     continue;
   }
 
@@ -309,11 +369,15 @@ for (const file of files) {
 
   if (trError) {
     console.error(`  ${name}: translations failed — ${trError.message}`);
+    await supabase.from("worksheets").delete().eq("id", id);
+    await supabase.storage.from("worksheets").remove([storagePath]);
     failed += 1;
+    consecutive += 1;
+    if (stopIfHopeless()) break;
     continue;
   }
 
-  counter += 1;
+  consecutive = 0;
   imported += 1;
   if (imported % 25 === 0) console.log(`  ${imported} imported…`);
 }
