@@ -257,11 +257,26 @@ async function main() {
 
     let webp;
     try {
+      const meta = await sharp(file).metadata();
+
+      // Square, because ActivityImage renders into a square box with
+      // object-cover: a 158x210 source would be scaled to fill that box and
+      // have the top and bottom cropped off, which on this artwork means the
+      // head. Padding to square makes the picture survive its own frame.
+      //
+      // The side is the source's own longest edge, capped at MAX_PX — not
+      // MAX_PX itself. `contain` pads to whatever size it is given, so asking
+      // for 640 from a 213px sticker would centre it in a 640px canvas and
+      // leave the subject occupying a third of the frame: 32px of actual
+      // drawing inside a 96px slot. Taking the longest edge pads only the
+      // short side, and nothing is ever upscaled.
+      const side = Math.min(MAX_PX, Math.max(meta.width ?? MAX_PX, meta.height ?? MAX_PX));
+
       webp = await sharp(file)
-        // `inside` never crops: a square source stays square, and a wider one is
-        // bounded by its longest side. The art is the point; trimming it to fit a
-        // box would be a decision the generator never agreed to.
-        .resize(MAX_PX, MAX_PX, { fit: "inside", withoutEnlargement: true })
+        .resize(side, side, {
+          fit: "contain",
+          background: { r: 0, g: 0, b: 0, alpha: 0 },
+        })
         .webp({ quality: QUALITY })
         .toBuffer();
     } catch (error) {
