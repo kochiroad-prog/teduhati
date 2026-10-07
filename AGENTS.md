@@ -108,6 +108,16 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   sticker, its path under `public/assets/`, and its real pixel size.
 - That sheet is 1536x1024, so no sticker is wider than about 520px. Nothing in it
   should be stretched full-bleed across a desktop screen.
+- **Activity pictures are a ladder, not a field.** `src/lib/illustrations.ts`
+  looks for `activities/<id>.webp`, then `bands/<domain>/<band>.webp`, then
+  `domains/<domain>.webp`, then gives up and shows Tumi. Ten files illustrate
+  the whole library; a specific picture added later takes over for that one
+  activity with no code change and no database write.
+- **Never read `activities.illustration_path` to decide what to show.** The seed
+  filled it in for all 100 rows while the bucket was empty — the same mistake
+  that made the audio counter report "0 missing" while 22 of 23 were broken.
+  Only the bucket settles whether a file exists; `illustration_index()` is how
+  you ask.
 - Tumi in `src/components/Tumi.tsx` is that artwork, not a drawing. Six product
   states map onto the three poses that exist; a state without artwork borrows its
   nearest neighbour rather than introducing a second-looking mascot.

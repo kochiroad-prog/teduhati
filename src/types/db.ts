@@ -236,6 +236,18 @@ export type AudioStatusRow = {
   has_object: boolean;
 };
 
+/** How far the illustration ladder actually reaches, counted against files. */
+export type IllustrationCoverage = {
+  files: number;
+  total: number;
+  specific: number;
+  band: number;
+  domain: number;
+  none: number;
+  domains_covered: number;
+  domains_total: number;
+};
+
 export type AppSettingRow = {
   key: string;
   value: Json;
@@ -673,6 +685,12 @@ export type Database = {
       };
       admin_preview_counts: { Args: { p_months: number }; Returns: PreviewCounts | null };
       admin_audio_status: { Args: Record<string, never>; Returns: AudioStatusRow[] };
+      /** Object names in the illustrations bucket, so the ladder can resolve. */
+      illustration_index: { Args: Record<string, never>; Returns: string[] };
+      admin_illustration_coverage: {
+        Args: Record<string, never>;
+        Returns: IllustrationCoverage | null;
+      };
       admin_search_activity_ids: {
         Args: { p_q: string; p_locale?: string };
         Returns: string[];

@@ -4,6 +4,7 @@ import { ActivityFlow } from "@/components/ActivityFlow";
 import { href, isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { activeChild, getActivity, getSession } from "@/lib/queries";
+import { getIllustrationIndex, resolveIllustration } from "@/lib/illustrations";
 import { parseSteps } from "@/types/db";
 
 export default async function ActivityPage({
@@ -30,6 +31,14 @@ export default async function ActivityPage({
 
   const steps = parseSteps(detail.text.steps);
 
+  // The full ladder is reachable here because the activity row is in hand:
+  // its own picture, then its domain at this age band, then its domain.
+  const picture = resolveIllustration(await getIllustrationIndex(), {
+    activityId: detail.activity.id,
+    domain: detail.activity.primary_domain,
+    ageBand: detail.activity.age_band_code,
+  });
+
   return (
     <AppShell
       locale={locale}
@@ -42,6 +51,7 @@ export default async function ActivityPage({
         childId={child.id}
         childName={child.name}
         activityId={detail.activity.id}
+        pictureUrl={picture}
         durationMinutes={detail.activity.duration_minutes}
         domainName={detail.domainName}
         colorToken={detail.colorToken}

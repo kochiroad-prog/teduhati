@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Button, Card, Chip, LeafCard, Notice, StepDots } from "@/components/ui";
+import { ActivityImage } from "@/components/ActivityImage";
 import { Tumi } from "@/components/Tumi";
 import { completeActivity } from "@/lib/actions";
 import { fill, getDictionary } from "@/i18n/dictionaries";
@@ -23,6 +24,8 @@ export function ActivityFlow(props: {
   childId: string;
   childName: string;
   activityId: string;
+  /** From the illustration ladder; null means the mascot stands in. */
+  pictureUrl: string | null;
   durationMinutes: number;
   domainName: string | null;
   colorToken: string | null;
@@ -85,7 +88,7 @@ export function ActivityFlow(props: {
         <LeafCard>
           <div className="flex items-start justify-between gap-4">
             <p className="text-body max-w-[38ch]">{props.summary}</p>
-            <Tumi state="happy" size={56} className="shrink-0" />
+            <ActivityImage src={props.pictureUrl} alt="" size={96} priority />
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             <Chip colorToken="sage">

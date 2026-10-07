@@ -114,6 +114,17 @@ const ID = {
     todoAudio: (n: number) => `${n} trek audio belum punya berkas.`,
     todoDraft: (n: number) => `${n} aktivitas masih draf.`,
     vsPrev: "vs periode sebelumnya",
+    illustration: "Ilustrasi aktivitas",
+    illustrationLead:
+      "Dihitung dari berkas yang benar-benar ada di bucket, bukan dari kolom illustration_path — kolom itu terisi untuk 100 baris sejak awal dan tidak membuktikan apa pun.",
+    artFiles: "Berkas di bucket",
+    artSpecific: "Punya gambar sendiri",
+    artBand: "Ikut gambar domain+usia",
+    artDomain: "Ikut gambar domain",
+    artNone: "Belum ada gambar",
+    artNoneHint: "menampilkan Tumi",
+    todoIllustration: (n: number) =>
+      `${n} aktivitas belum punya gambar di tingkat mana pun, jadi menampilkan Tumi.`,
   },
   bulk: {
     unchanged: "Biarkan",
@@ -402,6 +413,17 @@ const EN: AdminCopy = {
     todoAudio: (n: number) => `${n} audio track(s) have no file.`,
     todoDraft: (n: number) => `${n} activity(s) are still drafts.`,
     vsPrev: "vs the period before",
+    illustration: "Activity illustrations",
+    illustrationLead:
+      "Counted against the files that actually exist in the bucket, not the illustration_path column — that column has been filled in for all 100 rows from the start and proves nothing.",
+    artFiles: "Files in the bucket",
+    artSpecific: "Own picture",
+    artBand: "Covered by domain + age",
+    artDomain: "Covered by domain",
+    artNone: "No picture yet",
+    artNoneHint: "shows Tumi",
+    todoIllustration: (n: number) =>
+      `${n} activities have no picture at any level, so they show Tumi.`,
   },
   bulk: {
     unchanged: "Leave as is",

@@ -18,6 +18,7 @@ import { adminCopy } from "@/lib/admin/copy";
 import { adminHref } from "@/lib/admin/routes";
 import { createClient } from "@/lib/supabase/server";
 import type {
+  IllustrationCoverage,
   AdminDailyRow,
   AdminDomainCoverage,
   AdminFunnel,
@@ -68,6 +69,7 @@ export default async function AdminOverviewPage({
     { data: coverageRaw },
     { data: revenueRaw },
     { data: ordersRaw },
+    { data: illustrationRaw },
   ] = await Promise.all([
     supabase.rpc("admin_overview"),
     supabase.rpc("admin_daily", { p_days: 30 }),
@@ -81,6 +83,7 @@ export default async function AdminOverviewPage({
       .eq("status", "awaiting_confirmation")
       .order("created_at", { ascending: false })
       .limit(5),
+    supabase.rpc("admin_illustration_coverage"),
   ]);
 
   const o = (overviewRaw ?? null) as AdminOverview | null;
@@ -90,6 +93,7 @@ export default async function AdminOverviewPage({
   const coverage = (coverageRaw ?? []) as AdminDomainCoverage[];
   const revenue = (revenueRaw ?? []) as AdminRevenueRow[];
   const orders = (ordersRaw ?? []) as OrderRow[];
+  const art = (illustrationRaw ?? null) as IllustrationCoverage | null;
 
   // The action list. Each entry is a sentence plus the place to go and fix it,
   // which is the difference between a dashboard and a to-do list.
@@ -119,6 +123,12 @@ export default async function AdminOverviewPage({
     todo.push({
       text: t.overview.todoAudio(o?.audio_missing_file ?? 0),
       href: adminHref(locale, "audio"),
+    });
+  }
+  if ((art?.none ?? 0) > 0) {
+    todo.push({
+      text: t.overview.todoIllustration(art?.none ?? 0),
+      href: adminHref(locale, "activities"),
     });
   }
   if ((o?.activities_draft ?? 0) > 0) {
@@ -339,6 +349,27 @@ export default async function AdminOverviewPage({
           </TableFrame>
         </section>
       ) : null}
+
+      {/* ----------------------------------------------------------------- */}
+      <section>
+        <h2 className="text-section mb-1">{t.overview.illustration}</h2>
+        <p className="text-small mb-3 text-ink-muted">{t.overview.illustrationLead}</p>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+          <Stat
+            label={t.overview.artFiles}
+            value={fmtNumber(art?.files)}
+            hint={`${fmtNumber(art?.domains_covered)}/${fmtNumber(art?.domains_total)} ${t.content.colDomain.toLowerCase()}`}
+          />
+          <Stat label={t.overview.artSpecific} value={fmtNumber(art?.specific)} />
+          <Stat label={t.overview.artBand} value={fmtNumber(art?.band)} />
+          <Stat label={t.overview.artDomain} value={fmtNumber(art?.domain)} />
+          <Stat
+            label={t.overview.artNone}
+            value={fmtNumber(art?.none)}
+            hint={(art?.none ?? 0) > 0 ? t.overview.artNoneHint : undefined}
+          />
+        </div>
+      </section>
 
       {/* ----------------------------------------------------------------- */}
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
