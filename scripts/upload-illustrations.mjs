@@ -20,7 +20,7 @@
  * the product would ever say so.
  */
 
-import { readdir, readFile, stat } from "node:fs/promises";
+import { readdir, stat } from "node:fs/promises";
 import { basename, extname, join, relative, sep } from "node:path";
 import { createClient } from "@supabase/supabase-js";
 import sharp from "sharp";
