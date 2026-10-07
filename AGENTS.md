@@ -177,6 +177,29 @@ Read `README.md` first. These are the rules that aren't obvious from the code.
   console has its own vocabulary. Do not put `as const` on the Indonesian object —
   it makes every string a literal type and the English object stops type-checking.
 
+## Working from the laptop bridge
+
+- **Never run git in `D:\TEDUHATI` through the bridge.** The bridge mounts the
+  folder into a Linux VM, and Git for Windows checked the tree out with
+  `core.autocrlf=true`, so every tracked file is CRLF on disk. Windows git
+  normalises on read and reports a clean tree; Linux git with `autocrlf` unset
+  compares CRLF content against LF blobs and reports all ~80 source files as
+  modified. Nothing is actually wrong, but a `pull` from that side aborts with
+  "local changes would be overwritten" and the diff is pure line endings.
+  Diagnosing it with `-c core.autocrlf=input` hides it instead, because that
+  normalises the comparison.
+- The VM also cannot delete files in a connected folder by default, so git
+  leaves `.git/index.lock` and `ORIG_HEAD.lock` behind and the *user's own next
+  git command* fails with "File exists". If a git command was already run from
+  there, clear every `.git/**/*.lock` before handing the terminal back.
+- A failed `pull` from either side still fetches the objects. When the network
+  cuts out mid-pull, the commits are usually already in `.git` — so
+  `git merge --ff-only <sha>` finishes the job offline, with the user's own git
+  doing the checkout and getting the line endings right. Check with
+  `git merge-base --is-ancestor HEAD <sha>` before suggesting it.
+- Use the bridge to read the tree and to move files. Leave git to the user's
+  CMD.
+
 ## Design
 
 - Colour comes from the brand book and is fixed. Everything else — radius,
